@@ -2,6 +2,7 @@
 title: About. Neeko
 date: "2024-08-05T03:22:22.626Z"
 description: Neeko의 소개 글이자 블로그 소개 글 입니다.
+category: Profile
 ---
 
 ### Hello, Welcome to Neeko 👋🏻
