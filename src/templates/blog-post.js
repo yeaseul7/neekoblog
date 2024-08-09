@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
+import { PostArticle, PostFooterList, PostHeader } from "../styles/postStyle"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -13,16 +13,16 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <article
+      <PostArticle
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
+        <PostHeader>
+          <h4 itemProp="headline">{post.frontmatter.title}</h4>
           <p>{post.frontmatter.date}</p>
-        </header>
-        <section
+        </PostHeader>
+        <sectiarticleBodyon
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
@@ -30,7 +30,7 @@ const BlogPostTemplate = ({
         <footer>
           <Bio />
         </footer>
-      </article>
+      </PostArticle>
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -41,20 +41,20 @@ const BlogPostTemplate = ({
             padding: 0,
           }}
         >
-          <li>
+          <PostFooterList>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
-          </li>
-          <li>
+          </PostFooterList>
+          <PostFooterList>
             {next && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
-          </li>
+          </PostFooterList>
         </ul>
       </nav>
     </Layout>

@@ -1,37 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
-
-const HeaderBox = styled.div`
-  background: #fefae0;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 1px 3px 6px #d1d1d1;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-
-  & > .headerInfo {
-  }
-  & > div > h2 {
-    margin: 1rem 0;
-  }
-
-  & > div > nav > ul {
-    list-style: none;
-    justify-content: center;
-    margin: 1rem auto 0;
-    display: flex;
-    align-items: center;
-    & > li {
-      margin: 0 1rem 0 0;
-      & > a {
-        color: white;
-      }
-    }
-  }
-`
+import { HeaderBox, PostHeaderLink } from "../styles/postStyle"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -95,9 +65,9 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
+      <PostHeaderLink className="header-link-home" to="/">
         {title}
-      </Link>
+      </PostHeaderLink>
     )
   }
 
