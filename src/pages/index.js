@@ -46,6 +46,7 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const [selectedCategory, setSelectedCategory] = React.useState("")
+  const [lookLoiie, setLookLoiie] = React.useState(false)
 
   const filteredPosts = selectedCategory
     ? posts.filter(post => post.frontmatter.category === selectedCategory)
@@ -59,6 +60,11 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
+
+  const handleLookLoiie = () => {
+    setLookLoiie(!lookLoiie)
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
       <CategoryList data={posts} onCategorySelect={setSelectedCategory} />
@@ -75,7 +81,7 @@ const BlogIndex = ({ data, location }) => {
               : description
 
           return (
-            <li key={post.fields.slug}>
+            <li key={post.fields.slug} onMouseOver={() => handleLookLoiie()}>
               <ArticleBox
                 className="post-list-item"
                 itemScope

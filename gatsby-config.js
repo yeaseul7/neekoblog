@@ -15,7 +15,7 @@ module.exports = {
       summary: `프론트앤드 개발자 이예슬입니다.`,
     },
     description: `neeko의 개발 블로그입니다.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://yeaseul7.github.io/neekoblog/`,
   },
   plugins: [
     `gatsby-plugin-image`,

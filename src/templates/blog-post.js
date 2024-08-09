@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { PostArticle, PostFooterList, PostHeader } from "../styles/postStyle"
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Utterances from "../components/Utterances"
