@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 10 Aug 2024 05:31:05 GMT</lastBuildDate><item><title><![CDATA[github-pages notfound error 이해하기]]></title><description><![CDATA[Github pages React-router 404 Issue 이번에는 CRA를 통해 만든 blog를 github pages에 배포했을 때
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 10 Aug 2024 06:30:01 GMT</lastBuildDate><item><title><![CDATA[github-pages notfound error 이해하기]]></title><description><![CDATA[Github pages React-router 404 Issue 이번에는 CRA를 통해 만든 blog를 github pages에 배포했을 때
 react-router에 인해 refresh 후 404 error…]]></description><link>https://yeaseul7.github.io/neekoblog/ghpages-error/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/ghpages-error/</guid><pubDate>Thu, 08 Aug 2024 12:40:56 GMT</pubDate><content:encoded>&lt;h2&gt;Github pages React-router 404 Issue&lt;/h2&gt;
 &lt;p&gt;이번에는 CRA를 통해 만든 blog를 github pages에 배포했을 때
 react-router에 인해 refresh 후 404 error가 반환되는 문제를 다룰 것이다.&lt;/p&gt;
@@ -179,7 +179,7 @@ SEO가 필요하지 않은데 당시 Next.js를 도입한 명확한 이유가 �
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/47e47f48dca4fa5fb6a0be1be78de167/21b4d/profileVisitor.png&quot;
+    href=&quot;/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/21b4d/profileVisitor.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -192,13 +192,13 @@ SEO가 필요하지 않은데 당시 Next.js를 도입한 명확한 이유가 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;seeyoufarm사이트이미지&quot;
         title=&quot;&quot;
-        src=&quot;/static/47e47f48dca4fa5fb6a0be1be78de167/f058b/profileVisitor.png&quot;
-        srcset=&quot;/static/47e47f48dca4fa5fb6a0be1be78de167/c26ae/profileVisitor.png 158w,
-/static/47e47f48dca4fa5fb6a0be1be78de167/6bdcf/profileVisitor.png 315w,
-/static/47e47f48dca4fa5fb6a0be1be78de167/f058b/profileVisitor.png 630w,
-/static/47e47f48dca4fa5fb6a0be1be78de167/40601/profileVisitor.png 945w,
-/static/47e47f48dca4fa5fb6a0be1be78de167/78612/profileVisitor.png 1260w,
-/static/47e47f48dca4fa5fb6a0be1be78de167/21b4d/profileVisitor.png 1280w&quot;
+        src=&quot;/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/f058b/profileVisitor.png&quot;
+        srcset=&quot;/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/c26ae/profileVisitor.png 158w,
+/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/6bdcf/profileVisitor.png 315w,
+/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/f058b/profileVisitor.png 630w,
+/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/40601/profileVisitor.png 945w,
+/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/78612/profileVisitor.png 1260w,
+/neekoblog/static/47e47f48dca4fa5fb6a0be1be78de167/21b4d/profileVisitor.png 1280w&quot;
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -214,7 +214,7 @@ SEO가 필요하지 않은데 당시 Next.js를 도입한 명확한 이유가 �
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/812ed01061400c311201b259d643c717/21b4d/visitorMd.png&quot;
+    href=&quot;/neekoblog/static/812ed01061400c311201b259d643c717/21b4d/visitorMd.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -227,13 +227,13 @@ SEO가 필요하지 않은데 당시 Next.js를 도입한 명확한 이유가 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;seeyoufarm사이트이미지&quot;
         title=&quot;&quot;
-        src=&quot;/static/812ed01061400c311201b259d643c717/f058b/visitorMd.png&quot;
-        srcset=&quot;/static/812ed01061400c311201b259d643c717/c26ae/visitorMd.png 158w,
-/static/812ed01061400c311201b259d643c717/6bdcf/visitorMd.png 315w,
-/static/812ed01061400c311201b259d643c717/f058b/visitorMd.png 630w,
-/static/812ed01061400c311201b259d643c717/40601/visitorMd.png 945w,
-/static/812ed01061400c311201b259d643c717/78612/visitorMd.png 1260w,
-/static/812ed01061400c311201b259d643c717/21b4d/visitorMd.png 1280w&quot;
+        src=&quot;/neekoblog/static/812ed01061400c311201b259d643c717/f058b/visitorMd.png&quot;
+        srcset=&quot;/neekoblog/static/812ed01061400c311201b259d643c717/c26ae/visitorMd.png 158w,
+/neekoblog/static/812ed01061400c311201b259d643c717/6bdcf/visitorMd.png 315w,
+/neekoblog/static/812ed01061400c311201b259d643c717/f058b/visitorMd.png 630w,
+/neekoblog/static/812ed01061400c311201b259d643c717/40601/visitorMd.png 945w,
+/neekoblog/static/812ed01061400c311201b259d643c717/78612/visitorMd.png 1260w,
+/neekoblog/static/812ed01061400c311201b259d643c717/21b4d/visitorMd.png 1280w&quot;
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
