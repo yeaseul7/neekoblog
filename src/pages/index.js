@@ -43,7 +43,7 @@ const ArticleTitle = styled.p`
   }
 `
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `neekoblog`
   const posts = data.allMarkdownRemark.nodes
   const [selectedCategory, setSelectedCategory] = React.useState("")
   const [lookLoiie, setLookLoiie] = React.useState(false)

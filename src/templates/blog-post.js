@@ -39,20 +39,20 @@ const BlogPostTemplate = ({
             padding: 0,
           }}
         >
-          <PostFooterList>
-            {previous && (
+          {previous && (
+            <PostFooterList>
               <Link to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
-            )}
-          </PostFooterList>
-          <PostFooterList>
-            {next && (
+            </PostFooterList>
+          )}
+          {next && (
+            <PostFooterList>
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
-            )}
-          </PostFooterList>
+            </PostFooterList>
+          )}
         </ul>
       </nav>
     </Layout>
