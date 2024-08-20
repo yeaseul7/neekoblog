@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 const ListDiv = styled.ul`
   display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
   list-style: none;
   justify-content: space-around;
   margin: 1rem auto;
@@ -20,10 +22,15 @@ const ListDiv = styled.ul`
 
 const CategoryList = ({ data, onCategorySelect }) => {
   let categories = data.map(post => {
-    return post.frontmatter.category
+    if (post.frontmatter.category != "Profile") {
+      return post.frontmatter.category
+    }
   })
-  categories = [...new Set(categories)]
-
+  categories = [
+    ...new Set(
+      categories.map(category => category && category.trim()).filter(Boolean)
+    ),
+  ]
   return (
     <ListDiv>
       <li onClick={() => onCategorySelect("")}>
