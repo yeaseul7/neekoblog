@@ -1,7 +1,7 @@
 ---
-title: SSR에서 말하는 서버와 웹서버가 뭘까
+title: SSR과 CSR의 차이
 date: "2024-08-28T12:40:56.789Z"
-description: SSR에서 말하는 서버와 DB와 연동해서 데이터를 꺼내올 수 있게하는 서버랑 뭐가 다른걸까?
+description: SSR vs CSR
 category: Frontend
 ---
 
@@ -38,7 +38,7 @@ CSR은 서버가 html파일을 가지고 오는것이 아니고 javascript 파�
 결론은 CSR은 클라이언트(브라우저)에서 DOM이 형성된다.
 
 반면 SSR은 서버에서 html 파일을 가지고 온다.
-서버에서 html 즉, DOM tree를 가지고 오기 때문에 서버에서 DOM이 형성된다고 볼 수 있다.
+서버에서 html을 가지고 오기 때문에 서버에서 DOM이 형성된다고 볼 수 있다.
 
 ### SEO와 SSR그리고 CSR
 

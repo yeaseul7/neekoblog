@@ -2,7 +2,7 @@
 title: github 프로필 방문자 수 추가
 date: "2023-10-10T12:40:56.789Z"
 description: 깃허브 프로필 꾸미기 - readme 파일에 방문자 수 추가하기
-category: Etc
+category: Github
 ---
 
 ### github 프로필 방문자 수 추가하기

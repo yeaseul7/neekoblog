@@ -68,7 +68,8 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <CategoryList data={posts} onCategorySelect={setSelectedCategory} />
-      <RecentPostBox />
+      {selectedCategory !== "" ? <div></div> : <RecentPostBox />}
+
       <ArticleMain style={{ listStyle: `none` }}>
         {filteredPosts.map(post => {
           const title = post.frontmatter.title || post.fields.slug

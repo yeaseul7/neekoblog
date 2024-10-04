@@ -22,7 +22,7 @@ const BlogPostTemplate = ({
           <h4 itemProp="headline">{post.frontmatter.title}</h4>
           <p>{post.frontmatter.date}</p>
         </PostHeader>
-        <sectiarticleBodyon
+        <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />

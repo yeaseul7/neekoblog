@@ -2,6 +2,20 @@ import * as React from "react"
 import styled from "styled-components"
 
 const ListDiv = styled.ul`
+  // mobile 화면이 아닐 경우
+  position: absolute;
+  left: 0;
+  background: white;
+  border-radius: 0px 15px 15px 0px;
+  overflow: hidden;
+  & > li {
+    padding: 0.2rem 0.5rem;
+    animation: fadeIn 0.5s ease-in-out;
+    &:hover {
+      background-color: bisque;
+    }
+  }
+  /*     
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
@@ -17,7 +31,7 @@ const ListDiv = styled.ul`
     &:hover {
       background-color: #b2875e;
     }
-  }
+  } */
 `
 
 const CategoryList = ({ data, onCategorySelect }) => {
