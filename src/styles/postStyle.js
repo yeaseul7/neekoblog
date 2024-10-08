@@ -11,6 +11,7 @@ export const HeaderBox = styled.div`
   justify-content: space-between;
 
   & > .headerInfo {
+    height: 6rem;
   }
   & > div > h2 {
     margin: 1rem 0;
@@ -22,6 +23,7 @@ export const HeaderBox = styled.div`
     margin: 1rem auto 0;
     display: flex;
     align-items: center;
+    padding: 0;
     & > li {
       margin: 0 1rem 0 0;
       & > a {
@@ -37,10 +39,23 @@ export const PostHeaderLink = styled(Link)`
   border-radius: 15px;
 `
 export const PostArticle = styled.article`
+  font-family: sans-serif;
   background: #fefae0;
   padding: 2rem;
   border-radius: 15px;
   margin-bottom: 1rem;
+  & > p {
+    font-size: 1rem;
+  }
+  & > h4 {
+    font-size: 1.1rem;
+  }
+  & > h3 {
+    font-size: 1.2rem;
+  }
+  & > ul {
+    list-style: none;
+  }
 `
 export const PostFooterList = styled.li`
   background: #fefae0;

@@ -3,35 +3,42 @@ import styled from "styled-components"
 
 const ListDiv = styled.ul`
   // mobile 화면이 아닐 경우
-  position: absolute;
+  list-style: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
-  background: white;
+  background: #fefae0;
   border-radius: 0px 15px 15px 0px;
   overflow: hidden;
+  padding: 0;
   & > li {
     padding: 0.2rem 0.5rem;
     animation: fadeIn 0.5s ease-in-out;
     &:hover {
-      background-color: bisque;
+      background-color: #faedcd;
     }
   }
-  /*     
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  list-style: none;
-  justify-content: space-around;
-  margin: 1rem auto;
-  & > li {
-    background: #d4a373;
-    border-radius: 15px;
-    padding: 5px 10px;
-    margin: 0 auto;
-    color: #fefae0;
-    &:hover {
-      background-color: #b2875e;
+  @media (max-width: 768px) {
+    position: relative;
+    height: auto;
+    background: none;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: flex-start;
+    margin: 1rem auto;
+    gap: 0.3rem;
+    & > li {
+      background: #d4a373;
+      border-radius: 15px;
+      padding: 5px 10px;
+      margin: 0 auto;
+      color: #fefae0;
+      &:hover {
+        background-color: #b2875e;
+      }
     }
-  } */
+  }
 `
 
 const CategoryList = ({ data, onCategorySelect }) => {
@@ -47,6 +54,7 @@ const CategoryList = ({ data, onCategorySelect }) => {
   ]
   return (
     <ListDiv>
+      <li style={{ background: "#faedcd" }}>카테고리</li>
       <li onClick={() => onCategorySelect("")}>
         <p>All</p>
       </li>

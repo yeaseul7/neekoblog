@@ -19,7 +19,7 @@ category: Profile
 
 👩🏻‍💻GitHub. [https://github.com/yeaseul7](https://github.com/yeaseul7)
 
-![yeaseulGithub잔디](https://ghchart.rshah.org/yeaseul7)
+<img src="https://ghchart.rshah.org/yeaseul7" alt="GitHub 잔디" width="500" height="300">
 
 2024.03~
 

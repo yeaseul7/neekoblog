@@ -4,6 +4,14 @@ import { StaticImage } from "gatsby-plugin-image"
 import { HeaderBox, PostHeaderLink } from "../styles/postStyle"
 
 const Layout = ({ location, title, children }) => {
+  const [isloading, setIsLoading] = React.useState(true)
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -83,3 +91,9 @@ const Layout = ({ location, title, children }) => {
 }
 
 export default Layout
+
+const LoadingScreen = () => {
+  ;<div>
+    <h1>Loading...</h1>
+  </div>
+}
