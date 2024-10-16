@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 const RecentPosts = styled.div`
@@ -46,7 +47,7 @@ const RecentPostBox = () => {
           frontmatter: { date: { gte: "2024-01-01", lt: "2025-01-01" } }
         }
         sort: { fields: frontmatter___date, order: DESC }
-        limit: 5
+        limit: 3
       ) {
         nodes {
           frontmatter {
@@ -66,7 +67,27 @@ const RecentPostBox = () => {
 
   return (
     <RecentPosts>
-      <p className="title">최근 게시글</p>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <StaticImage
+          layout="fixed"
+          formats={["auto", "webp", "avif"]}
+          src="../images/ot408.png"
+          width={40}
+          height={40}
+          alt="dancing Dog"
+        ></StaticImage>
+        <p className="title" style={{ margin: 0 }}>
+          최근 게시글
+        </p>
+        <StaticImage
+          layout="fixed"
+          formats={["auto", "webp", "avif"]}
+          src="../images/ot408.png"
+          width={40}
+          height={40}
+          alt="dancing Dog"
+        ></StaticImage>
+      </div>
       <ul className="list">
         {posts.map(post => (
           <li key={post.fields.slug} style={{ listStyle: "none" }}>

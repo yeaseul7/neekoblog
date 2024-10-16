@@ -1,5 +1,24 @@
-import styled from "styled-components"
-// 스타일
+import styled, { keyframes } from "styled-components"
+
+export const hoverAnimation = keyframes`
+  0% {
+    transform: rotate(10deg)
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+`
+export const bounce = keyframes`
+  0% {
+    transform: translateY(0px)
+  }
+  50%{
+    transform: translateY(-10px)
+  }
+  100% {
+    transform: translateY(0px)
+  }
+`
 export const ArticleBox = styled.article`
   background: #fefae0;
   margin: 0.5rem;
@@ -9,7 +28,8 @@ export const ArticleBox = styled.article`
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: none;
   &:hover {
-    box-shadow: 0 5px 8px rgb(82 82 82 / 74%);
+    animation: ${bounce} 1s ease-in-out infinite;
+    box-shadow: 0 4px 9px 0px #bababa;
   }
   & > header {
     height: 5rem;
@@ -67,5 +87,25 @@ export const ArticlePageList = styled.ul`
         transition: background-color 0.5s ease;
       }
     }
+  }
+`
+export const ListDiv = styled.ul`
+  position: relative;
+  height: auto;
+  background: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: flex-start;
+  margin: 1rem 0 0 0;
+  padding: 0;
+`
+export const NavLi = styled.li`
+  padding: 5px 10px;
+  margin: 0 auto;
+  color: #736f58;
+  &:hover {
+    color: #fffdf4;
+    animation: ${hoverAnimation} 0.5s ease-in-out infinite alternate;
   }
 `

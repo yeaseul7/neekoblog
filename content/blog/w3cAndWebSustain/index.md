@@ -5,9 +5,12 @@ description: 웹 표준과 웹 호환성에 대해 학습한다.
 category: Frontend
 ---
 
-### 웹 표준이 무엇인가요?
+### 웹 표준이란?
+
+![Network이미지](../w3cAndWebSustain/browsers.jpeg)
 
 여러 국제 표준 기구가 정한 규칙
+
 웹 표준은 웹의 사용성과 접근성을 극대화 하도록 조정된다.
 
 **종류**
@@ -34,5 +37,7 @@ category: Frontend
 ```
 <img arc = "img/login.png" alt="로그인 />
 ```
+
+---
 
 _출처: https://goddaehee.tistory.com/244 [갓대희의 작은공간:티스토리]_

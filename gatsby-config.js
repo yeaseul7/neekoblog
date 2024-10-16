@@ -52,6 +52,20 @@ module.exports = {
             },
           },
           `gatsby-remark-prismjs`,
+          {
+            resolve: "gatsby-transformer-remark",
+            options: {
+              plugins: [
+                {
+                  resolve: "gatsby-remark-lottie",
+                  options: {
+                    // Lottie 애니메이션 JSON 파일이 저장된 폴더 경로
+                    path: `${__dirname}/src/lottie/`,
+                  },
+                },
+              ],
+            },
+          },
         ],
       },
     },

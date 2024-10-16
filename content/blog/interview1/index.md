@@ -2,7 +2,7 @@
 title: 개발자 면접 회고
 date: "2023-11-10T12:40:56.789Z"
 description: 중소기업 면접 리스트 및 회고
-category: Interview
+category: Retrospect
 ---
 
 ### 중소기업 면접 회고

@@ -2,7 +2,7 @@
 title: Fe 면접 회고
 date: "2023-06-30T12:40:56.789Z"
 description: Fe 면접 질문 및 회고
-category: Interview
+category: Retrospect
 ---
 
 ### Fe 면접 회고

@@ -40,7 +40,7 @@ const BlogIndex = ({ data, location }) => {
     } else {
       setPostPagerList([filteredPosts])
     }
-  }, [filteredPosts])
+  }, [selectedCategory])
 
   if (posts.length === 0) {
     return (
@@ -56,8 +56,8 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <CategoryList data={posts} onCategorySelect={setSelectedCategory} />
       {selectedCategory !== "" ? <div></div> : <RecentPostBox />}
+      <CategoryList data={posts} onCategorySelect={setSelectedCategory} />
       <ArticleMain>
         {PostPagerList[pageNum]?.map(post => {
           const title = post.frontmatter.title || post.fields.slug
