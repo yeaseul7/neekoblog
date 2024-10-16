@@ -63,6 +63,14 @@ module.exports = {
                     path: `${__dirname}/src/lottie/`,
                   },
                 },
+                {
+                  resolve: `gatsby-remark-highlight-code`,
+                  options: {
+                    terminal: "carbon",
+                    theme: "blackboard",
+                    lineNumbers: "true",
+                  },
+                },
               ],
             },
           },
