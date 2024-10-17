@@ -3,7 +3,7 @@ import { ListDiv, NavLi } from "../styles/mainStyle"
 
 const CategoryList = ({ data, onCategorySelect }) => {
   let categories = data.map(post => {
-    if (post.frontmatter.category != "Profile") {
+    if (post.frontmatter.category !== "Profile") {
       return post.frontmatter.category
     }
   })

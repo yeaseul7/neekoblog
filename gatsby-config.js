@@ -42,7 +42,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              maxWidth: 500,
             },
           },
           {
@@ -53,25 +53,18 @@ module.exports = {
           },
           `gatsby-remark-prismjs`,
           {
-            resolve: "gatsby-transformer-remark",
+            resolve: "gatsby-remark-lottie",
             options: {
-              plugins: [
-                {
-                  resolve: "gatsby-remark-lottie",
-                  options: {
-                    // Lottie 애니메이션 JSON 파일이 저장된 폴더 경로
-                    path: `${__dirname}/src/lottie/`,
-                  },
-                },
-                {
-                  resolve: `gatsby-remark-highlight-code`,
-                  options: {
-                    terminal: "carbon",
-                    theme: "blackboard",
-                    lineNumbers: "true",
-                  },
-                },
-              ],
+              // Lottie 애니메이션 JSON 파일이 저장된 폴더 경로
+              path: `${__dirname}/src/lottie/`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: "carbon",
+              theme: "blackboard",
+              lineNumbers: "true",
             },
           },
         ],
