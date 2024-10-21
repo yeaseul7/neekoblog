@@ -14,6 +14,9 @@ export const HeaderMainBox = styled.div`
   padding-bottom: 10px;
 `
 export const ProfileBox = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   border-radius: 15px;
   background-color: #fefae0a1;
   padding: 10px;
@@ -102,10 +105,12 @@ export const PostNav = styled.nav`
   z-index: 100;
   position: fixed;
   left: 0;
-  width: 15rem;
-  background: beige;
+  background: #d4a373;
   border-radius: 15px;
-  padding: 0.1rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   & > ul {
     list-style: none;
     font-size: smaller;

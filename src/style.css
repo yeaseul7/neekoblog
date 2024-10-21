@@ -77,6 +77,9 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 }
 
 footer {
@@ -156,6 +159,9 @@ h6 > a {
 /* Prose */
 pre {
   overflow: scroll;
+  @media (max-width: 768px) {
+    font-size: 0.7rem !important;
+  }
 }
 deckgo-highlight-code {
   overflow: scroll;

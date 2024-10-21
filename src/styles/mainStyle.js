@@ -20,6 +20,11 @@ export const bounce = keyframes`
   }
 `
 export const ArticleBox = styled.article`
+  @media (max-width: 768px) {
+    margin: 0.5rem auto;
+    width: 90%;
+    height: 10rem;
+  }
   background: #fefae0;
   margin: 0.5rem;
   border-radius: 15px;
@@ -32,14 +37,14 @@ export const ArticleBox = styled.article`
     box-shadow: 0 4px 9px 0px #bababa;
   }
   & > header {
+    @media (max-width: 768px) {
+      height: 4rem;
+    }
     height: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-  }
-  @media (max-width: 768px) {
-    width: 90%;
   }
 `
 

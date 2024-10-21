@@ -10,6 +10,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Utterances from "../components/Utterances"
 import { Helmet } from "react-helmet"
+import { CiMenuKebab } from "react-icons/ci"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -32,8 +33,6 @@ const BlogPostTemplate = ({
   }, [post])
 
   const handleClick = id => {
-    console.log(id)
-
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" }) // 부드럽게 스크롤
@@ -41,20 +40,24 @@ const BlogPostTemplate = ({
       console.log("is not exist id")
     }
   }
-
+  const [isopenModal, setIsopenModal] = React.useState(false)
   return (
     <Layout location={location} title={siteTitle}>
       <Helmet>
         <title>{post.title}</title>
       </Helmet>
-      <PostNav>
-        <ul>
-          {headings?.map(({ text, id }, index) => (
-            <li key={index} onClick={() => handleClick(id)}>
-              {text}
-            </li>
-          ))}
-        </ul>
+      <PostNav onClick={() => setIsopenModal(pre => !pre)}>
+        {isopenModal ? (
+          <ul>
+            {headings?.map(({ text, id }, index) => (
+              <li key={index} onClick={() => handleClick(id)}>
+                {text}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <CiMenuKebab />
+        )}
       </PostNav>
       <PostArticle
         className="blog-post"
