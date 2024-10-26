@@ -6,6 +6,7 @@ const CategoryList = ({ data, onCategorySelect }) => {
     if (post.frontmatter.category !== "Profile") {
       return post.frontmatter.category
     }
+    return null
   })
   categories = [
     ...new Set(
