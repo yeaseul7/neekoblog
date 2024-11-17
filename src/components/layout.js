@@ -1,16 +1,15 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { Link, graphql } from "gatsby"
+import { useStaticQuery } from "gatsby"
 
 import {
   HeaderMainBox,
   PostHeaderLink,
-  ProfileImage,
-  ProfileBox,
-  Inro,
+  NavList,
   customStyles,
   ButtonStyle,
   ButtonDiv,
+  TitleBox,
 } from "../styles/postStyle"
 import { VscAccount } from "react-icons/vsc"
 import { PiMailbox } from "react-icons/pi"
@@ -18,6 +17,27 @@ import { FaGithubAlt } from "react-icons/fa"
 import Modal from "react-modal"
 
 const Layout = ({ location, title, children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      backgroundImage: allFile(
+        filter: {
+          name: { eq: "technologybackground" }
+          extension: { regex: "/(jpg|jpeg|png)/" }
+        }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          }
+        }
+      }
+    }
+  `)
+
+  const backgroundImage =
+    data.backgroundImage?.nodes[0]?.childImageSharp?.gatsbyImageData?.images
+      ?.fallback?.src || ""
+
   const [isloading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
@@ -40,25 +60,12 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <HeaderMainBox>
-        <h2>
-          <Link to="/">{title}</Link>
-        </h2>
-        <ProfileBox className="headerInfo">
-          <Inro>
-            <ProfileImage>
-              <StaticImage
-                layout="fixed"
-                formats={["auto", "webp", "avif"]}
-                src="../images/early.jpeg"
-                width={80}
-                height={80}
-                alt="profile"
-              ></StaticImage>
-            </ProfileImage>
-            <p style={{ margin: 0 }}>Neeko👩🏻‍💻 (이예슬)</p>
-          </Inro>
-          <nav>
+      <HeaderMainBox bgimage={backgroundImage}>
+        <TitleBox>
+          <h2>
+            <Link to="/">{title}</Link>
+          </h2>
+          <NavList>
             <ul>
               <li>
                 <button onClick={() => setModalOpen(true)}>
@@ -79,8 +86,10 @@ const Layout = ({ location, title, children }) => {
                 </a>
               </li>
             </ul>
-          </nav>
-        </ProfileBox>
+          </NavList>
+        </TitleBox>
+        <h2>A steadily growing developer_</h2>
+        <h4>Edit Proposal Email : cutie32769@gmail.com</h4>
       </HeaderMainBox>
     )
   } else {
@@ -107,6 +116,7 @@ const Layout = ({ location, title, children }) => {
         </ButtonDiv>
       </Modal>
       <header className="global-header">{header}</header>
+
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

@@ -12,10 +12,8 @@ import {
   ArticleList,
   ArticlePageList,
 } from "../styles/mainStyle"
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
 
 const BlogIndex = ({ data, location }) => {
-  deckDeckGoHighlightElement()
   const siteTitle = data.site.siteMetadata?.title || `neekoblog`
   const posts = data.allMarkdownRemark.nodes
   const [selectedCategory, setSelectedCategory] = React.useState("")
