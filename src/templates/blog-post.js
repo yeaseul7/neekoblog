@@ -1,36 +1,27 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import {
-  PostArticle,
-  PostFooterList,
-  PostHeader,
-  PostNav,
-} from "../styles/postStyle"
+import { PostArticle, PostHeader } from "../styles/postStyle"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Utterances from "../components/Utterances"
 import { Helmet } from "react-helmet"
-import { CiMenuKebab } from "react-icons/ci"
 
 const BlogPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post },
-  location,
+  data: { previous, site, markdownRemark: post },
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
-  const [headings, setHeadings] = React.useState([])
+  const [isMobile, setIsMobile] = React.useState(false)
+
   React.useEffect(() => {
-    const tempDiv = document.createElement("div")
-    tempDiv.innerHTML = post.html
-    let headers = tempDiv.querySelectorAll("h1, h2, h3, h4")
-    const headerTexts = Array.from(headers).map(header => {
-      const id = header.textContent.trim().replace(/\s+/g, "-").toLowerCase()
-      header.setAttribute("id", id)
-      return { text: header.textContent, id }
-    })
-    headers = headerTexts
-    post.html = tempDiv.innerHTML
-    setHeadings(headerTexts)
-  }, [post])
+    // 모바일 기기 감지
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const handleClick = id => {
     const element = document.getElementById(id)
@@ -40,32 +31,19 @@ const BlogPostTemplate = ({
       console.log("is not exist id")
     }
   }
-  const [isopenModal, setIsopenModal] = React.useState(false)
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <Helmet>
         <title>{post.title}</title>
       </Helmet>
-      <PostNav onClick={() => setIsopenModal(pre => !pre)}>
-        {isopenModal ? (
-          <ul>
-            {headings?.map(({ text, id }, index) => (
-              <li key={index} onClick={() => handleClick(id)}>
-                {text}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <CiMenuKebab />
-        )}
-      </PostNav>
+
       <PostArticle
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
         <PostHeader>
-          <h4 itemProp="headline">{post.frontmatter.title}</h4>
+          <h2 itemProp="headline">{post.frontmatter.title}</h2>
           <p>{post.frontmatter.date}</p>
         </PostHeader>
         <section
@@ -73,34 +51,15 @@ const BlogPostTemplate = ({
           itemProp="articleBody"
         />
         <hr />
-        <Utterances />
       </PostArticle>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          {previous && (
-            <PostFooterList>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter?.title}
-              </Link>
-            </PostFooterList>
-          )}
-          {next && (
-            <PostFooterList>
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter?.title} →
-              </Link>
-            </PostFooterList>
-          )}
-        </ul>
-      </nav>
+
+      {previous && (
+        <div style={{ textAlign: "center" }}>
+          <Link to={previous.fields.slug} rel="prev">
+            ← {previous.frontmatter?.title}
+          </Link>
+        </div>
+      )}
     </Layout>
   )
 }

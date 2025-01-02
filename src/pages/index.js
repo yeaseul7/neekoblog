@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import Utterances from "../components/Utterances"
 import RecentPostBox from "../components/recentpost"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -73,6 +72,7 @@ const BlogIndex = ({ data, location }) => {
             <ArticleList
               key={post.fields.slug}
               onMouseOver={() => handleLookLoiie()}
+              className="category-content-list"
             >
               <ArticleBox
                 className="post-list-item"
@@ -81,11 +81,14 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <ArticleTitle>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link
+                      to={post.fields.slug}
+                      itemProp="url"
+                      style={{ color: "aliceblue" }}
+                    >
                       <span itemProp="headline">{shortenedTitle}</span>
                     </Link>
                   </ArticleTitle>
-                  <small>{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p
@@ -109,7 +112,6 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ArticlePageList>
-      <Utterances />
     </Layout>
   )
 }

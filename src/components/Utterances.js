@@ -16,13 +16,12 @@ class Utterances extends React.Component {
     scriptEl.src = "https://utteranc.es/client.js"
     scriptEl.setAttribute("repo", "yeaseul7/neekoblog")
     scriptEl.setAttribute("issue-term", "pathname")
-    scriptEl.setAttribute("theme", "github-light")
+    scriptEl.setAttribute("theme", "github-dark")
     scriptEl.setAttribute("crossorigin", "anonymous")
     this.commentsEl.current.appendChild(scriptEl)
 
     setTimeout(() => {
-      this.commentsEl.current.appendChild(scriptEl)
-      console.log(scriptEl, "scriptEl")
+      console.log("Current pathname:", window.location.pathname)
     }, 500)
   }
 

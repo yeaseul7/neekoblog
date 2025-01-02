@@ -40,5 +40,8 @@ export const CubeItem = styled.li`
   }
   @media (max-width: 768px) {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 `

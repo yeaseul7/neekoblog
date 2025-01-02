@@ -20,40 +20,31 @@ export const bounce = keyframes`
   }
 `
 export const ArticleBox = styled.article`
-  @media (max-width: 768px) {
-    margin: 0.5rem auto;
-    width: 90%;
-    height: 10rem;
-  }
-  background: #fefae0;
-  margin: 0.5rem;
-  border-radius: 15px;
-  padding: 1rem;
-  height: 14rem;
+  padding: 10px;
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: none;
-  &:hover {
-    animation: ${bounce} 1s ease-in-out infinite;
-    box-shadow: 0 4px 9px 0px #bababa;
-  }
+  border-radius: 10px;
+
   & > header {
-    @media (max-width: 768px) {
-      height: 4rem;
-    }
-    height: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+  }
+  & > section {
+    font-size: 0.8rem;
+    & > p {
+      color: #b4b4b4;
+    }
   }
 `
 
 export const ArticleMain = styled.ol`
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: flex-start;
-  padding: 0;
+  padding: 10px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -70,10 +61,8 @@ export const ArticleTitle = styled.p`
   }
 `
 export const ArticleList = styled.li`
-  width: 33%;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  width: 100%;
+  border-radius: 5px;
 `
 export const ArticlePageList = styled.ul`
   display: flex;
@@ -82,6 +71,9 @@ export const ArticlePageList = styled.ul`
   padding: 0;
   & > li {
     margin: 0 1rem 0 0;
+    & > article {
+      width: 100%;
+    }
     & > button {
       padding: 0.5rem 1rem;
       background: none;
