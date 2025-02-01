@@ -8,7 +8,7 @@ const RecentPostBox = () => {
     query RecentPostQuery {
       allMarkdownRemark(
         filter: {
-          frontmatter: { date: { gte: "2024-01-01", lt: "2025-01-01" } }
+          frontmatter: { date: { gte: "2024-01-01", lt: "2026-01-01" } }
         }
         sort: { fields: frontmatter___date, order: DESC }
         limit: 3
