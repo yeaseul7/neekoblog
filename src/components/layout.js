@@ -18,8 +18,9 @@ const Layout = ({ title, children }) => {
     query {
       backgroundImage: allFile(
         filter: {
-          name: { eq: "technologybackground" }
+          name: { eq: "dogbackground" }
           extension: { regex: "/(jpg|jpeg|png)/" }
+          relativeDirectory: { eq: "background" }
         }
       ) {
         nodes {
@@ -30,7 +31,6 @@ const Layout = ({ title, children }) => {
       }
     }
   `)
-
   const backgroundImage =
     data.backgroundImage?.nodes[0]?.childImageSharp?.gatsbyImageData?.images
       ?.fallback?.src || ""
@@ -72,9 +72,7 @@ const Layout = ({ title, children }) => {
         </NavList>
       </TitleBox>
       <h2 style={{ textAlign: "center" }}>A steadily growing developer_</h2>
-      <h4 style={{ textAlign: "center" }}>
-        Edit Proposal Email : cutie32769@gmail.com
-      </h4>
+      <p style={{ textAlign: "center" }}>📨 cutie32769@gmail.com</p>
     </HeaderMainBox>
   )
 

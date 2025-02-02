@@ -11,7 +11,7 @@ const RecentPostBox = () => {
           frontmatter: { date: { gte: "2024-01-01", lt: "2026-01-01" } }
         }
         sort: { fields: frontmatter___date, order: DESC }
-        limit: 3
+        limit: 4
       ) {
         nodes {
           frontmatter {

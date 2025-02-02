@@ -7,6 +7,9 @@ export const ProfileLinkList = styled.ul`
   justify-content: center;
   align-items: flex-end;
   margin: 0;
+  @media (max-width: 768px) {
+    margin-left: auto;
+  }
   & > li {
     display: flex;
     align-items: center;
@@ -22,16 +25,23 @@ export const ProfileTitle = styled.p`
   font-weight: 600;
   margin: 0 0 0 15px;
   color: #eaeaea;
+  @media (max-width: 768px) {
+    font-size: x-large;
+  }
 `
 export const ProfileDiv = styled.div`
   justify-content: space-between;
   align-items: flex-start;
-  height: 9rem;
   display: flex;
   align-items: flex-start;
   margin: 0;
-  margin-left: 15px !important;
+  margin-left: 15px;
   margin-top: 50px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
 `
 export const CareerList = styled.li`
   list-style: none;
@@ -56,6 +66,9 @@ export const CareerBox = styled.div`
   }
   & > .careerTextBox {
     width: 100%;
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
     & > .careerjob {
       margin-bottom: 5px;
       font-size: 0.9rem;
@@ -77,16 +90,23 @@ export const ListTitle = styled.p`
   margin: 0;
   font-size: xx-large;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: x-large;
+  }
 `
 export const IntroBox = styled.div`
   padding: 1rem;
   border-radius: 15px;
   margin: 1rem;
+  color: #fff;
 `
 export const TagBox = styled.div`
   margin: 10px auto;
   display: flex;
   gap: 5px;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
   & > .tags {
     padding: 3px;
     width: fit-content;
@@ -96,9 +116,17 @@ export const TagBox = styled.div`
   }
 `
 export const dogLottieStyle = {
-  height: 100,
-  width: 100,
+  height: "100%",
+  width: "100%",
 }
+export const DogLottieWrapper = styled.div`
+  height: 100px;
+  width: 100px;
+  @media (max-width: 768px) {
+    height: 50px;
+    width: 50px;
+  }
+`
 export const ProfileHeader = styled.div`
   display: flex;
   height: fit-content;

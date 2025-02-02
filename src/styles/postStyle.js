@@ -1,15 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import { Link } from "gatsby"
 
-export const scrollAnimation = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-`
-
 export const BackgroundSlideshow = styled.div`
   width: 100%;
   height: 100vh;
@@ -51,35 +42,28 @@ export const HeaderMainBox = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%;
-    background-image: url("${props => props.bgimage}");
-    background-size: cover;
-    background-position: center;
-    animation: ${scrollAnimation} 15s linear infinite;
-    opacity: 0.3;
-    z-index: -1;
-    background-repeat: repeat-y;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
     height: 100%;
     background-image: url("${props => props.bgimage}");
     background-size: cover;
     background-position: center;
+    opacity: 0.3;
     z-index: -1;
+    transform-origin: center center;
   }
 `
+
 export const NavList = styled.nav`
   ul {
     display: flex; /* 가로 정렬 */
     list-style: none; /* 리스트 스타일 제거 */
     padding: 0;
     margin: 0;
+    @media (max-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
   }
 
   li {
@@ -88,8 +72,7 @@ export const NavList = styled.nav`
     margin-bottom: 1.5rem;
 
     @media (max-width: 768px) {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
     & > button,

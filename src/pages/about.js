@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import {
   ProfileLinkList,
   ProfileDiv,
@@ -13,11 +13,11 @@ import {
   dogLottieStyle,
   ProfileHeader,
   SectionDiv,
+  DogLottieWrapper,
 } from "../styles/profileStyle"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Lottie from "lottie-react"
 import walkingDog from "../lottie/walkingDog.json"
-import trophy from "../lottie/trophy.json"
 import { getCareerList } from "../content/profile"
 
 const Profile = () => {
@@ -46,62 +46,19 @@ const Profile = () => {
       aLabel: "Naver Blog",
     },
   ]
-  // const careerList = [
-  //   {
-  //     img: getImage(data.qualisoftImg),
-  //     imgAlt: "qualiSoftImg",
-  //     careerName: "QualiSoft",
-  //     period: "2024.04 ~ present",
-  //     job: "Software Engineer",
-  //     doitList: [
-  //       {
-  //         doitTitle: "QualiSoft",
-  //         todoList: [
-  //           " GC녹십자셀 CRM 페이지 개발",
-  //           "Vue2로 프레임워크 변경 작업 수행",
-  //           "사내 서버 기반 사이트 관리 페이지 개발 및 유지보수",
-  //           "코드 리팩토링 및 최적화를 통해 로딩 시간 단축",
-  //         ],
-  //         techList: [
-  //           "Vue2",
-  //           "Azure",
-  //           "MSDynamics365",
-  //           "Node.js",
-  //           "Docker Notion",
-  //         ],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     img: getImage(data.toinfinityImg),
-  //     imgAlt: "toinfinityImg",
-  //     careerName: "To-infinity",
-  //     period: "2023.11 ~ 2024.02",
-  //     job: "Software Engineer",
-  //     doitList: [
-  //       {
-  //         doitTitle: "infinity",
-  //         todoList: [
-  //           "메인 프론트엔드 개발자 역할 담당 및 화면 디자인 및 설계 진행",
-  //           "촬영 기능 개발",
-  //           "마이페이지 기능 개발",
-  //           "스타일 코드 모듈화 및 유지보수성 개선",
-  //         ],
-  //         techList: ["Flutter", "Vue2", "Figma", "Jira", "Spring"],
-  //       },
-  //     ],
-  //   },
-  // ]
+
   return (
     <main className="global-wrapper">
       <ProfileDiv>
         <ProfileHeader>
           <ProfileTitle>NEEKO RESUME</ProfileTitle>
-          <Lottie
-            animationData={walkingDog}
-            loop={true}
-            style={dogLottieStyle}
-          />
+          <DogLottieWrapper>
+            <Lottie
+              animationData={walkingDog}
+              loop={true}
+              style={dogLottieStyle}
+            />
+          </DogLottieWrapper>
         </ProfileHeader>
         <ProfileLinkList>
           {linkList.map(el => {
@@ -131,13 +88,7 @@ const Profile = () => {
         또한, 개인 블로그에 학습 내용을 정리해 외부 피드백을 끊임없이 받아들이며
         지속적으로 성장하고 있습니다.
         <br />
-        <a
-          alt="개인 블로그"
-          href="https://yeaseul7.github.io/neekoblog/hoisting/"
-          type="blank"
-        >
-          개인 블로그 들어가기
-        </a>
+        <Link to="/">개인 블로그 들어가기</Link>
       </IntroBox>
       <SectionDiv>
         <ListTitle>Career</ListTitle>
@@ -183,9 +134,11 @@ const Profile = () => {
           )
         })}
       </ul>
-      <SectionDiv>
+      {/* <SectionDiv>
         <ListTitle>Award</ListTitle>
-        <Lottie animationData={trophy} loop={3} style={dogLottieStyle} />
+        <DogLottieWrapper>
+          <Lottie animationData={trophy} loop={3} style={dogLottieStyle} />
+        </DogLottieWrapper>
       </SectionDiv>
       <hr />
       <ul>
@@ -217,7 +170,7 @@ const Profile = () => {
             </CareerList>
           )
         })}
-      </ul>
+      </ul> */}
     </main>
   )
 }
