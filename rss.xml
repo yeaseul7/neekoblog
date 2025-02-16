@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Feb 2025 07:19:00 GMT</lastBuildDate><item><title><![CDATA[Three.js 블로그에 붙이기 1탄]]></title><description><![CDATA[시작하기 전에 Three.js는 브라우저 환경에서만 동작하는 라이브러리이다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Feb 2025 04:20:19 GMT</lastBuildDate><item><title><![CDATA[LLM에 대해 알아보기]]></title><description><![CDATA[LLM이란? LLM은 대화형 인공지능 모델이다. 더 자세히 말하면 LLM은 언어를 이해하고 생성하기 위해 많은 데이터를 소비할 수 있는 딥 러닝 알고리즘이다. LLM은 신경망 아키텍처를 사용하여 언어 모델링을 수행하는 딥 러닝 모델이다. LLM…]]></description><link>https://yeaseul7.github.io/neekoblog/aboutLLM/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/aboutLLM/</guid><pubDate>Sun, 09 Feb 2025 15:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;LLM이란?&lt;/h3&gt;
+&lt;p&gt;LLM은 대화형 인공지능 모델이다.&lt;/p&gt;
+&lt;p&gt;더 자세히 말하면 LLM은 언어를 이해하고 생성하기 위해 많은 데이터를 소비할 수 있는 딥 러닝 알고리즘이다.&lt;/p&gt;
+&lt;p&gt;LLM은 신경망 아키텍처를 사용하여 언어 모델링을 수행하는 딥 러닝 모델이다.&lt;/p&gt;
+&lt;h3&gt;LLM의 특징&lt;/h3&gt;
+&lt;p&gt;LLM은 transformer modal을 이용한다.
+이것은 LLM의 일반적인 아키텍처이다. 이것은 인코더와 디코더로 구성된다.
+이 모델은 input을 토큰화 하고 그 토큰과의 관계를 수학적 방정식을 동시에 수행해서 데이터를 처리한다.&lt;/p&gt;
+&lt;h3&gt;LLM의 구성요소&lt;/h3&gt;
+&lt;p&gt;LLM은 여러개의 신경망 층으로 구성되어있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Embedding Layer&lt;/strong&gt;
+입력 토큰(입력된 텍스트 등)로부터 임베딩 벡터를 생성한다.
+ex) &quot;강아지&quot; -&gt; [0.2, 0.8, 0.1, 0.5, 0.9]
+여기서 각각 배열의 값은 토큰의 차원을 나타낸다.
+위의 예시를 보면
+첫 번째 숫자: 동물과의 관련성
+두 번째 숫자: 애완동물과의 관련성
+세 번째 숫자: 크기 특성
+네 번째 숫자: 친근함 정도
+다섯 번째 숫자: 포유류와의 관련성
+이런식으로 여러개의 차원으로 해석될 수 있다. 아마 더 많은 차원이 있을 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Feed Forward Layer(FFN)&lt;/strong&gt;
+여기서는 임베딩 된 백터를 처리하여 모델이 더 높은 수준의 추상화를 파악할 수 있게 한다.
+예를 들어서 &quot;강아지는 귀여운 동물이다.&quot;
+임베딩 한 결과를 계산하는 계산하는 층이라고 생각하면 된다.
+여기서 긍정적인 감정이 있다는 것과 동물의 개념을 더하는 과정을 통해 복잡한 개념을 이해하도록 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Recurrent Layer&lt;/strong&gt;
+해당 층에서는 입력된 텍스트의 단어를 순서대로 해석하며 문장 내 단어들간의 관계를 파악한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. Attention Mechanism&lt;/strong&gt;
+각 텍스트에서 중요한 부분을 강조하는 층인데
+&quot;강아지는&quot;에서 &quot;강아지&quot;에 집중하고 &quot;동물이다&quot;에서 &quot;동물&quot;에 집중하는 것이다.
+이런 방식으로 모델이 문장의 의미를 더 정확하게 이해할 수 있게 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. Output Layer&lt;/strong&gt;
+이 층에서는 모델이 최종적으로 생성한 토큰을 출력한다.&lt;/p&gt;
+&lt;h3&gt;LLM의 유형&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Generic or raw language models(일반 또는 기본 언어 모델)
+학습 데이터의 언어를 기반으로 모델을 학습시킨다.
+정보 검색 및 문서 요약 등에 사용된다.&lt;/li&gt;
+&lt;li&gt;Instruction-tuned language models(명령어 튜닝 언어 모델)
+명령어에 대한 응답을 예측하도록 학습시킨다.
+감정 분석을 하거나 텍스트 또는 코드를 생성할 수 있다.&lt;/li&gt;
+&lt;li&gt;Dialog-tuned language models(대화 튜닝 언어 모델)
+대화를 나눌 수 있도록 훈련된다.
+심심이 같은 모델이다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;LLM이 작동하기까지&lt;/h3&gt;
+&lt;p&gt;LLM이 출력 즉, 작동하기 전에 먼저 작업되어야 하는 부분이 존재한다.
+Training, Fine-tuning, Prompt-tuning&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Training&lt;/strong&gt;
+위키피디아, GitHub등 사이트에서 데이터를 가지고 와서 사전에 훈련된다.
+여기서는 지침을 주지 않고 주어진 데이터를 처리한다.
+즉, 단어의 의미, 단어의 관계, 문맥에 따른 단어 구분을 학습한다.
+right가 correct를 의미하면서 left의 반대를 의미하는지 등을 분석한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Fine-tuning&lt;/strong&gt;
+모델을 더 정확하게 학습시키는 과정이다.
+번역 상황인지, 법률 문서 작성의 상황인지에 따라서 계약서를 작성해달라고 했을때 차이가 있는 이유는 이 과정에서 학습이 되기 때문이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Prompt-tuning&lt;/strong&gt;
+이 단계는 Fine-tuning과 비슷하다.
+Few-shot prompting과 Zero-shot prompting을 통해 작업이 이루어진다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Prompting이란 컴퓨터와 대화하는 방식으로 임무를 지시하는 코딩이다.&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Zero-shot prompting
+이것은 모델이 풀어야 할 문제(Task)를 입력하고 풀어야 할 대상(Prompt)을 입력하면 모델이 학습하는 방식이다.
+ex) &quot;Hello&quot;를 번역해줘
+여기서 Hello는 Task이고 번역해줘는 것이 Prompt이다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;One-shot prompting: 모델에게 한 개의 예시를 보여주고 그 예시를 기반으로 모델이 학습하는 방식이다.
+ex) 한국어를 영어로 번역해줘. 안녕 -&gt; Hello 환영해 -&gt;
+Hello가 번역된 것이 하나의 예시이고 한국어를 영어로 번역해달라는 부분이 task이다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Few-shot prompting: 모델에게 몇 개의 예시를 보여주고 그 예시를 기반으로 모델이 학습하는 방식이다.
+위의 예시에서 한가지만 보여줬지만 더 많은 예시를 보여주고 학습시킨다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Chain of thought prompting: 모델에게 생각하는 방법 등 가이드를 제시하는 방법이다.
+ex)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;z&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// z에 10을 선언했으니 console.log(z)는 10을 출력한다.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 코드에서 주석에 생각하는 방법을 설명하는 것이 가이드이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Zero-shot Chain of thought: 모델에게 생각하는 방법을 알려주지 않고 모델이 생각하는 방법을 추론하도록 한다.
+ex)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; y
+&lt;span class=&quot;token comment&quot;&gt;// 단계별로 생각해보자&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//출력&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 1. x에 10을 선언한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 2. y에 20을 선언한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 3. z에 x와 y를 더한 값을 선언한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 4. z를 출력한다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;문구 하나만으로 모델이 생각하는 방법을 추론하도록 한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;+ zero shoot 보다 few shot이 더 정확하며, few shot에서 2개 이상의 예시를 들었을 때의 차이는 크지 않다. zero shot을 쓰는 것보다는 cot을 쓰는 것이 더 정확하다.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;추천 LLM&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;GPT-NeoX-20B&lt;/li&gt;
+&lt;li&gt;GPT-J-6b&lt;/li&gt;
+&lt;li&gt;Llama 2&lt;/li&gt;
+&lt;li&gt;BLOOM&lt;/li&gt;
+&lt;li&gt;Falcon&lt;/li&gt;
+&lt;li&gt;CodeGen&lt;/li&gt;
+&lt;li&gt;BERT&lt;/li&gt;
+&lt;li&gt;T5&lt;/li&gt;
+&lt;li&gt;GMixtral 8x7B&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;https://rimiyeyo.tistory.com/entry/%EB%8B%A4%EC%96%91%ED%95%9C-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EB%A7%81Prompt-Engineering%EC%97%90-%EB%8C%80%ED%95%B4-%EC%82%B4%ED%8E%B4%EB%B3%B4%EC%9E%901-Zero-shot-One-shot-Few-shot-CoT#LLM%20Prompt%20Engineering-1&quot;&gt;라미에오 기록저장소 - 출처1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/what-is/large-language-models&quot;&gt;Elastic What is LLM - 출처&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/blog/open-source-llms-guide&quot;&gt;Elastic LLS 추천 2024 - 출처&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[강아지 ai 봇 만들기 1탄]]></title><description><![CDATA[프로젝트 구상 심심이와 같은 ai…]]></description><link>https://yeaseul7.github.io/neekoblog/dogaiSerise1/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/dogaiSerise1/</guid><pubDate>Sun, 09 Feb 2025 12:40:56 GMT</pubDate><content:encoded>&lt;h2&gt;프로젝트 구상&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;심심이와 같은 ai 봇을 만들어서 대화가 가능하게 한다.&lt;/li&gt;
+&lt;li&gt;강아지에 대한 지식을 학습시킨다.&lt;/li&gt;
+&lt;li&gt;강아지에 대해 모르는 것을 질문하면 답변할 수 있게 한다.&lt;/li&gt;
+&lt;li&gt;강아지 감정을 학습시킨다.&lt;/li&gt;
+&lt;li&gt;강아지 감정에 대해 궁금한 점을 질문하면 답변할 수 있게 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x3C;나중에&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Three.js를 사용해서 강아지 모델을 만든다.&lt;/li&gt;
+&lt;li&gt;대화 하는 형식으로 만든다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;해당 포스트는 개발하는 과정을 그대로 기록한다.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;강아지 ai 봇을 만들기 위해 LLM을 사용해야 한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 블로그에 붙이기 1탄]]></title><description><![CDATA[시작하기 전에 Three.js는 브라우저 환경에서만 동작하는 라이브러리이다.
 근데 SSR로 구성된 gatsby에 붙이고자 함은 window객체나 document 객체를 사용하는 것이므로 문제가 될 수 있다. 왜 문제가 될까? SSR은 서버에서 HTML…]]></description><link>https://yeaseul7.github.io/neekoblog/threeJs1/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/threeJs1/</guid><pubDate>Sun, 02 Feb 2025 12:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;시작하기 전에&lt;/h3&gt;
 &lt;p&gt;Three.js는 브라우저 환경에서만 동작하는 라이브러리이다.
 근데 SSR로 구성된 gatsby에 붙이고자 함은 window객체나 document 객체를 사용하는 것이므로 문제가 될 수 있다.&lt;/p&gt;
