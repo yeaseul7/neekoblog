@@ -1,9 +1,11 @@
 ---
 title: Three.js 블로그에 붙이기 1탄
 date: "2025-02-02T12:40:56.789Z"
-description: Three.js 블로그에 붙이기 1탄
+description: 일시 중지
 category: Project
 ---
+
+> three.js는 먼저 javascript를 어느정도 이해해야함으로 javascript 학습이 어느정도 마무리 되면 재 포스팅 하겠다.
 
 ### 시작하기 전에
 

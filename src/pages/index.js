@@ -62,11 +62,13 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
           let shortenedTitle =
             title.length > 20 ? title.substring(0, 20) + "..." : title
-          const description = post.frontmatter.description || post.excerpt
-          const shortenedDescription =
-            description.length > 100
-              ? description.substring(0, 50) + "..."
-              : description
+          const postDate = post.frontmatter.date || "날짜 없음"
+          // 날짜 포맷 변경
+          const formattedDate = new Date(postDate).toLocaleDateString("ko-KR", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
 
           return (
             <ArticleList
@@ -93,7 +95,7 @@ const BlogIndex = ({ data, location }) => {
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: shortenedDescription,
+                      __html: formattedDate,
                     }}
                     itemProp="description"
                   />
