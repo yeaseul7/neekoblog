@@ -1,140 +1,265 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 Mar 2025 12:38:03 GMT</lastBuildDate><item><title><![CDATA[RequestAnimationFrame]]></title><link>https://yeaseul7.github.io/neekoblog/requestAnimationFrame/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/requestAnimationFrame/</guid><pubDate>Thu, 06 Mar 2025 21:00:56 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[LLM에 대해 알아보기]]></title><description><![CDATA[LLM이란? LLM은 대화형 인공지능 모델이다. 더 자세히 말하면 LLM은 언어를 이해하고 생성하기 위해 많은 데이터를 소비할 수 있는 딥 러닝 알고리즘이다. LLM은 신경망 아키텍처를 사용하여 언어 모델링을 수행하는 딥 러닝 모델이다. LLM…]]></description><link>https://yeaseul7.github.io/neekoblog/aboutLLM/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/aboutLLM/</guid><pubDate>Sun, 09 Feb 2025 15:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;LLM이란?&lt;/h3&gt;
-&lt;p&gt;LLM은 대화형 인공지능 모델이다.&lt;/p&gt;
-&lt;p&gt;더 자세히 말하면 LLM은 언어를 이해하고 생성하기 위해 많은 데이터를 소비할 수 있는 딥 러닝 알고리즘이다.&lt;/p&gt;
-&lt;p&gt;LLM은 신경망 아키텍처를 사용하여 언어 모델링을 수행하는 딥 러닝 모델이다.&lt;/p&gt;
-&lt;h3&gt;LLM의 특징&lt;/h3&gt;
-&lt;p&gt;LLM은 transformer modal을 이용한다.
-이것은 LLM의 일반적인 아키텍처이다. 이것은 인코더와 디코더로 구성된다.
-이 모델은 input을 토큰화 하고 그 토큰과의 관계를 수학적 방정식을 동시에 수행해서 데이터를 처리한다.&lt;/p&gt;
-&lt;h3&gt;LLM의 구성요소&lt;/h3&gt;
-&lt;p&gt;LLM은 여러개의 신경망 층으로 구성되어있다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. Embedding Layer&lt;/strong&gt;
-입력 토큰(입력된 텍스트 등)로부터 임베딩 벡터를 생성한다.
-ex) &quot;강아지&quot; -&gt; [0.2, 0.8, 0.1, 0.5, 0.9]
-여기서 각각 배열의 값은 토큰의 차원을 나타낸다.
-위의 예시를 보면
-첫 번째 숫자: 동물과의 관련성
-두 번째 숫자: 애완동물과의 관련성
-세 번째 숫자: 크기 특성
-네 번째 숫자: 친근함 정도
-다섯 번째 숫자: 포유류와의 관련성
-이런식으로 여러개의 차원으로 해석될 수 있다. 아마 더 많은 차원이 있을 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. Feed Forward Layer(FFN)&lt;/strong&gt;
-여기서는 임베딩 된 백터를 처리하여 모델이 더 높은 수준의 추상화를 파악할 수 있게 한다.
-예를 들어서 &quot;강아지는 귀여운 동물이다.&quot;
-임베딩 한 결과를 계산하는 계산하는 층이라고 생각하면 된다.
-여기서 긍정적인 감정이 있다는 것과 동물의 개념을 더하는 과정을 통해 복잡한 개념을 이해하도록 한다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. Recurrent Layer&lt;/strong&gt;
-해당 층에서는 입력된 텍스트의 단어를 순서대로 해석하며 문장 내 단어들간의 관계를 파악한다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. Attention Mechanism&lt;/strong&gt;
-각 텍스트에서 중요한 부분을 강조하는 층인데
-&quot;강아지는&quot;에서 &quot;강아지&quot;에 집중하고 &quot;동물이다&quot;에서 &quot;동물&quot;에 집중하는 것이다.
-이런 방식으로 모델이 문장의 의미를 더 정확하게 이해할 수 있게 한다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;5. Output Layer&lt;/strong&gt;
-이 층에서는 모델이 최종적으로 생성한 토큰을 출력한다.&lt;/p&gt;
-&lt;h3&gt;LLM의 유형&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Generic or raw language models(일반 또는 기본 언어 모델)
-학습 데이터의 언어를 기반으로 모델을 학습시킨다.
-정보 검색 및 문서 요약 등에 사용된다.&lt;/li&gt;
-&lt;li&gt;Instruction-tuned language models(명령어 튜닝 언어 모델)
-명령어에 대한 응답을 예측하도록 학습시킨다.
-감정 분석을 하거나 텍스트 또는 코드를 생성할 수 있다.&lt;/li&gt;
-&lt;li&gt;Dialog-tuned language models(대화 튜닝 언어 모델)
-대화를 나눌 수 있도록 훈련된다.
-심심이 같은 모델이다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;LLM이 작동하기까지&lt;/h3&gt;
-&lt;p&gt;LLM이 출력 즉, 작동하기 전에 먼저 작업되어야 하는 부분이 존재한다.
-Training, Fine-tuning, Prompt-tuning&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. Training&lt;/strong&gt;
-위키피디아, GitHub등 사이트에서 데이터를 가지고 와서 사전에 훈련된다.
-여기서는 지침을 주지 않고 주어진 데이터를 처리한다.
-즉, 단어의 의미, 단어의 관계, 문맥에 따른 단어 구분을 학습한다.
-right가 correct를 의미하면서 left의 반대를 의미하는지 등을 분석한다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. Fine-tuning&lt;/strong&gt;
-모델을 더 정확하게 학습시키는 과정이다.
-번역 상황인지, 법률 문서 작성의 상황인지에 따라서 계약서를 작성해달라고 했을때 차이가 있는 이유는 이 과정에서 학습이 되기 때문이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. Prompt-tuning&lt;/strong&gt;
-이 단계는 Fine-tuning과 비슷하다.
-Few-shot prompting과 Zero-shot prompting을 통해 작업이 이루어진다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Prompting이란 컴퓨터와 대화하는 방식으로 임무를 지시하는 코딩이다.&lt;/code&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 27 May 2025 05:49:14 GMT</lastBuildDate><item><title><![CDATA[웹서버]]></title><description><![CDATA[1. 웹서버란? 웹서버는 하드웨어, 소프트웨어 관점 두가지로 해석될 수 있다.
+나는 정의를 내리려고 했는데 관점에따라 두가지 정의가 있을 수 있다고 한다. 하드웨어 관점 : HTTP 요청을 받고 HTML…]]></description><link>https://yeaseul7.github.io/neekoblog/webserver/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/webserver/</guid><pubDate>Thu, 08 May 2025 16:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;1. 웹서버란?&lt;/h3&gt;
+&lt;p&gt;웹서버는 하드웨어, 소프트웨어 관점 두가지로 해석될 수 있다.&lt;br/&gt;
+나는 정의를 내리려고 했는데 관점에따라 두가지 정의가 있을 수 있다고 한다.&lt;/p&gt;
+&lt;p&gt;하드웨어 관점 : HTTP 요청을 받고 HTML 같은 문서를 반환하는 &lt;strong&gt;컴퓨터&lt;/strong&gt;&lt;br/&gt;
+소프트웨어 관점 : 클라이언트로부터 HTTP 요청을 받아서 HTML문서 같은 페이지를 반환하는 &lt;strong&gt;소프트웨어&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 예시&lt;/span&gt;
+Apache&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Nginx&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;js의 http&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 같은 것&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;2. 웹서버 특징&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Zero-shot prompting
-이것은 모델이 풀어야 할 문제(Task)를 입력하고 풀어야 할 대상(Prompt)을 입력하면 모델이 학습하는 방식이다.
-ex) &quot;Hello&quot;를 번역해줘
-여기서 Hello는 Task이고 번역해줘는 것이 Prompt이다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;One-shot prompting: 모델에게 한 개의 예시를 보여주고 그 예시를 기반으로 모델이 학습하는 방식이다.
-ex) 한국어를 영어로 번역해줘. 안녕 -&gt; Hello 환영해 -&gt;
-Hello가 번역된 것이 하나의 예시이고 한국어를 영어로 번역해달라는 부분이 task이다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Few-shot prompting: 모델에게 몇 개의 예시를 보여주고 그 예시를 기반으로 모델이 학습하는 방식이다.
-위의 예시에서 한가지만 보여줬지만 더 많은 예시를 보여주고 학습시킨다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Chain of thought prompting: 모델에게 생각하는 방법 등 가이드를 제시하는 방법이다.
-ex)&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;웹서버는 HTML 문서를 저장하고 있어야 한다.&lt;/li&gt;
+&lt;li&gt;항상 실행중이어야 한다.&lt;/li&gt;
+&lt;li&gt;항상 인터넷과 연결되어있다.&lt;/li&gt;
+&lt;li&gt;항상 같은 IP를 가지고 있다.&lt;/li&gt;
+&lt;li&gt;제 3자에 의해 유지보수 된다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
-console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;z&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// z에 10을 선언했으니 console.log(z)는 10을 출력한다.&lt;/span&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예를 들어 우리가 깃허브에 HTML 문서를 올리고 그걸 Vercel과 연동해서 Vercel이 깃허브 레포에 있는 HTML문서를 가지고 있고 개발자가 서버를 키면 그게 고정된 IP로 호스팅 되는 경로이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;정적 사이트&lt;/strong&gt;&lt;br/&gt;
+→ 있는 그대로 제공되는 것&lt;br/&gt;
+파일 내용이나 데이터가 정적입니다.&lt;br/&gt;
+말그대로 모든 사용자가 동일한 내용을 본다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;동적 사이트&lt;/strong&gt;&lt;br/&gt;
+→ 동적으로 콘텐츠가 바뀔 수 있는 것&lt;br/&gt;
+사용자마다 다른 데이터를 볼 수 있는 사이트&lt;/p&gt;</content:encoded></item><item><title><![CDATA[고차 함수]]></title><description><![CDATA[Javascript…]]></description><link>https://yeaseul7.github.io/neekoblog/higherOrder_function/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/higherOrder_function/</guid><pubDate>Sun, 23 Feb 2025 20:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;Javascript는 함수형 프로그래밍이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;함수형 프로그래밍이란?&lt;/h3&gt;
+&lt;p&gt;단순하게 프로그래밍 패러다임 중 하나로, 불변성을 강조하며 프로그램의 상태 변경을 최소화 하는 것을 목표로 한 것이다.&lt;br/&gt;
+개념 자체는 수학적 함수의 개념에 기반을 두고 있다.&lt;br/&gt;
+불변성과 상태 변경을 최소화 한다는 것은 예측 가능성을 더 높여주는 것이라고 볼 수 있다.&lt;/p&gt;
+&lt;h3&gt;Javascript에서 함수&lt;/h3&gt;
+&lt;p&gt;javascript에서 &lt;code class=&quot;language-text&quot;&gt;함수는 일급 객체&lt;/code&gt; 이다.&lt;br/&gt;
+일반 객체와는 다르다.&lt;br/&gt;
+&lt;strong&gt;일반 객체는 호출할 수 없지만 함수는 호출할 수 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Dog&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ❌ TypeError: obj is not a function&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello!&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;
-console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;//?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위의 코드에서 주석에 생각하는 방법을 설명하는 것이 가이드이다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Zero-shot Chain of thought: 모델에게 생각하는 방법을 알려주지 않고 모델이 생각하는 방법을 추론하도록 한다.
-ex)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; y
-&lt;span class=&quot;token comment&quot;&gt;// 단계별로 생각해보자&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;//출력&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// 1. x에 10을 선언한다.&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// 2. y에 20을 선언한다.&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// 3. z에 x와 y를 더한 값을 선언한다.&lt;/span&gt;
-&lt;span class=&quot;token comment&quot;&gt;// 4. z를 출력한다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;문구 하나만으로 모델이 생각하는 방법을 추론하도록 한다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;+ zero shoot 보다 few shot이 더 정확하며, few shot에서 2개 이상의 예시를 들었을 때의 차이는 크지 않다. zero shot을 쓰는 것보다는 cot을 쓰는 것이 더 정확하다.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;추천 LLM&lt;/p&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;greet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ &quot;Hello!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;일급 객체랑 일반 객체는 다른건가?&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;다르다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;일급 객체의 특징을 일반 객체는 모두 포함하고 있지 않다.&lt;br/&gt;
+관계를 표현하면 아래와 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;일반 &lt;span class=&quot;token function&quot;&gt;객체&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Object&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; ⊆ 일급 객체 ⊆ &lt;span class=&quot;token function&quot;&gt;함수&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Function&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;일급객체&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;GPT-NeoX-20B&lt;/li&gt;
-&lt;li&gt;GPT-J-6b&lt;/li&gt;
-&lt;li&gt;Llama 2&lt;/li&gt;
-&lt;li&gt;BLOOM&lt;/li&gt;
-&lt;li&gt;Falcon&lt;/li&gt;
-&lt;li&gt;CodeGen&lt;/li&gt;
-&lt;li&gt;BERT&lt;/li&gt;
-&lt;li&gt;T5&lt;/li&gt;
-&lt;li&gt;GMixtral 8x7B&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;무명의 리터럴로 생성할 수 있다. (런타임에 생성이 가능하다.)&lt;br/&gt;
+익명 함수로 생성이 가능하다는 의미이다. &lt;br/&gt;
+익명 함수의 형태를 보면 런타임(할당 단계)에 생성되는 변수에 저장 하는 형태이기 때문이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ 5&lt;/span&gt;
+    &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;변수나 자료구조(배열, 객체)에 저장할 수 있다.
+변수에 저장되는 형태는 위의 예시와 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;increase&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;num&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;decrease&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;num&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; predicates &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; increase&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; decrease &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;함수의 매개변수에 전달할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;plusFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;increaseFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; num &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;increaseFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; result
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 위에서 predicates객체에 저장된 함수인 &apos;increase&apos;를 새로 생성한 plusFunc의 매개변수에 전달했다.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; calculated &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;plusFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;predicates&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;increase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;calculated&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ 1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;함수의 반환값으로 사용할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;applyOperation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;operation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;operation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;applyOperation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;predicates&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;increase&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ 6&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;applyOperation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;predicates&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;decrease&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ 4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;⚠️ 실제로 위의 코드에서 &lt;code class=&quot;language-text&quot;&gt;applyOperation가 api를 사용해서 return을 얻을 경우&lt;/code&gt; Promise 객체를 반환하여 예상하지 못한 동작을 할 수 있다.&lt;/p&gt;
+&lt;p&gt;그래서 이럴 경우 &lt;code class=&quot;language-text&quot;&gt;async/await&lt;/code&gt; 를 활용해서 Promise가 해결된 값을 반환하도록 수정해야한다.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;https://rimiyeyo.tistory.com/entry/%EB%8B%A4%EC%96%91%ED%95%9C-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EB%A7%81Prompt-Engineering%EC%97%90-%EB%8C%80%ED%95%B4-%EC%82%B4%ED%8E%B4%EB%B3%B4%EC%9E%901-Zero-shot-One-shot-Few-shot-CoT#LLM%20Prompt%20Engineering-1&quot;&gt;라미에오 기록저장소 - 출처1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/what-is/large-language-models&quot;&gt;Elastic What is LLM - 출처&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/blog/open-source-llms-guide&quot;&gt;Elastic LLS 추천 2024 - 출처&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[강아지 ai 봇 만들기 1탄]]></title><description><![CDATA[프로젝트 구상 심심이와 같은 ai…]]></description><link>https://yeaseul7.github.io/neekoblog/dogaiSerise1/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/dogaiSerise1/</guid><pubDate>Sun, 09 Feb 2025 12:40:56 GMT</pubDate><content:encoded>&lt;h2&gt;프로젝트 구상&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;심심이와 같은 ai 봇을 만들어서 대화가 가능하게 한다.&lt;/li&gt;
-&lt;li&gt;강아지에 대한 지식을 학습시킨다.&lt;/li&gt;
-&lt;li&gt;강아지에 대해 모르는 것을 질문하면 답변할 수 있게 한다.&lt;/li&gt;
-&lt;li&gt;강아지 감정을 학습시킨다.&lt;/li&gt;
-&lt;li&gt;강아지 감정에 대해 궁금한 점을 질문하면 답변할 수 있게 한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;#x3C;나중에&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Three.js를 사용해서 강아지 모델을 만든다.&lt;/li&gt;
-&lt;li&gt;대화 하는 형식으로 만든다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;해당 포스트는 개발하는 과정을 그대로 기록한다.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;강아지 ai 봇을 만들기 위해 LLM을 사용해야 한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 블로그에 붙이기 1탄]]></title><description><![CDATA[시작하기 전에 Three.js는 브라우저 환경에서만 동작하는 라이브러리이다.
-근데 SSR로 구성된 gatsby에 붙이고자 함은 window객체나 document 객체를 사용하는 것이므로 문제가 될 수 있다. 왜 문제가 될까? SSR은 서버에서 HTML…]]></description><link>https://yeaseul7.github.io/neekoblog/threeJs1/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/threeJs1/</guid><pubDate>Sun, 02 Feb 2025 12:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;시작하기 전에&lt;/h3&gt;
+&lt;h3&gt;함수의 프로토타입 간략하게 보기&lt;/h3&gt;
+&lt;p&gt;일반 객체는 기본적으로 프로퍼티를 가질 수 있다.&lt;br/&gt;
+따라서 객체의 상속체계에 대한 정보를 가진 &lt;code class=&quot;language-text&quot;&gt;__proto__&lt;/code&gt; 가 존재하는데,&lt;br/&gt;
+함수는 Object.prototype을 상속받는게 아닌 Function.prototype을 상속받는다.&lt;/p&gt;
+&lt;p&gt;추가로 &lt;code class=&quot;language-text&quot;&gt;__proto__&lt;/code&gt; 와 prototype의 차이에 대해 이해할 필요가 있다.&lt;/p&gt;
+&lt;h3&gt;고차 함수(Higher order Function)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;함수를 인자로 전달 받거나 함수를 결과로 반환하는 함수이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🔖 “A closure is the combination of a function and the lexical environment within which that function was declared.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;클로저는 함수와 그 함수가 선언됐을 때의 렉시컬 환경(Lexical environment)과의 조합이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Closure]]></title><description><![CDATA[🔖 Closure는함수형 프로그래밍 언어에 등장한다. MDN의 Closure 정의 “A closure is the combination of a function and the lexical environment within which that…]]></description><link>https://yeaseul7.github.io/neekoblog/closure/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/closure/</guid><pubDate>Sun, 23 Feb 2025 15:21:00 GMT</pubDate><content:encoded>&lt;h4&gt;🔖 Closure는함수형 프로그래밍 언어에 등장한다.&lt;/h4&gt;
+&lt;p&gt;MDN의 Closure 정의&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“A closure is the combination of a function and the lexical environment within which that function was declared.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;클로저는 함수와 그 함수가 선언된 렉시컬 환경과의 조합이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Lexical Scope&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;outerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;innerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ 10&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;javasciprt의 스코프 개념을 먼저 알아야 하는데&lt;br/&gt;
+해당 개념은 &lt;a href=&quot;https://yeaseul7.github.io/neekoblog/hoisting/&quot;&gt;https://yeaseul7.github.io/neekoblog/hoisting/&lt;/a&gt; 을 다루는 글을 통해 보면 된다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt; 안에 중첩 함수인 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt;가 정의 되었다.&lt;br/&gt;
+이때 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt; 의 상위 스코프는 &lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt; 이다.&lt;br/&gt;
+따라서 내부함수인 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt; 은 외부함수인 &lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt; 의 x 에 접근할 수 있다.&lt;/p&gt;
+&lt;p&gt;하지만 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;outerFunc&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;innerFunc&lt;/code&gt;가 선언되었다면 접근 불가능 하다.&lt;/p&gt;
+&lt;p&gt;이러한 개념이 스코프 개념이라고 간단하게 설명할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;outerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;innerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ✅ 1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;따라서 javascript가 렉시컬 스코프를 따르는 프로그래밍 언어이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;자바스크립트 엔진은 함수를 어디서 호출했는지가 아니라 함수를 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프(정적 스코프)라 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;스코프의 실체는 무엇인가?&lt;/h4&gt;
+&lt;p&gt;실행 컨텍스트의 렉시컬 환경이다.&lt;/p&gt;
+&lt;p&gt;관련 포스팅(&lt;a href=&quot;https://yeaseul7.github.io/neekoblog/hoisting/&quot;&gt;https://yeaseul7.github.io/neekoblog/hoisting/&lt;/a&gt;) 을 먼저 읽어오기를 바란다.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/01685b9a478b063bb035b33835239168/612f7/lexicial_2.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsUlEQVR42k2PuwqEMBRE8+3axXZBfICgTcDOVsivaFgIoohCIr4Ss0NsdopDmLlzLyFlWUZRlCTJxyuO4yzLKKVVVTnnnueRUvZ9PwyD/FPXdeM4Es45Y6yua7BpmtYLD/jHcazrmqZpGIbYnuc59oJFUQRBgArRWs/zPE0TeF2X87LWorltG7jvOyJcW5blPE/M3PdtjAEJAiHE10spBQsxaph7F8HEffAt4yPWyxjzA5DRyZe8s9KzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;lexical&quot; title=&quot;&quot; src=&quot;/neekoblog/static/01685b9a478b063bb035b33835239168/0b533/lexicial_2.png&quot; srcset=&quot;/neekoblog/static/01685b9a478b063bb035b33835239168/fac75/lexicial_2.png 125w,
+/neekoblog/static/01685b9a478b063bb035b33835239168/63868/lexicial_2.png 250w,
+/neekoblog/static/01685b9a478b063bb035b33835239168/0b533/lexicial_2.png 500w,
+/neekoblog/static/01685b9a478b063bb035b33835239168/1d69c/lexicial_2.png 750w,
+/neekoblog/static/01685b9a478b063bb035b33835239168/612f7/lexicial_2.png 773w&quot; sizes=&quot;(max-width: 500px) 100vw, 500px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;여기서 스코프는 렉시컬 환경이다.&lt;/p&gt;
+&lt;h4&gt;그러면 렉시컬 스코프란 무엇인가?&lt;/h4&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/9bbaf/lexicial_1.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 117.60000000000002%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAIAAAB1KUohAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuElEQVR42oWUyUujQRDF+98TlYC5qSAETyYGMyJoJCbREPXoBkq8eBSdiBoJOeYWUBFRxy2ucUNcgmucbPNLF/Z8jMs8SFFdX73u6qrXUdls9uzs7OLiIpPJnJ6eZjTEIW4iJi7J2MfHRzU1NVVfX9/c3Nze3t7R0eHxeNra2jo7O91ut8vlIoL9oeHRcDqdJEOJx+NqYmKiqqqqrq6Oz729vf39/V1dXT6fLxgM+v3+cDjc3d3Nvvh9fX0DAwPsZbfbq6ur5+fn1erqajQaXVpaWlxcXFhYEAtisdjc3NzMzMzPd5A2OzuLQ3x6enp7e1tR+vn5+dHR0c7Ozt7e3snJyfHxMXZ/f//29rZcLpdKJWyhUHh9fS1b8Pb2ViHDPDw8hCktEaTT6bu7u3w+TxKpl5eXKysrwvmtwV6KLWVvbLFYLGmIk9cgD58qKIc0lhKHqCS18BmKGjhw7u/vqUvqlzhEVf4fpC6uQBfMUqCSyeTQ0ND4+PjIyMiwxujo6PA7JEhkcHDQ6/WOjY0RIRnK2tqaikQiNTU1DoeDCYdCIUaNQnp6egKBABMm4n9HQINPDQ0NtbW1jFNNTk7abLampiaEhYDQQ0tLi0iKiFuDOLa1tZUgtrGxEQqKUAx5d3eX+/zS2NraYvrGx5qlAclQrq+vFa3/qlXS0q++QlSiAWtjraoyU/2IXC6neJIHBweIDFVeXV3x3LgI8iLCeGSjT1GRJ+S0BhpAQ1wJJeIg2Jubm2/mXynbemf8p6cn652Nnj6icjI/U4m5sECY35VtJf8D82a+LJuXxfbmQCGYblvLNg/ub9nMmoe6ubm5vr6OXLE87I2NDRy6aDbiHBrJOMwxFXJOg7nBTyQSqVSKLR4eHuS5m7Lxl5eXmZ9RQYVsZMDi+fmZbr+8vEjQ/GnIklLlv8HgD/PWwRS8qdOdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;lexical&quot; title=&quot;&quot; src=&quot;/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/0b533/lexicial_1.png&quot; srcset=&quot;/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/fac75/lexicial_1.png 125w,
+/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/63868/lexicial_1.png 250w,
+/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/0b533/lexicial_1.png 500w,
+/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/9bbaf/lexicial_1.png 588w&quot; sizes=&quot;(max-width: 500px) 100vw, 500px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;여기서 Outer LexicalEnvironment Reference에는 상위 스코프에 대한 참조가 들어간다.&lt;br/&gt;
+이것은 함수 정의가 &lt;strong&gt;평가되는 시점에&lt;/strong&gt; 해당 함수의 환경에 의해 결정되는데, 이게 바로 렉시컬 스코프다.&lt;/p&gt;
+&lt;p&gt;⚠️ 함수는 정의 된 곳과 호출되는 위치가 다를 수 있다.&lt;br/&gt;
+따라서 렉시컬 스코프가 결정되려면 자신이 호출되는 위치와 상관없이 정의된 환경의 스코프를 기억해야한다.&lt;br/&gt;
+이걸 함수의 내부 슬롯인 [[Environment]]에 저장한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 코드를 통해 렉시컬 스코프에 대해 그림으로 이해해보자.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/14586/function_environment.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 58.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACqElEQVR42m2S7W8UVRSH9w/1g34hhgSTahA0gjWCiqHRiIZIhBjCB6Mf1Gi02gY3LYRuaXFb6law3e52duf9zvvO++zD6cT4QbjJM2fm5JzfvXPur6OvnUZbW0C/t0Bw9Avx7gXUw7PYvbOE/XcorC7e9ts4vTda1PZb1JlJu+Zz/r863t5nuI+/wPvrOtOnd/H2v0LbXMJ5fB3/yU1c7QHx8A7hP7dIhreJD+9QpO6/7S8QnDhzpnbDRLDcEJXUHFtZG/28JChyMilMpbeNwqwp5HDPi7WCxs5N9N3b6DtfE+h9KqdLNvmVTP+NwvidJjmkMFfJ9WXy6TKlsUKae7xYTgTNtZfRuqcw1oS9b1C9M4xXX0K7+wpq4zTR0fc4G69hrp9qcR6cIQiGeGGO54cEYUI0SynnNVVTi6AVYFqe4GNZLq4Xc3ikofwYP5i1DUU1FxrKek7dQFJmVFVJXdfUVSW5SkZQU0rsmE6GJRhW2jZLfSuQlhClNV6Q4scVQdIwy+c08q+zMqc6mWlWCScb0earE0F94yLG5iX03vt44y758Abp/idy8x+jdj4iOl5F/XkZ9WgRZ+si/u5VktHP+A/fxd77FnP7U4yNCwT9Dyn8IR1tfYHx+ptM7p9jOvgRt39FGqV4axFzc5Fo8gdqcIPj3hK22Msd3EId/IDZO0dw8B3hvSW85fM43ffI7Kd0xCm4wRzbq7EdnzhtSHKZUya2EevY+t+YWx9gbF0SLgtXCJVGKB6ybQO//zme5LxHV8kijc7x0QHj4QHaaIhy7ZaJNsY1pihbvqcDosG1lnj/GsmTL4ndEVEYEVojgpXz+D+9irvyOlk4oqOUwrYsKQj/M2v7LCvIc+YSa3mt5RbEFW2kLOU0MUrcoaYJShPrqIyiqXgGqHtl3PbUYzcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;function_environment&quot; title=&quot;&quot; src=&quot;/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/0b533/function_environment.png&quot; srcset=&quot;/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/fac75/function_environment.png 125w,
+/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/63868/function_environment.png 250w,
+/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/0b533/function_environment.png 500w,
+/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/1d69c/function_environment.png 750w,
+/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/00d43/function_environment.png 1000w,
+/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/14586/function_environment.png 2314w&quot; sizes=&quot;(max-width: 500px) 100vw, 500px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;h2&gt;Closure&lt;/h2&gt;
+&lt;p&gt;외부함수보다 중첩함수가 더 오래 유지되는 경우 (생명주기가 종료된 외부함수의 변수를 중첩함수 내부에서 참조하는 현상)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;inner&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; inner
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; innerFunc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;innerFunc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//✅ 10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;outer가 inner를 반환한 시점에서 outer의 LifeCycle은 끝이 났다.&lt;br/&gt;
+하지만 innerFunc은 outer안에 있는 지역변수 x의 값을 찍고 있다.&lt;/p&gt;
+&lt;p&gt;inner함수가 평가될 때 inner 함수의 [[Environment]]에는 상위 스코프에 대한 정보가 있을 것이다.&lt;br/&gt;
+그러면 outer 함수는 평가될 때 전역 스코프를 함수의 [[Environment]]에 저장하고 있을 것이다.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/95c1f/closure_1.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 23.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAABTklEQVR42m2Oz0obURSH83YG24VQsQtpN/YB+gDdFN9AEPcFhW4KLdU0hiQq6CpaCSmkFJNMMvfOTCbeyb+5c+9Mk8+Law8cPn6/cxZfSfXrJMMLVL/GYtzFqjY6aJDJS3TvjDxsUcQddP+UzKuR9ipYee26tssVd3dsf0ffnqBbx5T86iuCxg5hrYy8O2Byt8+4uUV8tYusvmb6+zPLf18IG28JLz8QXbxD3X5i2jkgOi8z/XOEauwx/rFBcLpJSYgQKUOiaII/EiSzOcYWpJllvkiJJnOUaDHufiX6+43Z4Cfxwy/iOEZNU0eFGYywPY+5J5yhNyTwBf5whBQClSiEo5SCSRzxmGjC+0OC+htE8z1edZvg5iNGJxhjsdZgV/+fN7OWkhSSQa+P8H2Wi6V7sGit0VmGNYY8z7F5gS1WpKZgkebOPme9XvPSPAFTOmVLx051zAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;closure_1&quot; title=&quot;&quot; src=&quot;/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/0b533/closure_1.png&quot; srcset=&quot;/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/fac75/closure_1.png 125w,
+/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/63868/closure_1.png 250w,
+/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/0b533/closure_1.png 500w,
+/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/1d69c/closure_1.png 750w,
+/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/00d43/closure_1.png 1000w,
+/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/95c1f/closure_1.png 2330w&quot; sizes=&quot;(max-width: 500px) 100vw, 500px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;outer 함수가 return 하면 outer의 실행 컨텍스트는 제거되고 생명주기 또한 끝나지만&lt;br/&gt;
+outer의 렉시컬 환경은 내부 슬롯에 저장되어있다.&lt;/p&gt;
+&lt;p&gt;inner 함수가 외부 렉시컬 환경을 outer 함수로 참조하고 있기 때문에 GC가 함부로 가져가지 않는다.&lt;br/&gt;
+이러한 현상을 클로저라고 한다.&lt;/p&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/31df8/closure_2.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 44.800000000000004%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAACAUlEQVR42l2SS2sUQRSF58e5URcBN24Fd4LLuFAScRF3ElfBCOpKwY24CRhjRAO+mDyETF5DEpOeTL+nu6u7qt/dn5UZkWhRp05xq+65VXWqw3+tbUraSlDnIXnikqea04hc6rn0xsjSBNc6wTT2sIx9lIz/5ncuKI2p8L7jf5rCXL2GuXyFYHOGaGce58NlrI/XsVaukg1XsLsPGCxdwng3hXB6EwmtoQVb3WuN6jxEqgTGcY+jg5+45iGBNyAObcTIQMUO0TnLEBFYRP5gjEwEUJX6NPmFE/5pdduSa/0ka4iymjgtKJuWrG6pdG2l66q8GsfKutHrNYmqdayhkoqOdLdxf9zFX5/B23hIMniP3JljtDmL9XUacfCc+Og1fvcObndW77uHOn1LsHUfcfiS029zHK/e4tfnaWJnQCeydzjrPsLceIy5tYDdXyHuvxgj3H2C139DbOg325rH6z0l2F3EP17G7y0yOlrC23vFqLeAv/sMNXLoCKEY2im2l2PaCs+PiGRNEFeESYEbFWMhZ+0G9pfbWGs3CQdrKO2hzHNkUaNvTay5TlM6mVKYZwZD4wTXHpLEAhEFjHxXzyOUkkRun3DYRXnbJOY6eWxD04xNmCCDUnOWTUyRUieFIUVR/Psn28mQ5SVSm1NpY8qsohYJ2BY4Dliabc1DEyLBbwHTlonUbvARAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;closure_2&quot; title=&quot;&quot; src=&quot;/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/0b533/closure_2.png&quot; srcset=&quot;/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/fac75/closure_2.png 125w,
+/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/63868/closure_2.png 250w,
+/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/0b533/closure_2.png 500w,
+/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/1d69c/closure_2.png 750w,
+/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/00d43/closure_2.png 1000w,
+/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/31df8/closure_2.png 2366w&quot; sizes=&quot;(max-width: 500px) 100vw, 500px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;p&gt;inner 함수를 반환 받은 innerFunc에 의해 inner 함수가 더 오래 생존하게 된 것이다.&lt;br/&gt;
+즉 inner 함수의 외부 렉시컬 환경에 outer의 x가 들어있기 때문에 innerFunc에서 10이 나오는 것이다.&lt;/p&gt;
+&lt;p&gt;상위 스코프의 어떤 식별자도 참조하지 않는 경우 대부분의 모던 브라우저는 최적화를 통해 상위 스코프를 기억하지 않는다. 따라서 Closure라고 말할 수 없다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Three.js 블로그에 붙이기 1탄]]></title><description><![CDATA[three.js는 먼저 javascript를 어느정도 이해해야함으로 javascript 학습이 어느정도 마무리 되면 재 포스팅 하겠다. 시작하기 전에 Three.js는 브라우저 환경에서만 동작하는 라이브러리이다.
+근데 SSR로 구성된 gatsby…]]></description><link>https://yeaseul7.github.io/neekoblog/threeJs1/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/threeJs1/</guid><pubDate>Sun, 02 Feb 2025 12:40:56 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;three.js는 먼저 javascript를 어느정도 이해해야함으로 javascript 학습이 어느정도 마무리 되면 재 포스팅 하겠다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;시작하기 전에&lt;/h3&gt;
 &lt;p&gt;Three.js는 브라우저 환경에서만 동작하는 라이브러리이다.
 근데 SSR로 구성된 gatsby에 붙이고자 함은 window객체나 document 객체를 사용하는 것이므로 문제가 될 수 있다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;왜 문제가 될까?&lt;/strong&gt;&lt;/p&gt;
@@ -279,7 +404,15 @@ mdn으로 예시를 들면 헤더 이미지, 로고, 배너가 된다. 이는 �
 &lt;li&gt;Azure Front Door&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;내가 아는 예시는 여기까지 이다.
-CDN을 사용하면 Ddos 공격으로 부터도 어느정도 보호될 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[HTTP 개요 및 기초 이해]]></title><description><![CDATA[HTTP란? HTML 같은 문서를 가져올 수 있게 하는 Protocol이다. Network 카테고리에서 매우 많이 본 Protocol 자세한 내용은 블로그를 참고해 주길 바란다. 프로토콜 HTTP…]]></description><link>https://yeaseul7.github.io/neekoblog/http/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/http/</guid><pubDate>Wed, 08 Jan 2025 03:22:22 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP란?&lt;/h2&gt;
+CDN을 사용하면 Ddos 공격으로 부터도 어느정도 보호될 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[웹팩 (1)]]></title><description><![CDATA[webpack은 Javascript 애플리케이션을 위한 Static Module Bundler이다. 애플리케이션을 처리할 때 필요한 모듈을 매핑하고 하나 이상의 번들을 생성하는 'Dependency Graph'를 만든다. Dependency Graph…]]></description><link>https://yeaseul7.github.io/neekoblog/aboutWebpack/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/aboutWebpack/</guid><pubDate>Tue, 14 Jan 2025 12:40:56 GMT</pubDate><content:encoded>&lt;p&gt;webpack은 Javascript 애플리케이션을 위한 Static Module Bundler이다.&lt;/p&gt;
+&lt;p&gt;애플리케이션을 처리할 때 필요한 모듈을 매핑하고 하나 이상의 번들을 생성하는 &apos;Dependency Graph&apos;를 만든다.&lt;/p&gt;
+&lt;h3&gt;Dependency Graph&lt;/h3&gt;
+&lt;p&gt;어떤 파일이 다른 파일에 의존할때마다 webpack은 이걸 의존성으로 취급한다.&lt;/p&gt;
+&lt;h4&gt;그러면 어떻게 의존되어있는 것을 알까?&lt;/h4&gt;
+&lt;p&gt;먼저 webpack은 애플리케이션을 처리할 때, command line 또는 설정파일(webpack.config.js)에 정의된 모듈 목록에서부터 처리를 시작한다.
+이걸 Entry Point라고 한다.&lt;/p&gt;
+&lt;p&gt;Entry Point에서 webpack은 필요한 모든 모듈을 포함하는 Dependency Graph룰 재귀적으로 빌드한 다음, 모든 모듈을 브라우저에 의해 로드 되는 작은 수의 번들로 묶는다.&lt;/p&gt;
+&lt;p&gt;이렇게 되면 HTTP/1.1의 경우 요청 간의 대기시간의 최적화 할 수 있으므로 빠르게 로드 할 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[HTTP 개요 및 기초 이해]]></title><description><![CDATA[HTTP란? HTML 같은 문서를 가져올 수 있게 하는 Protocol이다. Network 카테고리에서 매우 많이 본 Protocol 자세한 내용은 블로그를 참고해 주길 바란다. 프로토콜 HTTP…]]></description><link>https://yeaseul7.github.io/neekoblog/http/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/http/</guid><pubDate>Wed, 08 Jan 2025 03:22:22 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP란?&lt;/h2&gt;
 &lt;p&gt;HTML 같은 문서를 가져올 수 있게 하는 Protocol이다.&lt;/p&gt;
 &lt;p&gt;Network 카테고리에서 매우 많이 본 Protocol 자세한 내용은 블로그를 참고해 주길 바란다.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://yeaseul7.github.io/neekoblog/protocol/&quot;&gt;프로토콜&lt;/a&gt;&lt;/p&gt;
@@ -525,7 +658,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 35.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAACCUlEQVR42mPoOulR0XTYsbX9hEtT0xGn5vYTri0zL4crMwDBli1LBdcsX163dtWqljUrVjRtWLWqdd2qVdW5ubkgeVE+Pj4hIM0GxOxAzALSw7DkVv7/jTd7/6+41PRv3dXOvxsfNf7vPOCXBJRibW6vdzhz8uT/S+fP/794/vw/IP5/7ODBf7uWLTMB6b125ozRo3v35t+9eXP6jx8/pj169KiN4eDDeX9evHry/+jZPf9u3bv69/6n0/87j/iEgzRMntxndPr0mf/nLlz8/+Dhw38PHz/5f+bUmT8Le3psQPIPb95M+A8EH9+//wOiHz58+J9hwslg5wlHg306dkaE9BwI9Zt0ItR79pVQkFcYbm2byH55ySTrS0un2m+d1u25a3qn17Yprc6rpkzhAclfv33b6vOXLyc/v3t35Mvnz8fu37+/hQEG7EOzeEJDQ5mhXEYwuf8/B8Oa/3YMm/87sM2+68vQfjaYoemUH0P9fh6YvlUMDMw+DAxccD2r/kMMcQ0MFDO2NZasn1/P4ZNWzwWWXPrM2Pjo7/8+hz/8iznz7Z//sc//TfZ++ic177rVfwYGDn8TE1lLPT0x47Q0VpDy+vp6JrgLjY3TWLXsQ3mMfdK4tELreYAamBj6zxt47Xv1O/XAo3/Jx179ST/87L/7npffGebe0wdr4pUSBpL8oAiEGQQAu//879XG8yYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 35.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAACCUlEQVR42mPoPuNZ2XrUpa3jhEdz61HXlq7Tbq1TroSqMADBqlWzhdauXNmwYc2a1vWrVzdvWLu2bd2qVTW5ubnKQGlRPj4+ISDNBsTsQMwC0sOw9Fb+/003e/+vvNT0b/217r+bHjX97zzglwSUYm1ur3c4c/Lk/0vnz/+/dOHCv4tA+tjBg/92LVtmAtJ7++JFo0f37y96eOfOzF+/fs18+PBhF8OB+3N/P33+6P/hU7v+Xb996e/d9yf+tx30CQdpmDixx/DEqdP/T5+/8P/ug4f/7j96/P/UqdN/5vf1WYPk79+8mfAfCN69ffsHRD948OA/w6QToU6TjoZ6d+yMCOnZG+o35XiY1+wroSCvMOyfP5/j+PL5DsdWzHXZMHOy35ZZE/03Tun1WLVqCg9I/vr161afPn8+/vHt24NfPn8+fP/Bg40MMGAfmsUTGhrKDOUygsn9/zkYVvy3Y9j834Ft5m0/hvYLwQxNp/wYui9ww/TVMzAwWTAwcML1rFoFMcQ1MFDM2NZYsn5+PYdPWj0XJICfGRsf+/ff7+inf3Hnfv4LOPH1v8n+r/+k5t22+s/AwOFjbCxnrqMjbmxszAo2vL6eCe5CY+M0Vnv7UB4fnzQu+9B6HqAGJoaeU4Ze+17+ST/46H/y0Zd/M488+++x99V3hkWP9cGaeKWEgSQ/KAJhBgEAmnf8gDc8bosAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -628,7 +761,7 @@ useThisMethodsObj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&
 &lt;p&gt;​&lt;/p&gt;
 &lt;p&gt;내가 생각하기에 기본적으로 this는 전역 객체를 바인딩 하기 때문에 화살표 함수를 사용해서 상위 스코프를 참조하는 방식으로 예측 가능한 코드를 짜는 것이 좋아 보인다.&lt;/p&gt;
 &lt;p&gt;다만 그 과정에서 주의해야 하는 부분도 있기 때문에 그 부분에 대해서도 다시 되짚어보기를 바란다.&lt;/p&gt;
-&lt;p&gt;​&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react의 상태(State)에 대해]]></title><link>https://yeaseul7.github.io/neekoblog/reactState/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/reactState/</guid><pubDate>Wed, 02 Oct 2024 12:40:56 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[Next.js의 app-router]]></title><link>https://yeaseul7.github.io/neekoblog/next-app-router/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/next-app-router/</guid><pubDate>Wed, 02 Oct 2024 12:40:56 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[호이스팅]]></title><description><![CDATA[…]]></description><link>https://yeaseul7.github.io/neekoblog/hoisting/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/hoisting/</guid><pubDate>Thu, 26 Sep 2024 12:40:56 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;들어가면서.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react의 상태(State)에 대해]]></title><link>https://yeaseul7.github.io/neekoblog/reactState/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/reactState/</guid><pubDate>Wed, 02 Oct 2024 12:40:56 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[호이스팅]]></title><description><![CDATA[…]]></description><link>https://yeaseul7.github.io/neekoblog/hoisting/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/hoisting/</guid><pubDate>Thu, 26 Sep 2024 12:40:56 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;들어가면서.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;자바스크립트 코어를 공부하면서 호이스팅과 실행 컨텍스트에 대해서 공부했다.
 호이스팅은 너무 유명한 개념에다가 거의 기본 개념 같은 거지만 코어에서 빠지지 않고 나오는 것 같다.
 그래서 과거에 정리했던 것보다 더 자세히 정리하고자 추가했다.&lt;/p&gt;
@@ -794,7 +927,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTElEQVR42lWQPW7CUBCEfSlEKnIgRA4AgQMgBUGUIigICBTIEmAhIox/sFEaQhrMrw3YAoGh4g6Tt6u4oNjizez7dnal2+0G3/dxPB5xOp0QBAHO5zMOhwPrpG23W67Ij3ojn2q/34NYEj1msxlc18Vut8N8PmfT8zz+aBgGYrEYEokENE1jjXwaQL3RMGJQECkMQywWCxapcbVaMVgdDqGqKhRFwUM8jkcBbLfbrOm6zv3L5ZL/REEul8s9MAh8kdTDer1BJp1GMplEpVLBcyaDXC6H93IZT6kUstksD6ataO07IMV0HIeBo9EIzWYTtmUJ0Ade8nl89ft4LRbxViqh1+uhWCigVq3CNE00Gg0YIi1BHbEyhZOu16tItOZjmwL4Wa/jezzGYDCA3GrhdzpFt9uF0ungZzKBLMvQxTks20a9VoPxf1dKTKw/McOJYY8OT78AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABT0lEQVR42lWQzWrCUBCF81KC3Rj6OBb7AGLwAYQKWgqCqYoiWZg2IDFJE3/oRunK+FdjYhLjz853OL1zwYKL4cKZM9+cucL1ekUYhkiSBKfTCVEU4Xw+43A4cJ003/fh73b//Zv31qfa7/cglnA8HjGfz7HdbvngYrFAEATwPI9DHcdBKpVCJiPCsiyuUX/HFpCXXipiEFigNMvlkotkXK/XHGyaJgzDhKZpeEin8SiKUFWV67Ztc/9qteIztyCXy+UeSCdQss3mF/l8Hk/ZLOp1GVKhgGKxiFqthudcDpIk8cXkpVPvgBTTdV0OHI1G6HQ6mIzHeJdlvJRK0HUdr5UK3qpV9Pt9VMpltBoNDJm33W7DYWkJ6rKTKZxAVIpOojMcotVs4HsygT4YQOl28TObsVM/8NlTMZtOoSgKvkwDY7a0ycA2+9c4jjmDEv4BfXmJToVA1SUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -835,7 +968,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.199999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAACUElEQVR42j2SbU+SURjH+RptbZrz4eZBBAFFMFEbs9V0veojtFm+ylfNyrH1pi+gnwB1bqZWwyAWDm01ZunU0mlqaSKEoIg8CPfNr8Ot82z/XTvXuc7/XOd3jmZ4yEOPu5e7fQ/p7ukT6sV97wE2ZzfTM+8olYrk8wXC4TCjo6NMTEwwNjZ2La/Xy/j4OCMjIwQCATSeZ4/otEm43U6cHWZsrRIORyM6/Q1mZqeojPPzc0KhkGrg9/tV+Xw+NQaDQVWTk5PMz8+jeeV5jFlrwmrvwGBuoUHfhM5oRdJX4w/MqoaKohCPxygU8iSTx6LjPJnMmXrQWTotcklyuZzIZdA8H+qntkaP2dSG0dSO1mCmVtdMTX0Vcx8uDctlhehRjN29fX5ubPFnP8ra+ibLy2tEIt/58nWJjc1tYvEEmpceYWiwYrK5kESUDM3U6S3USdV8DFxeWZZLlJUCSulExLMKBOKxbfZ2Vkj8+8Xx8R5lOY0iZ9EMD/dTJdkwWl3oGu1IjTbRoZV6bTWfgl6xuYBcTCOnXiMfthJd7eL30m12Ik7+rrg4WO4ktn6H4kELcvJFxfAJks6CxWZFa6zwaxIsLSrDubnZqw4VlHyEci5MNrVA7vQzuVSI/OkCmeQC2ZNFsbYoar6hGRwcwNJqwO4UclyqvcNEg/YmU9Nvrg2RYwKmwkWhIJhWwOZFLKrzymOpOeUUzcDTIcyOHpyu++LvuWm2d2Ft6+ZWg4m3731XhqJaPhIMj0gmtijkDsXmKBfZHVKJHxzHVynmdkVNlP+omwwsi26aswAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 47.199999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAACTklEQVR42lWS205TQRSG92uYmACGQ3dPtLSFAk2LhINcYLzyEUwIXphwRwikiRe+AG9AISFBICTV1iblEKMSpR5QFCwqcuhOSyvSc/fen9ONMXGSf/5Za2b9s9aakWYmgwwPjnLr9l36h0fpHxplcOQOnp5+llfWqNWqlMtlNjY2mJ2dZWFhgVAoxPz8vMFzc3PGur4XjUaRgpP36PPIDA700ut34u4y4e2xIVuusbK6RH3k83ni8bgRGIlEDITDYYNjsZiBxcVF1tfXkR4Gx3HKQsjrx+rspM3qwNzuwWRtIhJdNQQ1TUNRFKrVKrlcjkqlYlxSLBa5vLz8zydNTY3R0mTB4ejG7vAhW500mzu40drAk6dXgrqucXqmcPjtmE97B/w4OuPD7hd2Eru82k7w4uUb9j4nSSkZpOngGM0WNw5PQGTlFuigxeKixdTIs+hVyapaQ9dKaLWs4Avh+Y2S2ufwa4K0ckAmnURXc2hqAWlmZowG2YPd04fZ5sVk84gM3bTKjcRjIRFcRq1doGYfoZ50cvIuwPfXPpLbPRy/9fMzESC1e5PqkRv1fEoITo9jkl243CI7mx2zvR2rw4XJ3PivZFVV0UvbApvks5sUcs8pZOOUfm1xmanbW1DaQi/vIE1M3Bcva8HbaxOvazXg8ztok6+ztPz4r6AmppRopmZ8IV2vN7YkuEpF2OVy8con2iGNP5ik3TtEt28Ed/cAzs4AHV19NDTbWV0L/xXUDUG9luI8vU+leCqCz6gUkmTTH8ko76kWD8WZU/4AquEMC+fj/88AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -862,7 +995,7 @@ Add 함수 Lexical Environment에 저장된다.&lt;br&gt;
 &lt;p&gt;코드로 이해했으니 실제 실행 컨텍스트와 Lexical Environment가 어떻게 연결되어 있는지 보자.&lt;/p&gt;
 &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/b6d2a17b27f809cc4e55b835a2d3deed/612f7/lexical.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR42lWQS6tGUBhG/XgGTA3kdiITkpFvdsQ/IQlJLoXCxnO+d5fBeWvNVuvZbcF1XSiKAl3XoaoqR9M0GIYBWZbheR7onudB0zQoigJt26Ku63/keY6u6yCkaQrf9xGGIYIgwCf+4DdJkHyJ4xhZlmHfd8zzDNM0IUkSH7MsC7b95ceG4zgQRRFRFEFY1xXDMKDve4zjiPM88d593ziOA9u28ShBDr2QBshljIFdjLvXdUGgWFmWqKqKsywLl0h+Q+/ROIXImaaJj9FXUOwN/gFTyBmCJ53SaAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1UlEQVR42k2QyYqEQBBE/Xc96VUQNwTxoOJJby3ip7Qzgt0oouC+xpAJwgQEUVS9yihKcF0XiqLAMAyoqsrWNA2maUKWZXieB9J936iqCkVR4Pv58Pq/3+836rqGkGUZfN9HGIYIggBJkuCVvpCmKeI4Rp7nWNcVXddxqSRJ0HUdlmWxbduG4zgQRRFRFEEYxxFt26JpGs593/Houi5s24Z5njmXZWGGXkQFtEf8cRw4z5NTIKD4KVD+lijLEsMw8AGB0zTxpUdU3vc9M89A+goqJtPQP1zHGXAwlUUPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;lexical&quot; title=&quot;&quot; src=&quot;/neekoblog/static/b6d2a17b27f809cc4e55b835a2d3deed/0b533/lexical.png&quot; srcset=&quot;/neekoblog/static/b6d2a17b27f809cc4e55b835a2d3deed/fac75/lexical.png 125w,
 /neekoblog/static/b6d2a17b27f809cc4e55b835a2d3deed/63868/lexical.png 250w,
 /neekoblog/static/b6d2a17b27f809cc4e55b835a2d3deed/0b533/lexical.png 500w,
@@ -902,7 +1035,7 @@ OuterLexicalEnvironmentReference는 상위 스코프를 가리키며 상위 코�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQElEQVR42pVSy4rCQBCc7/biPYIIkpj4Ax78Ak8eAhKCpxyDBBU1DwPBvNBorKUalKzswu5A0T0909XVPaPm8zlmsxm61rIsbLdbcD0eDzyfzz9D2baNxWKB5XKJ9XoN13XhOA6yLBNCXvrPUi/mtm0lkOf5e0//crl8Q1EUaJoGZVkKuH/5VVVBTadTjMdjGIYBXdfF1zRNVLJ1nnfB2Gq1Qr/fF4xGIwwGA/R6PQyHQ6jD4SDz2u12At/34XkeoihCHMfYbDY4n8+4Xq9iGSP2+73cPx6PIAf90+kEVde1yKZctsrE+/0uRczJRBSZpvm2RBiGMh7mcrFdzpx7RQI6t9tN5sZDzipJEqlMJbSvTqiIClmUP+ATisxBECBNUwmQkEPng9Ay8RPMYfEfv033ybsHJKdqktJ2QdLfvs0XgwqS9HO1uGAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSUlEQVR42pVSyYrCQBDtD8/Fu4JIgunoBwT0Czx5kBARLx4V3CMqIZq4JW5v5hUIymRgpuDR1P6qqlWj0YDrumg2m/JS146D6XQKyv1+x/P5/DNUp9NBq9VCu91Gv99Hr9dDt9vFbreTggz6jygmPB4PASVJErxscRxjv99/gP4sy3A4HH7geDxC1et1WJYF27ZRrVZhmiaKxSJ834fWGrVa7QPO9zo8z0OhUBBUKhWUSiUYhoFyuQy1WCxkX8RsNsNwOMRgMMB6vRaMRiNst1ucz2d5aePL2MlkguVyKWD+arWCOp1OMgbpctQ0TXG9XiWArB3tQNta2FInWJTCXArHjaJIdJWlGS6XC9Islb3RyN1tNhvpPJ/PP1gEQSA+Xj8Pitccj8cIw1AMZMqlk/XtdstN4nHYPPfbvJ/83cFEFs4DG/32bb4A1rCTHR0Ka64AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -925,7 +1058,7 @@ OuterLexicalEnvironmentReference는 상위 스코프를 가리키며 상위 코�
 &lt;p&gt;차근차근 살펴보자&lt;/p&gt;
 &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/neekoblog/static/04b0b58d888ebda0f5eaa2cdc1a4d920/9bbaf/flow1-1.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 117.60000000000002%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAABYlAAAWJQFJUiTwAAADG0lEQVR42pVUyzPjQRCeP8/iwjFbq6hyWpbEc2OLRDzWNaGKWuXi5pUQlIOTo1dRlAQJkiCqKO9HvL+dr+3wE7tiu+r79UxPd8/Mr78edXx8jEQigZ2dHcTjccQ04n8Qi8VEc/1ZJ17WjY2x1GdnZ1C9vb2w2WwoLi5GZWUlqqurYbfb4XA4UFv7Hd/KylBaWoqqqirRtBN2B33s+FpSIrHMMTExAdXV1YWsrCzk5eWJo6exEa2trXA6naivr4dbz10NDWhpaYGzrg4VFRVo0HOPx6P9fkrC/Px8ZH/KxsjwMNT8/DwCgQDGx8cxOjqKYDCIkZGgaII2f8CPgf5+DA4OCoaGhuD3a9vAgIwZ39fXh3A4DHV+fi7/YHNzE6FQCGtra/Lvtra2RK+vr+Pw8BCUx8dH0ff390ilUkiX29vbp4QMZEIGb29vyw82emNjA0dHR7i7u8PNzY0E7u3tYW5uTsa0MRHBTRR3MztTW/Hw8CCayQgGcc4Ts8LmVGaduZQJzATjRyHVeAOKWTOHUvgPMUH8BZFI5JXNiJqamoLX60VnZyd8Pt8TvD60t7eL3dg4p+7o6EBbWxvqNIU4po3Uo+/i4iJUd/cv5GTnoKioSPjX1NQkHKupqREeulwuHfwDzc3Nwj8Dt9sta/SxfbYhNzdXaKZ6enqE1IWFhUJsEpddUaIJy84haC8vLxdwnZ1UpjuIa9RfCgqE3GNjY1DJZFLoEo1GNTFXhZzhMPloxmHhJ/Xq6ovNCsYyx/7+PhTLnklMJTOJENuQ9T0hv6x8+xeur6+hTk5OpBvYKWw3dsHu7q60I6lBm7X13gMPJwmjkagE861jG4ZWVnTSpIy52cHBwYd4KldO/4ecX1xcvPmHvHambpIT8pPpKibZh65sGj5Twr9VOd0mV07pypimN07pCThPv7L1RXp1ZZJxZmYGy8vL0ot8wRcWFoTES0tLYkt/CHgSNgQZYa2+JCR3+DDSaUVXd3JyEtPT05L09PRUnLhuPTHns7OzQinrRs9FMY8jx5eXl1Llq6urZzs3s77Mxm4eXSt+Aw4/nqcY1SZHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 117.60000000000002%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAABYlAAAWJQFJUiTwAAADGklEQVR42pVU2y/jQRSef29tRWK9kUgkHgRFK4hLtdV1eVQkhCdvYltRJOLNm8Ql4tZ1iboVIURaVF367e87v50a3bjsJF9P58zvfHPmzHdG3dzc4OTkBKenpzg+PsbR0ZFY8z/XTb+5rmNpk8kk1OjoKIqLi1FeXg63242GhgbU1dUJmpqaUFNTg+rqatTX14t1uVw2rHWisrJSYskxOzsLNTQ0hLy8byj8USgf+v1+dHV1obm5GW1tHvj8Pni9XnR2dqKlpUWI29u96OjoQHd3N6qqqlBUVATHdwcik5NQy8vLmJiYwMzMDKanpzE1NYVIJJIFfVwfHx9HKBT6izDC4TBCv+w518fGxhCNRqFub2+t88exvx8Tx87ODg4PD3FwcCCW86urK3BkMhmxz8/PSKVSyB3px0eoZDKBWCxmEe5LsC62xt7eHq6vr/H09IR0Oi2BZ2dnWFpaskks36NFRHATxd30zsjYWWi8vLyIJRnBIM6ZMbPnoE+vk0vpQE7eA9f1NxzMmNnr4+t1cin8x9AnYYYsj+nTQ83Pz6O3txeDg4Po6+tDMBgU9Pf3Z//TbyOIgYEB9PT0iKz4nz7GkmN1dRVqeHgYDocDZWVlor9AICAaa2xshMfjEQ22tLYi8DNg6a89C5/P1ie/oajz8/NFZmpkZAQFBQUoLS1FbW2tdAg7pqKiItsV9DudTjitruG67h63yy22pKREOKhZFY/Hsb29jd3dXWxtbdnY3MRvS5N6vmnNaaOGz/6ONiqx5Li4uIDitX829A1+NsiltFjNm3yNfe0MU2/v4eHhAYrPF7uE3cJ2YxewDAS7hH6z9T4CkxNCBhIUK0lZH75x7AZudnl5+SWdypFza8g5H4zcGpod8R4kQ/6Yab+tpQ1N9qUj64b/CG8ekM+OnLJuhrubmeUS5D4SZrb/HJliXFxcxMbGhvTiysqKWAp1fX0da2trcmFmSZgJ1XB+fv6mPEJI7RDUEUnn5uawsLAgxIlEIvtwmhlzziQoKfPFydZQC5OOu7s7ueX7+/usmM1XWft4RP3omvgDHv+fiZhKwtEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;lexical&quot; title=&quot;&quot; src=&quot;/neekoblog/static/04b0b58d888ebda0f5eaa2cdc1a4d920/0b533/flow1-1.png&quot; srcset=&quot;/neekoblog/static/04b0b58d888ebda0f5eaa2cdc1a4d920/fac75/flow1-1.png 125w,
 /neekoblog/static/04b0b58d888ebda0f5eaa2cdc1a4d920/63868/flow1-1.png 250w,
 /neekoblog/static/04b0b58d888ebda0f5eaa2cdc1a4d920/0b533/flow1-1.png 500w,
@@ -950,7 +1083,7 @@ OuterLexicalEnvironmentReference는 상위 스코프를 가리키며 상위 코�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 39.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWUlEQVR42nVRPYvCQBDN/0wj2JpO1GAMnHidjVX+kGBhE4mYiF/4kZwWbgJiRKO+843sYXMDL29nZjPzdsZQSmG73WK32wl/njebjfDlcsF6vUYQBIiiCGEYChPT6RTRC8ydTicYvV4P5XIZjuOgWq2iXq+jVqsJM2aaJobDITzPg2VZ6HS+0Wq10Gw2Ydu2sOu6KJVK8H0fBjtPJhPM53PMZjPpSIzHYwwGA/T7fYkfj0csl0u5S59q8jzH+Xz+49vtBoMforjf31wUoD2fTzweDzlfr1ccDgesVissFgvhOI6RxAmSnxeSRHyOxsiyDPv9XoL8KU1TKcYkfaXSV0yh2+2i0bDRbn/JMzkOzXxypVLBaDSCoVVoYzEN5ggqZ0MuiM/Wy6Iq+lTMmCyFCrlVPoU/ces0zoUXaBwDG9C0AO3r5vosM2RRdsnSTObFhC6olX4q/w+0XxYlN9dBwtHiAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 39.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXklEQVR42nVSTa/BUBC9/9OmC0uWWqEsJHY2Vn6QxMYGJRQNWh8h+lTrWzjemeTK27xJTs6dmZuZM3OvCsMQvu8jCAJhYrlcCi8WC+HL5YL5fA7HcTAcDgUjYjT6otfrIY5jqHq9jnQ6jVKphFwuh3w+D9M0YVkWbNtGKpVCu91Go9FANptFtVpFuVyWXKFQQLFYFN8wDHQ6HSiqGAwGmEwmGI/HcF1X0O/30Wq10Gw2JRfu9/CmU7nLe1RzPp9xOp2EkyTB/X6Hejwecng+n1+mvd9vvF4vOTO+3W4xm83geZ7warXCer3+gv71eoU6Ho9ymUHy4XCQIrfbDbvdDlEUSaxWq8k6KpWKjKnB0TlyJpNBt9uF0iq0UZkGcwRVbzYbeSw+DpmPSBH0CfocX7E7nenvfig7DH+kMOVzLzQWZAOaFqB93VyfZYcci3thce6LCX4VFtRK/yr/D7QPosM3sxtFpBkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -987,7 +1120,7 @@ let, const와 같이 호이스팅은 되지만 초기화는 안 되는 것들이
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 24.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR42n1Oy2qDABD0k4XgBwQ9ePMVz17UU/oX+QJFDyaRFDSgokGJ78Qpu6XQQ+nCMOzO7OwKpmnCtm1YloXD4cBM/el0gqqq0HUdmqbBMAzuSYvjGLvdDpIkQVEU7Pd7iKIIWZYhnM9nXC4XEKdpyuYgCFAUBfI8x/WaomkaDMOAqqp4Xtc17vc7sixDWZYM8hIL4zji+XximiZQ0eKyLBzsOA5834fruvA8j/l4/MA8z9i2jb1UtE9H+77/DiRhGAe8Xi/G+/3G4/FAGIaIoojDfz5PkoQPku8305F1XSFQ8u3zhrZtWey6jpk++K9I/wtf6BlheKXOeJoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 24.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVR42n1OSYqDUBT0zCK4FkRdJQrq1o248hheQMUEVAQRQcEBQxLHpJr3u9OrpguKol69iTNNE7ZtwzStH/32QRBAVVXouo7T6QzDMKBpGizLwvV6hSAIEEURiqJAkiTwPA9ZlsFlWYY8z0FaFAWSJEEYhmjbFlVVsazrOtzvd1ZrmgZ936Oua5ZTjUielFuWBY/HA6SE5/OJfd9xuVzgOA48z4Prur/0fR/ruuL9frNeAh0bhoHt4eZ5xofHcTC+Xi+M44g4jtnHtJwYRRHSNGUHqeej27axI+Q5GizLEtM0sWW3240pffAfKP+LXwDdYY474XkZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1038,7 +1171,7 @@ let, const와 같이 호이스팅은 되지만 초기화는 안 되는 것들이
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJElEQVR42pVRy2rDMBD0/39PaSj0kFMuLSUFQ+ymsR3jtyw7smJJlipPVbXkkFsXht2dYXcWNsBdGLsi6QXSfkbmcj4I1EzdIPQXCFdIqXC1vR9HoKRCnhdo2g6E9EizHFlNwRcLJg2Y0CAXjoELXJXBYqxfFGcVMjdX141HWVbQ2iAYxxFCCDRNgziOYRzZdQSrNTDLAs4nfMQRTp9HTIxBO04piaIo/EWbzSOGYQBjk4dbeEHdEJRVjTQ9o+2oq1tIKb3Rj2EYhjgcDqCUem6eZyTJGROfHR+h7wd3YevMrwikWhBGGba7EE/bPfbhCXScvLu11kNrDWPMb7+uXisqgtf3Ix6e37B7iXBMSq8Hfzouk0Dbc/wnrHtg1TEIqW9P+QZWe8jZQ/7TtAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJ0lEQVR42pVRy07DMBDM//8PVBw49NQDQhQR1Ia+0pC34zSxUzu26wyuKb0z0sjasXbG3g1wwzRN/jR2wr4RiK+kAkkrUPTKcfSU+gLCFQ5UQmh768UdgZQjkiRFVREQ0uAQfyMuKLiyYNKACY2m42i5wDAaqIv1Rl9xjmOSoSgqzywroLVBcDqdIIRAWZaIogjGiaQmsNZAK4WBMaevsdtuwPrOa+Mokaapf9Fs9oi2bdH3zNMZds6MIHcJ8SFGXVNkeQkppQ+6Bn6EIVarFSilXjufz9jtj+CD8HrTtK6nAueD+/KoEK5jzBefeJq/YxnuQFvm0621nlprGGN+69vA0pzgdbnBw/MbFi8RtvsMF3cf/A20YxI15fgPrFtgWTPIUd+X8gNuDsj3R4PQ3AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1081,7 +1214,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 27.999999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaUlEQVR42l2RS0sCYRSGJxJyIULUtoT8KUG7fkGLSlxEJdFlE9I+ksiKii5YQlSLbtC2oJtYi8SioDsxXaBRvIwa2jTz9M0UdDnwcl7O4j3n4UieA/BFdTqihpCO78jAcwjbzwago30IaZroGmZFE7v0xFrwn7bTH2+zZPruk2bmboNI0gSUL4AUEpoX3uxiNhTXQSuQzeXJZDKoeRWKMH01TtmyROVqOc41CefGl5eWJBr36kXgjIYjcIk9cI198ALH+IsVPHwmLnovkCu8kUqlUHNZsQDCd5NUiyD3VgW1izZqZm3UbVZQJWZNkYbvwJF77GPP2IMyjqmkdW3wXCAXc6QyWVRVJZ1NQ+lvoGvFhitsw/0n8Ddy6Ac5YCKX8jzIj8iyjPwkW8izNxM/yKsCef0fslc8oEs8wvetrmMDbwR2XsAovfGqJFAUhURSQS8aHCf36Yt5GDjrxB9vt2T63lgrobtRPgFJ/Fij4mP9DwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 27.999999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABY0lEQVR42m2P3StDcRzGD5OtdqFwi7I/RW79A268pTQvIYrIpTJFNEJeVsIFUm6lFvN2MSzKSxPHW5y17WymzbHz8TvHMsqvPn2f33PxfL+PVLcLLQc6zv1vDF3ng60nxEujfQo0TUzNMNhXvHQe19IXcNJ70kSPwNAd/hpmg6NIkhssCyDNCeaFNqbwhk7SoCVQ429Eo1FibzFIwdTlOLnLEoWrFgrWJArWv3XOkkSVt0IETmvYXRfYXFfYBs+xjz+ZwcMBcdFHgnjinXA4TCyuigXgCbopFkGOzXxKFy2UTOdRvpFPkfCqfZWZwJEbrGOPWEdl7JMh89qRMx2SccIRFVVViagR80JPcOInsGzFQqknD8efwN+V57KVXadpM/D27h5ZlpEfZPGHmWt3tvLqP5Ub96D9UKctg6ENb/sZ9NQ7L68KiiIIKaSTOkehHbr9DQwEWuk/bTYxdJe/nvngGF9xiFjm+6IfpQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1125,7 +1258,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 81.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEFUlEQVR42m2U+1PUZRTGv39D/pBiTWkpIMOqiLKkUqaUpk05NuWEUkpqXBXWQS4rIOiSgjHguguEl0gtAXMFWbUZFxDYbPIGpDCNwuK4C0hi7cqyVz6937WabDozz5wz5zzv857v5RyJv2xycvIZyNbX14fBYKCrq4vu7m6MRiM9PT2Bmt/v5//OSn8n/m1ul5NJn4cnT8YZHhrC4XAwNjbG4OAgdrv9H97jcRfWR/ZnzkqymM/nY2LChdPlAp8b3XUb33Z247I/5r8Xyly3xyNnuWoZZWPjrzjExTLHL3coBz9fu0ZVdTWVVVXUHj9Ko/km+rpGKsoOoikswma1BsRGRkaob2jgqyM11NTUcKW9nau996g9eQpN0V6MTU1IhrNnyc7MJEu1k2yVClVaGpo8NZrdahI+3cTWvFwcbhejQmxvwR4K1LvJyshgp+AVilhbWkpm2nbWxW+kubMD6VTjOeJ2Z7M2P4f3C3NZK/B2dgarsjKIyclgRbmG3xx20aWN5KICPsjJ5L38Xazbk8uanJ3EqlJZk6UiXJ3OkQ4TUkFLM4pDGqJ1JURr97NEe4B5FcWEiNy0IjUrdLWBx7390IayugSl7gBK7RcsFtwo4UMr9hFcVsjUvCJ+uHMP6bOmNsJ03zFbX88sfQOv6hqYfug003T1PJenR116KiDYZrESXnlaoI6Zh+uYLeovawVPYErZCRaqyuntvouUePSSaPkYH+6oIin5MHGJWlYLrNpeSUpsNpfiigOCTb33ic37hnd2HSU+rZJNor4yVc+KHdW8u7UcbWQK1vZupJsbymkNT6NlfhqmRdsxRaTS8so2WmYlc2HqGnrXb376hZtv0KpIpzUyg8vzUwU3HVNokuAmcnFGAu3Bb2I3m5GGk3MYVCzDFrqY4bBohoKjGJ4+l+EXIhiYEoQlNwH5L7S3/cTAotVYFMuxBit5oFiKdcZChl6M5P7zYdxdGMIffdeRPFs3MLFyDs6P5jK2RYl9fTje2CC8y6YzkjqNoc5N+ORRO9+M641QnKtDsW+I4Pf4KNxvvYR/6VTsK4N4cDwcx+iPYvT6PsdtXsCEORpnh4xFeM2hcHUOtwwzOdaYjDwXPLqMxxyFs13JxBXh25R42xXQEcK4aTYnTyr5xXIDqbUzlePfL0F7JoaDdTF8Wfcah+rmoqufR5J+DuXn8wPv8KHNRENTDLWG16moF3wBff0CjpxRsP9EGFsql3PXegeprDWTfONmNBcTKb2YTvGFJPZc2Ezu+Y/5urWE+xYbN67fxtR7jmyRK2hOYJ9xG8XGFPKaPyHHGIfaEE/fwK2ny8Hv8+L3CsheDL6MSRGL/YRz3En/QD/9ln5GH42KxeDG45nA63Hj83rwet0B+AR/kqfr60+eB7cMXoM0iAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 81.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEGklEQVR42m2Ui0+TZxSH+ydsWbIJLtt003ER8AJaFXVqhjpnFhcSWSSRoBOGiKBFpZWCIMX7kAIWlDFEnYDMFChdjLYCoiZDnVdG4gWc5SKIo6WlV569/baZbdlJfjlf3jzn937v973nyPgrJiYmXssn5I/u7m70ej137tzh3r17GI1GKfvD5/Pxf7Wyvxf+GS6ngwmvm7ExOwP9/dhsNkZGRujt7cVqtb7mXtmdWF5a/1Ur85t5vV6cTicOIbxOSjv7OHP1Li7b7/x3Qz/rcrv9q1zvGWa9vltsaH99Msnw585OKk5UUF5RQU11FY0dt9HVNVJcdJTCfQX0WSyS2eDgIPUN5zn5XSWVlZW0tbdzvesxNWd/YH9BAcbmZmT6CxdQ7tpFVuZOlJmZKNLT0eRko1FnszFxI8ni2eZyMiTM9uXlk5utJmuHgkzB5anVaI8cYWd6BrEJG2i51oHsTGMj69VKvsxVsjZfxdq8PaxQKli1eweLVdv5tEjDsM0qveWWfXuJVe3ki5zdxO5VsUaVSYwijc8FG75nO5VXzchyTAbCtYUsKD3EfO0BFmoPMrO4kGCthsnCPKakWjru/RcW5OWHkZceRK7dT3TJAZEPEHxMQ9DRPAKy87n44DGyTU2thOhqmXb8PB/pGpgqckBJHe8cr+eNHB3KI2clwys9FkLL65hRXs+UsnrB1/Oenyup5c2i00Qqium6+whZctVFPlN+T2zGCZJTy/gqpZRVKWWsSK8gJUbJT/H7JcPGrmcszznNyqwq4reVk5BRTkyajmWibnVSMdqorVja7yK7GX8MU/g2TLPSuDwvncuzt2L6MAnTtFSMk9bQtS5RMhww3MIckYE5cjuXBGual8Hl4C2CTcE4ZRPt05cx2iF+ykBKFr1hS+kLWshA6Hz6P57HQGAEg5Nn8/StQHpVG/HfQmvrDXqiVtMTthzLdDnPwxZh+SCK/ncjefZ2KI+ighj99SYyT3I8zlUhOOIiePW1HFvcDDwxgXg+mcyLtAD6ryXi9beaoQXX0hDGVwdjjZ/F6Ia5uFa8j2/RJGwrA3leHYZt+Ia42PeTGG+bg6NtPvbWBdivzMXdGgxXQ/jl/FSqG1Px9wXDl3C1zWXMLMdhkmMXcprD8V0JwnZxGmdPyXnQewtZW/tWTjVEU1a/mG9rF1N0bgEl5yLQ1c4ktSyY4ia19A2H+kw06JdQ8+MStLWCr4sWzByq6sI5dCqUzbplPLY8RFZkVpBrSEBj3MxhYxqFLUnsbdmAqimOKpOGnqe/cfvmQ8xderKa1pHbnECBYROFhm9QN8ejMsSx58J6Hj7p/HM4+Jvd6/GIpvdIje/PPqEJMZ4cYw6ePH0iaejlEB6vSwyGcdxuFx4xINwelySP4KUhwgR/AO19turlQijRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1160,7 +1293,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 28.799999999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR42p1RQWrDMBDUY3vvKW/psVByyKnQLyQphFxydHwytXGM7chgWYpsydJUkknrgKHQgUG7y7IzuyJwsAv0kFKiaRq0bRs4DAPu8D3GTrT2pwzik1n+AMYYkiRBURTI8xycc/wFMlecDx7H0SlPFa11oFIKxpjQyXuDXSzweRZohZlmuHZySgY8v9ZYvXle8fRSYh8Jt4sE6zgopciyLDhN0xRVVUM4p7LX+LreEJUSvf61QuKLwnrL8HHkeD902Ow7XBrt5EZ3MwUhRFjVv/fY39K7p3WFoqLLK/8H4ST28Qe+ARutz5B7rnDTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 28.799999999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR42p2RzYrCMBSF87Kzd+OzzNKFA65czCvMjwy4cSfOptISim1TaExMmzQ5JhENMqAwB87m3uTc73IJHkgphbZt0XUdOOfQWt96ztu6i51Lf0gojDY1rU0PQkiWZSjLEpRSCCHwTCROcynwqnEcff1SMMZEumEY/EAb+URv8f0rsdpJdNLimkM22YDJrMZ0Htzg5fWAr+3JpyvwowBjDEVRRNI8z1FVNaQnVb3BvpHYHhR6k0jIjmq8fXC8rwWWPwKLzyMoM4HRE2lIKW8OKwcH0kDPmhplxf6u/F+5eBp3F3gGD57PiMjbPs4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1196,7 +1329,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyUlEQVR42n1RVw7CMAzt/U+FECfgA75DKFUF3VltxiODihaqWopiWX7DdoaNcM7Fv2kaEEJwozS+PM9jbQ7rQu8am2EnxnHEMDCwoQdnPdq2hZRyD7ImNF6y5cYrO69sYa1NTpkFeerkyte0NjE/XTnoa/pMtSCcXQ/SoewSidYaSo2BArQyOJMEnKbJu1QRdbwqHC7yn3COuq78nu4QQnxdG4OiKED9Djnnq3pXlygeecw3Rw47C6BlQziQUiqK/NaFUHGnbnGZNxqh1fzdhSuSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAx0lEQVR42n2R6wqDMAyF9/5PNQZ7gcHG/jq1InivvVjbnvWConMYKG3T5ORLesEfs9aGve06JEmCNE3DIoSgbdtN3DH3ghNT0wRKKUY6gI0DOldACHGWshc0xqJnGsaVtta4u4mko8Gn0iu91vF8fzNkldrRBsGFnAqLso8i8zxDOkL/mtYajyQmKqUcpQz+20vi+hRHwUW0aWqQPAPnfKX2NEVRhBkyxnb+vilRkHwlPrTsq/ukbYBvUUoZivz6OZdhpnbzO1866dYWS2FikAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1234,7 +1367,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoUlEQVR42pWRbQ7CIAyGd2dP4TG8gX/1FHoEkwE6MyIIY4zCKyMz0R8S1+Rt0rR90o8GFfNTQNuyrBac8yIiqrWg+ZVIix8GC611kVIKKaV1wHd5oITjyeByDyWOGTSz5JMQ4xrgQpwbN7sbDmcz40BhwvVB2O57CBm+av9a2fm87hjgnIP3vshYB2XGdRN+mrUWjDF0XQchBFh+jpR99YYv+f/Wa4PCLIIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoklEQVR42p2RXw7CIAzGd2dv4TG8ga96Cj2CgWHIHI7wZ4PCJyP64AtxNmmapu0v7dcODQshgnMOxhj6vq9ORK0RdM0qMpyzmKYJWusac87bgJ/2SBnnq8VtiDVPBbSylCGktAX4Jo5lcHeQOF3sigPFgPuTsD8+IFT86v3pZB8y/BzhvceyLNWNddBmLtv+qaGztjyCQ0oJIUR5EIMax6aGLw5g1oX5dNOfAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1272,7 +1405,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAs0lEQVR42pWPiwqDIBiFe//X2JvsLUYUrZojDWoVXv7UMxNqFxYxQYXj+c5/THCwhBAoyxKM3cE5P7IjOTIopdB1PcbhgWma/g30GJUFzW5TnAcoHJI8vH853aJpGzS/H7jAeWMxyAA7C601tLEohMXpPCJlJswkEIVtgT74yP4IXKe0bYs0K1DXtwitbxXjuGRVaEQb2DQcWX6NzG5DYwyUlKGZ+vjKTAbmS4teJeP9HvgE+4/XBR59P+AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAs0lEQVR42pWQCw6CMBBEvf85vIm3MEAQ0IaWBAVst9+xNkEkkRA3abbZmXn9HLBTQghUVQXGGDjne3Yc9gxSSvR9j2F4YBrHf4EBk3QwNiyTuLUeUOatLuV9gCQf9bANjB4UrcUgA4J3ICKQdiiFw/E0ImM6Ug2MicsB92eI/QdwPqXrOmR5iaa5ptCs1TeOc15DkfkE25YjKy4ps3lDrTVU/DMitXqKtTpq61nyKpn6N/AFAOjXDs0gpbgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1308,7 +1441,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAy0lEQVR42o1Qy24CMRDj/7+kX9I7Vw5oUV7qSlSbJWGyZCZukgWEaEG1FCnyeGwnGzyhXE9DzhlKKwzDAGMsrLWde4fNu2EpBSEEzLNHDCd47yEi/zdkLhinDFoEpS4yczUFYio4nqTfV04QSOAjP7znD8NLne9cxkwFwhnLkqqZYHu44OMz1CBGSql6CL4mgfmW1w1bstYayjgopRFjXEMyYz9oWOfuS+M4dq0xBq7y7Wt+GTaSiHoDonMPuPFL5VrbG1YN3fWPDX8AuT/VsRIYh6QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAw0lEQVR42o2Q0QrCMAxF9/9/4o/47qsgbKxdcQ/DjtZ0a9JrW9kQxGEgUG7Scy9pcFAxRiil0LYdhmGoXbSjao6GKSU45zDPFt7NsNZCRP4HMieMjwhaJMOkfs5MPJeEyeV33qnAYkQC67nY/gaueX41ETMlCEcsS4APgku34nR22YgRQsgMwf0h0JP8TsjM0PlevTboewXv/dskMm6tgjFm/zSOY72t1rrq5TRfwCISUU1A9KwGm16Slt7qvUP7/mfCF9U31chBpjRRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1346,7 +1479,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7ElEQVR42n1Ry27CMBDMx/Fn/AdnDv0HbiBOiGMroYYodpRIVRsX128Pa1tAUiRWWtm7Ho93xhUmEWPJEEttjEHTNGjbFpx3lBxa6xk2Rsyiwr+YAkIIEEJAjCPkRWCk1XuPV1FNSb5+HfYfEnVvqBngnM9n0kQ6CxmTevQURulx/NTov11iIFx8EN4kHgiwWDKsNiJfSvKkDjieLdbbC/6MJxt0Juh/At52Cu/czZRVD6kRwzDgVDOcmxbW2vtEp5o87LpcJ8mcMbCU5Gnxl2drngjTJ1iaQGuV/bv3qS6TlVoplTPhbnvnyqRXKtHRdiYsEZ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA70lEQVR42n1Ry27CMBDM1/XL+h3cK/EPvZUDh6rcUCVKgu2oQSBiEmzHj+naSXirI628Xu+OdsYZ7hBCHxHGGBRFAcY4yrKEEAJa65u+sXdE9oxwhPceUkrIukbbSNR0OufwH7Jrkt3RYf59Qr41sUrDPr2dTMC+oZyqPaFH3Tos1hq/B5t6w0CSCP1A+Pmj8fLKMXmXaSjKa7XHV97h7aOBMm6QHIjIYzpTWAp7oyy7SA2oqgqrnKPYMHRdl+rWOqzWDII8xLCh4ByMgpOnjLHkbbTmgTB+gjWatlDJv0tdUejzXSmVIm475tb2m/4BUcfRmv4PSVIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1387,7 +1520,7 @@ ex) UDP/ HTTP&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsElEQVR42o1QCwrDIBTr/U9ZVi1txzb8TDd/mREcLYyyQEDiM8lzwAlijBBCYBxHSCkxz3PTzjCcXZZS4JyDMaZRa42c8/+GD5twN7E96kwpwVrbDNmOIV2/qgjtEqN/G2qfcTMZIcTK0AzYkKtyZRpT412I1VBnPN/l2JCJBBuIaaq8QCn1HWCTZVmwbVs7d6zrillONUgc5of9Q+99a7T/eAZSJ3s4EcK7zlJ/HeY/DbXWTmUbWJQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAs0lEQVR42o1Q2Q6DMAzj//+S0XJ02rRSetADr4kEgoehWbIUOW6ctMENUkoQQqBtW/R9j2EYWLtDc9cspcBaC2MM5nlmkvb3wI/NeJvEj3bmnLEsC5PqbdsO/akTjC+/B86u4GUKYkyVkc9zzvG5UkreljTqkUfpesG6XQdSIoHOEl1X+YDW+jDQJuM4QinF9Y5pmtDLrgaJi785P/Te80bnj6fAEAL39nBCjGv1+qqHi/8LHGHWW1sM4FEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1427,7 +1560,7 @@ OSI가 있는데 TCP가 또 만들어진 이유는 IP 규칙으로만 통신하�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 82.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAADoElEQVR42mWU208bVxCH93/sW/vQpz61fchDqyZV27Rqqqh5qBRFSaQEyqUhlBIIlHBxwsU4hWBsjAFfF3t9t9dee7279vqy2F/PWoBQO6vR7B6t5nxn5ndG8sZqTHtCvNw6ZWLVz1q4TLPdYzgc4lwMuBhcuvi+eh+Kx7J7nOYNIkWLSMHkVLhcsZAOzuusB7O8Pc7jCeXxxWtYnT6uuUlvumtuQtfcTVdPamzETDwxg9VIE1+ygeRLaMztRln4J8HLzTAbJ2Xa/QFVtUwgGEA+TxJPxESUKZVKpJQ09XoNs3vB0lGJ8bUjfl8PMe45xXfeRNqXNVYO0yPKNyJuR1XaPQejqZPJZigUChSKeXq9nsvMJeiIcDlU5sV2lFlvnBmvjE/W3YQ6y36FFX+aeUG6Fbl5ZP5nV2uG3Wcr1mAnaQo32Iwb+NMG0k68xNKBLOgUFt9HRVOyNKw2g+GAvuNcN2JwWcduv48j1jWzJWpWIpgzCeVbHGR0AkoF6XVoir3YDtlKnmAiwOLxJKpZGlG4SZqGgWGao9jQdapajXRK4SwdZjE0QSgZIKkk2Q5vsBadQ5re/5WZ3Ye8Cy+L5jzj+e5dys389RGbRpOmKZI1Gmj1+mgT1/INhbH3d3n9YZL1wCumvb/xKvQIqR6/TTI8wWHQS+xsBS36FR0rRVvUUTd0dEHV6XawLGsUUymZ00gSJblD/ugWuYwXtSaTic2gRn5AcmKfYSfucLD+gGr4PsQ/xmmlaFo2pXIRJZtFrVap1TU0TaNSLqHposbtOPqHj8j671GNPye18yVm+HOk4t8/kdgeJ3Gyy5lvnuLS99i1DK58nQuHVruFLcjc2BHScSkLlSoVJYJ1OMawGmCoxxjk3mEezSJp8z+jrT1m/69nKG/GaP75HZ1ablSnXq/LuTiiS3guyyiKMlpzN7O1IsbWOEnPLJG3C+Q8f9A+WECqLT9A3V9ATZ1RCW1RX7pPS83QEffY7Wyn2xWEXVFTm56QTKtl0Rd96dULlF7cZu/ptxxN/cLew1u0Np+IhPM/cjx1j8LeEifzj1BnvqFfz4skPUGVJJU+FzelgCy7pCrZjELXGdKrZqg9/oTG5BcYs19Tf/opjbk7SK1chH4pMfqhr6aws2E6toVzKeYrH15OG1fwjitw26Ql+2mng7Qzx9ipQ+zcmahhQyedLxAXBNlCkVhSvp4s/502N6fOSKOmhVIoUayoRBKyuAAW/wJJBX+gFNXhfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 82.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAADpElEQVR42mWUWW/bVhCF+Sv7FKCPfWlRtA8BEqRtEBTphqJoi6RBESd2jNjO4nhpY0du4kVO7NiWtdiWtVMbtVIiRVKkJGr5esk6QYEMMRhgwDv3zJkzV9pJqsxuRJnfOmVm/Yj1WI2OPWAymTAcjRmNP/SJ+CxnwGnZIF4xiSsmp8IzdQvpINvmxXGRjWiZjUiZXXGB1XPxzCv6fxcZv6Bn3qVrJyqBhEHgvMPamc5uRkPaTbV4HDzn2ZsU869iBE5q2O6YZrPOcfiYbC5DKpUUMUu1VkUuyGhtFbM/YiVc5f56hOlAlPv/nPE620F6KxCuHckEwkXWQjLbiQb2YIjR0SkWCyiKglJRGLgDv1Uf6AXC1UiNh1vnLOwkmQtmBEIdaT+rs3KY569DmacC6Wbca3l40TIf2Luc4bhsJjS206Zwg1dJg0PZQNpOVVk5yPI8VGDpTUIMpYhm2eLgGHc4ZCw4G48Fdxc89l2Xoci3zC676RrHJZNo2eawoHNcqCMtRx+wl9imVC8TTodYjs7QMKs+Cm+eHcPAME0RO2i6htpSkXN5zuQTliLTRMSZdD7NVizA+vljpNn9H0X/v/EytsKj4J/cDV6n1lHet+gV6pgGmqbRarcZX/RcbueZev0Ny29neBFaZHbnFxYjvyNpyaukYtMchYOcnz2nlbhM38phC+noho6u6/T6fSzL8mNOznAaT5NPb1MOf0mpEKShZikk52jEryO5iU+wE9c4CPxMPfYDk+Ql3K6M0e1Rq1fFpIs0VVWga/kIG/UaLd1mZKfQ3n5E8fB7msl75HY+x4x9hlT9+wap7XukToKcvX5CZfVrHLWAJ9/RaETX7uL0e1i2TW8wECh7VOpN6vk4VmiKiRpi0kkwLr3EjMwjtZ5+S+vFbfaf3CX/fIrOo6/oq2Wfp8Gg7wu7oTbJZjPkC3k/513mtCoYm/dIbywQf7lEaWMW++AZkrryE439JZq5M+qRLdor32E3CvTFHnsTdgRvHnddx/El0+1auGIug7ZC9eEV9u5cI/zgJnu/fkH31R+i4OINorM3UfZXOX16i+bcFVxNwe67PqqcnPM3JZMRSJsNf3v6owkDQYt6+xLazKcYC5dp3/kY7fFVpG75HLeWFj8UcRsyTvGEnmMx9AQtJPLOJ34c+z70BO6YdLNHOPkIPe+MHKJXjgsONZ18SSGZzlJSKiQEksmF1j54bd6/Ov+ZbloUKlUxpAbxVEYsgMW/tACARyxO8l0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1468,7 +1601,7 @@ OSI가 있는데 TCP가 또 만들어진 이유는 IP 규칙으로만 통신하�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 86.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC5klEQVR42nVUiW7aQBD1/39Lq1ZVo0Rp1BwNCRAF5QLZwYYUSDE2vm977deZBVPStCOt7PWO37yZebNKnueoqgqWZUFVVWi0HMeR3/isrmu01jQNiqKQi8+n0yl835c+7FuWJRTXdVHSoRcE8MMQOTmnWSYdoihCmqY7wCRJ5D6jc7nINyAfl0AbOjcmEyghbSAEVrMZ3OUSFBrNlhUz2QfkAMxSsmUfYuSvVvhFTNnGmgbFMwwEP85hHB5A+/IZcfcKFbGVgMRyHzCO410wEYUIOpdYnBzj6dNHpL0utO41lGBtQ9ByJgQ8+4nKtlBTZLbyL4YScMuQfUp7BXeiwzHGQODheTiEwmm06SR5gZhWFCeyRvzN8zws/QqmL96mLBIgfcRycorJ6IjSGUJXbwiQkCFSOOYMWeQQrZgLJDvHAK7rof9SomsUWFKNmWVGQdPYQ+o8Ud3vYc0HQD6Frt1BiS0dgfoN+tVHjDsfkBrnFM1/k3JNpCpRSzBBDWQF8GJbriys12v5rus6MfQsNImJcGUg8+aoY5PSKTaA5T9qWG9SLtISTz0V/bMBeqe3GN5oGPTv3taQo7cCZqsIcGGFePUE5m6FmenLLotaIPQj3PdGGHQeMLp9xnQ0x/3t4x9AjwRumktilEjwmETM9e1rDjp6jbNngb5qIU2oecS6TTnNNkJnM0iC7xgyu5YhCzuKYviJgB9XCEif+6PIlu9pdVPDPcAwpOgkGa4VjxlLxrZsXOklrqjLpmkiZvbb87IosTJXMtAOMAw3m7VjkxxSmsl6x5CHndNLigZxJiTbNgOe/0oQoG3CcTddHutjKC/mFN8HJzjofMVx/wgXD6ck7uhdOm2XuSGydlWKi8czHF4f4Kh7iMvhBXp3XShr38bSe8ViPcers5DvHFnWsPz/6FV1tftvYc+xji0MtSFfXzQp5FOTcGvRyGeRF9uGRLJWrYV0vWXbq4195D+kS0Hps6mqht+zvA/KSnjYRgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 86.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC6ElEQVR42nVUiU7bQBDN//9K1arqAVSgNgICIRQokNCExC6QQHwf8Rnvrl9n1gmEio40sr3Hmzczb9wqyxKiquA4DobDIUbkvu9DCAHeU0phbXVdY7lcauf9P6aJKAyhpERZFHq9FQQBKtoM4xjRYoGCFgvaZLAkSZDn+TNgmqb6m/e109mYzgRRhJr2DcNAK6EPogFnOkVgWQBFq1esOOImIAdglpotn5ECkWPj6e5Or41HI7RC00DcOYC5s4Xbz5+QnhxDLOIGkFiuAesVw3UwSeDxUQezvV30P35AcXqCUbeLVuy6kOQ+Az/cQ9C7opqyVf8w1IArhnxGuDYCcwLPGANxiNtBn1KmSOt00qLUnqSZrhGvhVT0eSRhkb9KWWZA3sfcbMO82aF0bjAZnhIgIUPl8O0pisQnWimf1t1N0wbw551A11xiPreQEctyWaHIImReH8H8kup/BhQmxsMLtFJngvj3Liad9xgfvkNutCla9CplRaSEVDplyRKh2rKzWbYDz/P0+2QyIYahgzqzsLANlOEDVGoRwVUNqzdqqJqUl3mFfm+IXvsc3R9nGJyOcN779bqGHH0tYDZBgDNngVkoMQ0EHqxId1kqiUWU4LI7wHnnCoOzW5iDKS7Prl8AQxK4Zc2JUdY0KKMn1bd366NjKLTHEr2hizxrxM4aZcuLRuh4FvY/DJndmiFfSpIUcS4RpQIxTdPmKLKVG1ptargBuKDRS0kyXKuMGHKHXcfFkVHheNXllM7xHjsHtG1bB3oGXCTNhxe4KMqcJuKFYUXi5ejZsiZ9Ss12nYEQJGxFPxXPhh80XR5Pxmjd23f4frGHrc4XfDvZwf5VG+kyeXOWmbmqm5QLkWP/uo3to6/Y6W7j8OYAvUsaPS9yaQoe8ehP8RQ8Yh4+6cj/lc2KvVSC7j3RvRlm3hR+5uJmNKCfQxDqyVckXEUa4ycLmtNd13Lzb8NNYOYVTUsta61LvsM2Go7wF0RPEDWZIjEvAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1509,7 +1642,7 @@ ESTABLISHED는 연결 확인 상태 이다.&lt;/strong&gt;&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 21.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAwUlEQVR42m2PzZKDMAyD+/7Pt0eGLh1ogQLOD4SQEL4FyqUz65Msy7J167qOqiq53wvEOhpj0X6mfO5cnhGjZ/EOOwtV/aJpWoriF62E/+q2bdsJjNG4ENFhw66Qv4WfsqH1CVkSlUv0ouDSL5NmGlrGoWGSN1tKH8N0AaUUa4wc8rBTo/fU/YDam9cUyMxCJ3IuHp6zFXT9QJ45Q5kRZvf9oTWG3gV6vzLGtMeOKOdZ93n6SM6jh/wwXYP/znr5/AHOTzXT9eGFOgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 21.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAwklEQVR42m2P2XKDMAxF8//f18eUkg7QQEy9BWO8nRrISzvVjGTN6Or46iKEoO87muaGtI7JWoz39ENH21yJ0bN5h10l/X1gHCfaW4tWkv/iUko5GmMMLkR0LNgEzUPx1o08fEaFzOAys9Tw0m+LYZHTkU4JSs4nML8apRQpJXZ5qGVZN+7iG11hXy7wbjaElMfizlytRI+fqOED2V0J9YpfDp/V4VwXZ594xuqqvqpCUx3nU4LW+vhwh6bg/xx7in4A41o1+ZqYJPwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1544,7 +1677,7 @@ ESTABLISHED는 연결 확인 상태 이다.&lt;/strong&gt;&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 34.400000000000006%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABMklEQVR42m1SXXOEIBDz///Atg+np4eoKIgfKBaEdOWuD+0cMxlQstmYNQshgDGGvKjgN4tzWRDNhk1rTEoB54lInGtN04QYYzrjd/+3soUEinuBW15SLZFiSORvY7AOAwLdexL3vEHPWyg6C9FhmcaX8NUsPhsQssuh9x4jEYO1CSAsVMRvOSIJOnJ6SoVHyfHx9Ymac1izvHWZrWZFWZXISwbLOFzTkKsVVsnkMJL4ue+Ac9DU9DgOhBDhjx2aF5i7B6bmjqkt0545Iu5U0A+SnIzwUiYRS3lpIf7EJYREXddo2xaOBPdZwYyC0MPoPj1nZjNgNaMM73hmHxHJhaMM7TwjrCYN6ux7qK6DpyGFM8Dt5v0nXxlWjwpVVb/u30/vei8HTX9DgXGk6YfwEvyLH+BaHJuOgKywAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 34.400000000000006%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABK0lEQVR42m2R63KEIAyFff8HbPvDa73iiiCiuICcRradabebmQwwE5Iv5yTneaJpamR5BbcZ+EUh6A2bEJB8BvyJQDVXSCkRQoh3/JxPkahVoSgKpFkF78OjkPKuNdbbDee6wgkJ13UY2x5czGCMQcn5u8XfxslF6JzDTESnMTGD2aHYgC7NEJSCI1JPWZct3j7e0bQdzKZeUiarXlFWJbKyxlF3sH0fqQznkTDQAL/vgLUQNNQcB6lAEHcD0RVYWA3ZlZB9Fc/EUqGhT+M0wRKFm3hsYkgvQav9louNnOhaDMMAe+zYFw49M9J7jHm9k23TqMmUNCvw0D4gEIUlDc2yEK2Gp7X9OIL3Q6S7TLK7fr3ypeFnXaGqmmd9/8U0CeR5jnkmQ07/0pQvJ6kc4Jk2y0UAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1587,7 +1720,7 @@ ESTABLISHED는 연결 확인 상태 이다.&lt;/strong&gt;&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 60.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHZWyI2AE//xAAaEAACAgMAAAAAAAAAAAAAAAABAgADERIT/9oACAEBAAEFArCYC20Nal+K4n//xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPwGn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAAcBAAAAAAAAAAAAAAAAAAECEBESIUH/2gAIAQEABj8ChB6JNZVa/RGt/8QAGxABAQEAAgMAAAAAAAAAAAAAAREAEFExgeH/2gAIAQEAAT8hhAGyZoiHfAlWDvfUesEIeN//2gAMAwEAAgADAAAAEHMP/8QAFxEBAQEBAAAAAAAAAAAAAAAAAREQMf/aAAgBAwEBPxACLzP/xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QoX//xAAdEAEBAAICAwEAAAAAAAAAAAABEQAhMYFRkaHB/9oACAEBAAE/ELyRqKWR/cHIKgRjb55+YbMP/TBweu8bRArs2iKPTgEEBAz/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 60.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHZWyI2AE//xAAaEAACAgMAAAAAAAAAAAAAAAABAgADERIT/9oACAEBAAEFArCYC20Nal+K4n//xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPwGn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAAcBAAAAAAAAAAAAAAAAAAECEBESIUH/2gAIAQEABj8ChB6JNZVa/RGt/8QAGxABAQEAAgMAAAAAAAAAAAAAAREAEFExgeH/2gAIAQEAAT8hhAGyZoiHfAlWDvfUesEIeN//2gAMAwEAAgADAAAAEHMP/8QAFxEBAQEBAAAAAAAAAAAAAAAAAREQMf/aAAgBAwEBPxACLzP/xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QoX//xAAeEAEBAAIBBQEAAAAAAAAAAAABEQAhMUFRgZGhwf/aAAgBAQABPxC8kailkf3ByCoEY29+fmGzD/0wcHnp5xtECuzaIo9OAQQEDP/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1660,7 +1793,7 @@ HTML,XML,CSS 등 소스 코드를 호출시에 읽고 해석하는 인터프리�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 17.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxElEQVR42n2P2U7DMBBF8/8fxwNSeQFRAd1oYjuxndgeuzmdFB4RVxrNneXO0vGL223Fx8ToF+ZcmWJhComYmvKM8z88LKJ9Gakrf6F7DGuNJQu71y+eXt45m8Th2/N5Grg44dgHPk6Gq2/qLW/7I1YXiBSKCKWUh9Va6dZVL/Meaw37i+X5MDIngZLZbmhVGMPMdYykJTI6h+l7nLNYY3BmoNfYKN/mdG5LanGaJk0OylUwGILGG0oRYggEtU3Q9Jv/cAdanzS6XEj38wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 17.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvElEQVR42n2O2U7DMBRE8/8fxwMSvIAUgRoU6sZ743ipD9ctj4iRRndmvNyZ+MXt1nEhYf3O9ai4mO8+pCb6wPhEFB32ghefa+cvTI/PGukovLydeHqdWXVi+fZ8fl1YTWFRQbRG+caHzPd5QcuCWgp5MOc7a61MvXdCCBijmVfN88lKkwI5MTq0WrDhytlG0h7lnmFTCitTbxtWqMRvMr33TGaEcuick/DyeCBZED8wGsQYhUEWe1pr/IcfZYg00y6nW18AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1695,7 +1828,7 @@ HTML,XML,CSS 등 소스 코드를 호출시에 읽고 해석하는 인터프리�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.39999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACdUlEQVR42m2SC0vcUBCF88/7E4pQaLUPFIugUEXaWii2aHVXXaVFq0VjsnlsXjfvbJ67m+R0cl1aFS98mcydm8O5kxF834eqqvC8ANWkRts0aJoWbXtHQ3n7mPZ/va6bf3RnBeYGCMIYaZpBMxiiJEccJwijhEeepxUnySpE45LXgiCiGKMoK5TVhFNNphBsP8OtYsALQshGAkk1MFRUyEMVijaivRjyKICkmIQF3fTA/AA2c8E8H+MsR1aUnE5cYH4KWfeRZgWGRghJYxAlGTeiiFtJhWanGDkpDCfmOHTeiytiAi8q4foRLC+H7mQIkxKCF6ZQRy4VAqi6DlnRuTtJlsmhBcP24TDG626Qw7Q9mA6JsBAj0+QOi3JCDisUdG2BBSVUM+T9UIwIt6pNzkhM1ehKAfw4h+N6JOoiTlLk9GGal0TB6YTy8g4u6AQFxKHJe9LZVg0XiqJxwaGmk2sLKsUuHxkmGIl3/crnZPfgPRznU7hhifE4haQnJO7h+kaiPtJPGFrUSwWiKOP6WqQpCKkFCbkNYVs2d21S7LBsB0laUA9pDrs/XLVAPiejmUrrGfKmRkozmRFdPqW5mwGoO/gM1g/msMuFJInBmIP8aIB2/wDtjx5xSPTvvd/lONwDet/Qft9FS1PAFwnfX8J0NgNzLOxvHmFzsYdPy8f4vDx4yMqA9k8p/sTBxgCX21/hX10+LTgjQdu2cXZxjq2dj1haXcHz16+w8GaRWJrHRTxfeolnC+/wYmMPazu7+PXnaq73SLB7xHGMi/NzXP2+xOnZGQ57ffT6/Xk8wsnJANs7X7D2YQPrW+t4+34Vx3TuKcG/2wy/XNolWXYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.39999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVR42m2SeU/bQBDF/cn7EVDV/lGglSgSqCoIWlUUqlZUQEko4ZCAUkFix0d8bXzHZxLbr+NNQKjC0i+zk1m/fTsewXVdqIoCx/FQjEvUdYWqqinOqZq84pGvqf5YI8qyeqTZJ7ChB88PEScpFJ0hiFKEYQQ/iHgMKY/iAiERJRRHOQKqeX5AMUSWF8iLMacYTyBYbgpR1uF4ASQ9gqQM0JdVSH0FsjqY/TfwaI/J0UwHQ9eDzYYUXYzISJrlSIhGXGBuDElzyWGGvu5DVBm6ooT7bhc9SYFqjTCwY+h2SESwab8TFBgSTpCRaADLzaDZCfwoh+D4MV2VTqMeKlrjToMkKxAliRya0C0Xls2o7oJ5KQzKDTuAyXwMDGPmMB+TwwIZXVtgXg7F8OGHIWQjgKjY5KwPWVHB6BA3SGEPXX7FcBTzF+M0JzJOk6f5jLlghp5s8Bc0lnC3jRhH1ci1SWi0VjHQTTAST7KM9y3NZ717ICuoh6N0gqGfY0Sni2qEbn+Iu3uR+mig1zeplzK6XQl3dz2o1OOBGdLhPkzTgkUmdIoNhmXTJGTUQ/pijudjDCAj0gaap6QqKZZIaNZSIi5LTJq5ozqHz2A5m8HqYRZLCFEUgTGGtN0BDn6hPmqhPjyex/ma523g+ABo7aP++QM1TQF/SPjpI0wmUzDbwOFWG9uLLeys/Mbu+9NnOMPX1Uscfezg9vN3uLc3zwtOp1Pej/ObK2zv7WBxbRULb5fw8t3yE5awsPwGL16t4PXGAdb39nH593au959g8xPSyFxfXeHP9Q3Ozs5x3Gqj1TohKLZP0Dnt4MvuN3zY2sTmpw2srK/h9OLiWcF/Puy/gh4etYYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1728,7 +1861,7 @@ HTML,XML,CSS 등 소스 코드를 호출시에 읽고 해석하는 인터프리�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 61.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABmUlEQVR42o2SWW7bMBRFvfUuoGvoOvrRvwIF0iIeEmewLVuKJWukPGikROqUkQA3QTOYAEWBeO/yDm/EBavrhjPaCezljo7hojtX6PPf6AOY/tu2S47ZikPVEUYx261H3nRkVftm12hg0L3aL1+tyh/skp9sIslifcfGuWcdCdZBSC41eX1CtRPTV37G8J/c/olOsxrfsJg+EAoHcfCxRIuXrinLLyjlDYBaKeIwJDTb932CIEBKaaTWfcH+8JWV+435U4XnzIiOHo1smYwnzKYTqqp8LVkZQMe2cRwH13WxLIvAACdpSpukNME1TWKhjH+12NM0z7ZoiqIgz3O0VpeGQt+otR7KM8HRMkqeisFh3f0X4AehDAWqsXGTK8a2x+zXFXNnwqa0DEvNH3NXyObtlN+naLxUkqLWVKcTnWpYxim/ty7zdM7Uj/HTO3R7f2b66RyWhUUaf8dJM/xc8GD83KV7TvKAyEuyUqDV4fLBbozssrjGTjLs4w7Rhshacntzy+LxsZ+IyyW/s7Txuaoq6rruQ3sJ+BeYTaKePepH3QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 61.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABnElEQVR42o2S3Y7aMBCFeffe9xX6GL3r5apVKxFYaGEpIYTNf2IC+XUS56tJVu0i7RZG8tiyPMdzzpkJd0Tfj3voJFhPLj39q/tL6l52mPwHZshtu+GUbUirniCMOByeyZuerGrfrJqMP/VXaww15Kr8ghc/YEWSjfmLnbXCDAVmEJJLRV6f6VpD1xW3OvxHd2Sm+D1d8DRfEwibJHUxkxbnaFKWH+iUOwKqriMKQ00nxPd9giBASqmpyuHBMf3I1vnE0q5w9nPCk0MjWwzD4HE+o6qqa8oXQHu/x7ZtHMfBNE18zyMWgjYWNP4UGe/otH51IvRnF1kURVGS5wVKqXtNYSi8FAxqZoKzGRAeRq2U6l+Z198yZXzQyR3P8Vemlsvs4RuLvcGu3NI0ih87h0I2b7v8fotay05S1IrqdKbX500k+H5wWIolMz/CEz9R7epvtzfnsCy2iOgze3HGywWreIt7PJI1KaKoyMoE1aX3dDgCNo2lQadYcYZ1cklaPQW1ZPGoR2i9HibifsrvhNI6X8alqmttTndlyh/+BKLJLAnMkgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1777,7 +1910,7 @@ HTML,XML,CSS 등 소스 코드를 호출시에 읽고 해석하는 인터프리�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 50.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABR0lEQVR42p2Sv0vDQBiG+wc7uvkfKIgOHVyKk4ubi4MoHYRWaRGFSh1SGiHRpmmSXtJrrpfcY/qLFqq19IMXjvs+nnvv7i2xpYwBqXJiqUknhl2qtAXHRBvq7ZT7ZoTt5bM9Y/YAmoW7qQYio/sVo7N83szzVZN1/QI0xVC+sBCJGMvpFbCIxruPSBQoOZvZ2eFydPpcZ6+Kk6ak+iGotQKCroO6OCW9uYZxAY5CTCzmGg4hyzaBSTJCFgPOIOboOaVigT2Y0HFjRMcmvSwjy8cwSjCBP4eGwWyNnmwCoyjC8zxCv0/lTXDYgJolua1982kHYLXJ5WgVgb+uLEThynFwXRfhuTzagoM6PLiFmeKn+2FClpsV6DetA7XWKKVIpSRTKYnKuOoYzltQfelz9+QQj80iNmbfHBYHZQbH1/RCzTI1/wX7BxuCBs7wQ5QoAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 50.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTElEQVR42p2STUvDQBCG+4e9efMXiNCDCOKl4E28eRJEsOChQSwiohalJS1Nqmnz0U26TZrNPq6mUrBaSweGHXZm3vl6K6wQrUGmBUIq0plmHamsgCPLNVYr5bIZ0fWKrz+tNwD8TFK6fP1YYQ9ilCpKp1Kl46f+BqiNoyjKxFAkvDoetjvm9nmEiDOYJui5f60Ov+tkxqjeZ+w1JfUXgfUUENgO2VGV9OzUAEt0FKJjUeo4Mp3ny4BJMkGaAMeP2blJqbWhF8zomJFFp0t6fIg82DWBMdofGtAAHfrGHkE+WwYMo4h3zyMYedQeYrab0GhLzhtv9Lo+tFsUk8li0X+NLITpqt/HdVyE53JtC7YsqA8Mbcylh0FidqsXQP8dJc9zsiwllRJl3iRTnHRg/xGu7jwuLIdkque00Zvy0BQy3Bn4OV6kFh3+Q+wP5VAGuIHTkQsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1818,7 +1951,7 @@ HTML,XML,CSS 등 소스 코드를 호출시에 읽고 해석하는 인터프리�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 83.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAACQklEQVR42pVSTW/TQBDNv+LAP+MM96JeWlVCQpUQAioh9ZBCD6RR+klpiJM4cYLjXXv9sU52vXbirLOJbTZ201IqVfBkWzPzZubNeLeCMZ5Op+EGURTN5/O4QGlsvFhSjDGZI7/ShRBWOOd5nmdZlheQLgDA932EkGmaTgHbtl3Xlb3KzDKZUlq5C6VpKg3Z+Pr6ut/rdTrdq6urlqKcX1w0m01FUaSgTEgLSIMQcl+c36Gwp5buH+yg99v07OguuOEfKd9zaSqd2LXh4Sft4B25uczK4CbnqWLpyXe5DLHXcKxvCQfZJvgPytl6pQk6Gdaeq8fPkPKinOc/imfxRNOr6uDQn3QfJTwsLqeSwXRNZJnI+rj7wX27b+zV8FfBRfGfbzs8pTyPZwFl48gfhG0taJlMZzRI+PwJ5TxOFjab/RyOoIvzh+ALoehgYGMy438Xl7P0x+FWy37V6H8xWXk08jKs1vch0yeScl7W1c8GXTPFJXmgPI6iSx3WVW3gYbFI/lwkFqJP2Plw1LO91XJ5r8xoxPz4l2r6ti/CBKiQeeEYEzBASMdTKufMxHxFTOLq7pIvHAsPuzAOhOf4leEPt7YDjreHas1rH42rr7WzfdvqBPU3oLrV+/7RyfNVv0ZOdq3TPc8zIv2CNHbdm33WPjUqxGPMEgFcMByHHg+goCafBZxCHpiCIrlUFvqcgoQYCZ+J6YQTg0dohYBX0Qaa5UCIRtAC6wcZEAFgSuPWNgxjEzcABNAEwBrZnqW0W78B5qe08dPiof8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 83.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAACLUlEQVR42pVRy27TQBT1Z7Hgz9jCHlAXUBALqBASVcWii/CQSNNSEkKAOE8ndjzjx/gRj19xPLETj5nYJC2pUsGRdXXm3nN95t7hLMuazWbBBmEYxnE8L7BDWMn3faZhkR0hhBwhJM9zSmlegOkAALZta5qmKApCSC/ACCuVylLsui63k2K/b7VagiD0er1ms9nh+Xqj0W63O50O89zbnG9R8Jkq2SdPtDcH+LKyTW7q+5tplrHD3ETw9Hh08hr/aNAyudHc6pyv+TINbOMcqZ9JDOgm+Q/ONGPR0c/G1bu9j3c0/l55n/9ojuaOIFX641Pb6d0Q/N1c7oP+KVCa0qHVe2u+PALPzqwPKUlZdTv0bc7xPPJc3wntUdAderziT3zXS0i835ndkyR6EP0SATSs6+thIEnKS3CEbBzF+c47l8LhNHjY1h9cCBXFK58my7JVtp5fclgJ3a/1303weiXZDWcnDL9JsNYfjU0rTRbXB5mnqYD9uigPdHO1TK+cAzcMprE0UG00XYQLMIC+GTo2hmNdn9iRt6A5TeMVVl1DMpckMTRL7MPYX5rI5sSWUX0KPh2I/arZfe9UHo++vkJq1zt/ASqPBt+PUZ6vhlVcO9Qun1uWHIp1fHFo/DwKul9kzjF9T0kxSDwz8g3CCIbxzCMOiF2YYJUNRQOLYHnhTAiJ0nBKGAnUlQZMbjQWNKQomqyoUFGBoq0/qBSx4EAGV3m41kBVRqbGd/jfvRu1ZxtQeRIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2030,7 +2163,7 @@ WAN과 LAN이 존재하는데 Wide…]]></description><link>https://yeaseul7.git
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHsS0SQccK//8QAGxAAAgMAAwAAAAAAAAAAAAAAAQIAERIDEyL/2gAIAQEAAQUC7Bacmyr3M+kEUED/xAAXEQADAQAAAAAAAAAAAAAAAAABEBES/9oACAEDAQE/ATqr/8QAFREBAQAAAAAAAAAAAAAAAAAAECH/2gAIAQIBAT8Bh//EABsQAAMAAgMAAAAAAAAAAAAAAAABESExAhJB/9oACAEBAAY/AnnQ1TZfBzj1Mun/xAAaEAEBAQEBAQEAAAAAAAAAAAABEQAhMUFR/9oACAEBAAE/IfKEPSd3dw3lMAeWM8y1pKJJjsq+Okb/ANm//9oADAMBAAIAAwAAABAT3//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QSEeCP//EABcRAQEBAQAAAAAAAAAAAAAAAAEAETH/2gAIAQIBAT8QHDvZv//EABwQAQADAAIDAAAAAAAAAAAAAAEAESExYUGBwf/aAAgBAQABPxBr9UdWenio+jrCVW+yb9ESI4lSGFXads8pADT9g5odE//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHsS0SQccK//8QAGxABAAICAwAAAAAAAAAAAAAAAQACAxIREyL/2gAIAQEAAQUC7DmmTdrcZr6oSoh//8QAFxEAAwEAAAAAAAAAAAAAAAAAARAREv/aAAgBAwEBPwE6q//EABURAQEAAAAAAAAAAAAAAAAAABAh/9oACAECAQE/AYf/xAAbEAADAAIDAAAAAAAAAAAAAAAAAREhMQISQf/aAAgBAQAGPwJ50NU2Xwc49TLp/8QAGhABAQEBAQEBAAAAAAAAAAAAAREAITFBUf/aAAgBAQABPyHyhD0nd3cN5TAeWM8y1pKJJjsq+Okb/wBm/9oADAMBAAIAAwAAABAQ3//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QSEeCP//EABcRAQEBAQAAAAAAAAAAAAAAAAEAETH/2gAIAQIBAT8QHDvZv//EABwQAQACAgMBAAAAAAAAAAAAAAEAESFhMUGBwf/aAAgBAQABPxBr8qOrOnio+R1gld+kd5iJGcSpDCrtNs7SAGn7BzQ0T//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2067,7 +2200,7 @@ WAN은 우리가 보통 사용하는 해외사람들이랑 소통하기 위해 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 73.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAAB6+Tzs3iBv//EABkQAQEBAAMAAAAAAAAAAAAAAAIBAAMTIf/aAAgBAQABBQJ8km7NFMzZgkkR5//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/Aaf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQIBAT8BjH//xAAYEAEBAQEBAAAAAAAAAAAAAAABACEQEf/aAAgBAQAGPwLqm3iW3//EABoQAAMAAwEAAAAAAAAAAAAAAAABESExQVH/2gAIAQEAAT8hkIlbQ0vCKNMEoGukYbJ//9oADAMBAAIAAwAAABAQP//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QbWGn/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAECAQE/EAJpJP/EABwQAQADAAIDAAAAAAAAAAAAAAEAESExUYGhwf/aAAgBAQABPxBGgS+VfkU4G0WJBatoIcuyqgbWcIV72U/gJ//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 73.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAAB6+Tzs3iBv//EABkQAQEBAAMAAAAAAAAAAAAAAAIBAAMTIf/aAAgBAQABBQJ8km7NFMzZgkqR5//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/Aaf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQIBAT8BjH//xAAYEAEBAQEBAAAAAAAAAAAAAAABACEQEf/aAAgBAQAGPwLqm3iW3//EABsQAAMAAgMAAAAAAAAAAAAAAAABESExQVFx/9oACAEBAAE/IZCJW14NLoijTBKhrkjkyf/aAAwDAQACAAMAAAAQED//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EG1hp//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAgEBPxACaST/xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhMVGBwdH/2gAIAQEAAT8QRQEvavkU4BvYSC1bQQ9ctVA+WcEK+ynOhP/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2102,7 +2235,7 @@ WAN은 우리가 보통 사용하는 해외사람들이랑 소통하기 위해 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 71.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACcklEQVR42n1TTW8SURTtD3PnShNX3evOjS5rYjT+AjGmLkx00dgYtVWiTbENtEA/hCkI1FootIUBBmYGmBm+OxSYj+N7r3RakPQkL3lz731n7jnvvhkQ2FMWxfl5D2d6l+3b7QZMy8RN9RQz0wos22LJv4cxxOMhtvf53Gi2mmxv2fbNhLTAtCwYponuWddJ6noHqayAo3wdqUx2Otnoe4xwMBxC1RRGls6kMDCoNBPJ0wruv/Dj3mM3trg0O0B/TBdFTamA44LOt0PY7jQRCKxBkooIBlbR6/VQLBaRFyQsrWzDG4hCUVWIkoT+YOAclmURBwexsS4ZYatdB8+nEU9m4Q1nEU6csguh8ig0TcWQqBgaBqq1CgpSA9GMht+HAkRRQCjsd2pnaLsezzIS+wk8nd/F3UcrePf5F2pVEVJFAXdUxyfvKdwbGaKkA0muYM4VwB1S9+ZDEGXhBHwheyWZ8vI8jxyfgy/AIRT5g3K5zJKerWPcfvgNtx4s4bnrJ/SzDjpdHf6dKPZiSchSGWvrPzC4ZgOTrBBzl78uklm7GIsC8a9/rqNQqsC9uoP1zQhKJYHlVFVhHtM77vd7xFsZxmg+HcJmq0VI8sR0AYkERw7VoTU7EInkqxHSmX9yTUW3N8T2jh+53MnYKDmS7ZGhqlpFMhnHy8UYZue8eLWwTS5EgShX0WhoePslgtknPjx7vYl8PkPktx3CsQ7N0csoi0XshoL4+J3D/MIGSpLG4oZ5kd8MH8P13ovI/jH29raQL+SmE14Gmq06kV0kLRMCy/jv3dK4bQ9ZXBQLZNwaF4SYIJwE5b9ck3HLHu9oEv8AuwoTy8i/eoYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 71.2%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACb0lEQVR42n1TXW/SYBTeH/POq1144w/QG6/cpV6YJf4BnSYzMTEmGpLFuU0XlKlsg40NiyBluoEMBpTP0q4t0JbB+Gj7+Pblsxt6kpOePu95nz7no3MgZs1w29qXLVxcNGGSWNXqMEwD/8u3bc6RYFnUTWuQcnwSBct+p/H29kc01AaN7XOLPiexg9AG+0afuIEmUTSyVquJRKaIRE5BIpV1kDlETFFSwm6vB0mWoDd1JP7EyXufZBpInAm489iHWwsfEPiRpBcM00SfuE0hngtgGD8RYjoJG2odPv8XVPgC/L7PaLfbKBQK4Io81j4dwOuPQJJkcs6j0+2OL1eFCn4fs0OVU4SqXkMul0T0JAMvkwXDnuGy3YJpDtIURUaPVNHrGxBFARxfRzip4OdJEeVKAUHGN+77nEnkezxriB3F8Gg5iPkFN169C+JcrIAXJDAJBSveDDZ2TqHpOlEl4sFTP+bvu/HCtYdSKQ0un5kotIMcxxHPYmcvhFDkF8rlMj307J/i5r0N3Lj7HotLW2SFNGjNC+wdRhBh4xCqFXz95kZ3qg20ZEkSsL7ugqapFOTyBVpyviRgc+sQXl+YfKSEQa5Ee2zPuNO5hKQIZEjG1aGoZAh5OhQ2xkBWapAbOipVaWqFWnSq1XMZequH/cAustm0Y5XGJVvDhsqKiHicxRNXFLcfevHszQFqigS+KqJRV/ByNUzwbSw+3wXHpciaaWNCh0LDGuzRYGL7WNkMYfntLsrVGsVHe+ZjUlh67UXkKI1wOEBak51NOAIaag08X7QRIruPa2ZNcLs9qjb8Fa/+KdfuWROfjVv4l/0Fc/sT4RtQDMwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2146,7 +2279,7 @@ IP에도 체계가 있으니 한번 참고해보는 것도 좋을 것 같다.&lt
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 37.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVR42mVQbU+CUBTmX7e1PvSlrVZz9alWmx9sNWdvlqiJ8qYgaKCkAr7ALFeGEKRMlOZbF9hsq2d35+zec57zPPdAqz9YegBRNXVef+f0t64x8J794ng8Ho1GDsBkAtqg1T8EfYzSuhJKUZ4pyo1gJoifpvmhaZaP+XwO/VKWC5A0uarm4VcqVa6V8J6aVaRGr7smjx3Htu2RbU+nU3CFfKVlYBiEVoVlkzEufZOhsaRciwtlvtP0i4vA9nA4BM7BlDV5JbXTGL1HlkPP1GUTg5u520KFzvaUtCIKL+r6L7phAOemZU1d1yMHI59FEi1GcPaigMZ4LMWjiVyRyEg1uPpUaXvK88UCOAd78o7jzGYzj3x8sHF2tH0X38GZfYTeLSGndThaT0SyDHrfER9U+fw6HD7cOglt4ljKtL76/b5hGANd1zQNIog0lc+xHMKLCNfI1AVS5hiZo3lJYNQWq7YpjqbyCEk8tjoyEASr+vbhuu4P9Oumba0QsN8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 37.6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABcUlEQVR42mVQ3U+CcBTlz25rPfTSVqv18dJardZyK2uuzFQURVRAnPz8RkTFsi9IBRUBaZL2E5u2Og93u/eec+/ZQaZ/MIH4grWpdrKdN9B+fep+zMbOUjeMgaYZhmGaJuQh03+Y81IN4SaXvgI0zZfnN2HtKooky6oD27aR3z9hkficmPC1yEC6mI49i+EGV249LsTwszYcappmjkawRZbvnLWQZZjANYt6wjQeqJbuChlQFxbioa73+v3+YKDr+lw8m1bqKE5txTN7BepSwB+E6C2ZoyMvIipWCq2mc3xGa7fb0LmiqiPLWorzXDxKnuOMKxl1g6gfRO4xKoZyRV8uA2rVnxwnU9MBjGs8Hs/EhzsrJwfrt94NgtnG6M00dlzyu8u+C4zBvQ3OJ/Iuz9np/trR7moMDypq712SOt0OtCDLMkIQwWQiwrAhwGFsOVTKx3nA8CwFuDwMPCXWSJYiE2GCQIU6b49taPjTgWVZ3yerprBNDynjAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2377,7 +2510,7 @@ SEO가 필요하지 않은데 당시 Next.js를 도입한 명확한 이유가 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAACiklEQVR42nWQiU5TURRF+wMORJQpINBowFaQUUSIRjBMUhEUCgKxUCkq0EJVkJYWZChEiIoxSowQE3/JCZUgQzBEDZUO8Dos7yugcdrJyn4vuWfffa5iT2QiYVFKQQKJyZmosrNQpqsIjzlMjDKVqAQ10YlHOXBQRZTwiHg14bFHiFamsD82md0RSnZFiIzoRPaKDEWBposzGjMVdT1odVZqm23UX7VTrrVwKMdIZMp14jLbiEm7QViSgX2qa8TlmDic10p8RgvhqlYScjtILWgno6gdRWVDP+e0do4XW7jQOIihcxyDaZzLV0fR1I9SWD1GVskQh/KslNY/JKt0hMj0LhHQSU5JLykFFhHewz61mYhjZhQ1TQNomwc5U2Enu9jKpSvDNLWN0WgYwWx5gs3xErPtBWX1E+i7nnO6apRwtZGTZVaKqvspqB4gt6yP5Pwe4rNuotDq+mgw9NPSMUK1bpCGVge1egdFF22U19rFZUNUieYlYjD9bC9J+bfJEF7ZMExJzV3yNX2cEqQV3kF5QjS8ZZvipu0pIxMzDN2bwe6Yxmydotk4id70mE7LM/odM3QPTKMzPqXu2iMqm+5T0zJJW/cU7QK96QnndQ+o1E+i8PkD+GUCWx6QPRBEknysu9w4v7v4vu5m3e0JudvjxefzI/kCIQ9uz0mSP+QK/lAwGAy5Rwy+fveBV4K37+eY/TjPm9k5FpZXRJCP/0khz29n/JTXs4HTJW2FC4Lb/LpU3uT3oUDoDH833Gn3aX6JlaVllhcWWF5cDH271taQvGJlgV+09Hg8OJ1OvOJflrS5+e9A76afNdcGG+KAJN5JbiO/rcyO5LVXV1dDfPv2Fbd3k89fnPwA3WR3FjsPp1MAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAACeklEQVR42nWQC0vTYRTG9wGiEpN5weFcSjYzcy6GiV2W6TAvmZdpXhfTpTYvM/MyNy8zHWQxCJNAIegzSWVJpkNSMjX9b25uv16HQokdeDjnvJznec95ZOdik4mKUxEVr0SVlo36uhZVlprohFQSVJnIlenECcQo1CJfQZ6UzoXEy8SrMohJTOOsXMUZudCIT+Z8nBKZvtTGnRIbZbX9GJvt1Dx2UG8eodg4RIquk9iMNhTZHSRc6yAqzUK0+gkKXRepuRaSNC2RXplj5areSnaBFVl5/Sj3a0bQFQ7yoGEcS/c0lq5pHrW4KambQl/pRlPoIuWGHUOdB23RJLGaHiHQg84wSMZduxAfIDrdhjzThqy6eRSjaZzbZQ60BXYqmiZobndT3zqBzT6Lc+oDvc73FNVNY+6Z59ZDt9jKSk6RnYIqJ/qqUVEPcym3H4W2F5nR5KChdZQW6yTVQrjeMkWteZLCSgfFtU5hgYuKRheG6jE094ZIy3uOJn+Q8oYJDMYx8krs3CwdJit/gIs5QrDX/pYeAdfLecbc8wxPzNE9NEvzUw+mzjd0Dr7D8WKePuccjdYZjK0eyppeUWn20NY3S/uzWTE3Q3Hja0pNHmThMBziZByEQuxJEr93JXb3JCSfL9L79/fFfJiQ4IT+IorxSMhOCoWPhvYkHwufv7Dw6SsfF5dYXFqO5BXvGsFgkP+F7LRHn+RnZy9wJH50QvjfT8Mnzjp+O1VQEtstf1thbXUV7/cVvCuHtZfdrS0C4vSgQEhs6RN5e3tbZH+EFxB2nL7h/gFbu/6IXwFBDAmDDnFwbJSIw7M31tdZ39hg89cmkj/Ij587/AFcXHeGK+2m9QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2412,7 +2545,7 @@ SEO가 필요하지 않은데 당시 Next.js를 도입한 명확한 이유가 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 84.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAAC1klEQVR42qVU204TURSdf/DBZ8SEKDGWS4Em+AN+A6DCA1BA+BL/wVc+Ah4kMaZvFoPW3mampS3Tud/OXJf7nClNicbEOMnK3uecPXvtWXufkdIMsMIcNgNYgv9+pDjN0dUYVJ3hzgoRxxFYFCMMGRiLEJFf2EjYPM8LZA+RUWV8X0qzDMPRCIqqoiPLUPu3hAEarTa6ag9dpQe5dyv25V4fASWN0xQ5VTOLbEIkxZ4LZzSAZ1twTFPANgyYY11YS9dhTXx+xtfcphF7CBYiJyLJv9MwkgewzACp7yHzfQHuF5j1J/A8JK47Aw+xZSEiIsnWDDT6NpoDDxYdun4Ay3Hhh+E/NYNXF1FSKaZPzdNYbGakpwAXmIQmYfD5yxUum+f4JJ+jodeKl0krcBSLwiRJkdAba7DJMW0HIWO/MafEnOUpnZvoD4foD0ZiCuI4Fp1/UKHNE2oaVOqkQp11uRYUeF/pdEToBdNyRPeHpHlEMQmviGwRQ8T3FfrUtXZbRo+YDdOCrhvTZNymSSpeNijhYKTBDwJaU9VZPpGJ4vIMCVUbWWaRUKEKO4RmRyHWFNfX17i4uJzqyh/DstHqqDSXffxsd5GQOjfmFb6OLwppkrj4ZEatjmiGEtKAkYZcM9dxYBDRbKNifmPE7WHiFmVJDi+i2WS6mOyE9nkukdCkW2AOhohdBwgDutRET/og9Iv1PYh46gc+8oARIhGfB1QUFSI1Gg1s7bzB23e72N8/wPHJCapHRzg4PBRWoFrFEdlDbo+P8f70FKeEs7MzYat7W9jf24amjSHVajUsLj7Hq81NlFdXUS6Xsby8jFKphLW1NeEvLS1hZWUFq3S+sLCAJ3NzmJ+fF3hKeFzZwaMXr/Hz+zdI9XpdJNnY2BBYX18XtlKp/BE8lpNxEo5S6SWe7X5EafsDWj8oIR8Jlf40Mv1pOBRFEfjbmsfPotesQ23diIvxC7G3rx/Exhv9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 84.8%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAAC3ElEQVR42qVUy27TQBT1P7Bg3RZlUZGq7wqpf8AfUCgFJNI0VcKH8A+s4SeyoBKi3QVF0ISQxEnqpI7jcez4MR77cGfyIBErRKSjcz1zc+b63DvWRAI4ATAOgVDgv38aFylaZoiOFeKeBeA8QhhxBEGIMIwQUbzMaZoSMOM/SJJEsSYo6A8G6HS7aLbb6PQMwh3qjV9od7po6V3o3Tu1pnd78EmUCwHSXEEyE9Yiz4UzMOA5DGPbVnBGI9jDoWJmWWBDS8VyTz5LFlGIZBlhgJQO0ib3JgZtA7btQ3gekonEBIJYzOJlqHXKi113CR44Y4iYDc0xR6j1HNQND4w23YkPNnYxCYJ/aoasLiJRjdOrpoKrRWnsHNIPMgZfvl6h/PMjPrc/oWZdT/887cpMacppHE8FvaEJhwLbGVMXw79OFolsQEL7DL1+Hz1joKaAc06dj1YrdKSgaaIjO0nddaUXPF6pMp1VYLMxdbpPE2GSUIw4JgESnY+RmFfoU9eaTR1dOtlmDqyRvRCTLOjkmJKloEFivu8jprUkSWc2UV6aIKZqVVMmJKh3emreGiQc0cnVahXlcnnhq/yN6LBGq0N5PfxsthCTO9/ZFb5Z0zwR8+krRzRTnLyTAy49SeguejQWNs2d8kZWS5CeqRtDkEzWYsJtuNFITbaQFZKWFlKZzDDA+gPENOSIaFyk2fSaCH1CMAOVFIVTls8B7QV0FQOu8lO6qvHYgXZbq+HkxSlenr3C21wOhctL5C8ukDs/V3xBWHA+j0KhgGKxiGKphNK7EnER+TcnyL1+DtMcQru5ucbm5iaOj4+xv7+vsLOzg+3tbRwcHCzivb09hUwmg7W1Nayvrys82tjAwyeneJB9ivqPKrRKpYLd3V0cHh4qSBGJo6MjheVYQuZubW0tkM0+RubsA7LP3qNxS4LSbF3XaXSaaLVaK5ivSV7el/lztOkLpdcqaNer6pP3G2cEroGsoOxRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2464,30 +2597,4 @@ Mintalk라는 프로젝트에 참여하였으며 해당 프로젝트는 의사�
 &lt;li&gt;사람들과 협업하면서 &lt;strong&gt;같이 고민&lt;/strong&gt;하는 방법을 배웠습니다.
 혼자 문제를 해결하려 노력하기보다 팀원들과 소통을 통해 어려움을 해결하고 잊지 않으려 노력하는 것이 효율이 더 좋을 수 있다는 것을 꺠달았습니다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;작성 일자 : 2024.06.25&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Fe 면접 회고]]></title><description><![CDATA[Fe 면접 회고 처음으로 면접을 보게 되었을 때 정말 꿈만 같았다.
-'나도 서류를 보고 면접을 보긴하는구나' 생각했다.
-그래서 javascript와 웹에 대해서 더 공부하고 갔던 기억이 있다. 면접 종류 1️⃣ 프로젝트 질문
-2️⃣ 기술 질문…]]></description><link>https://yeaseul7.github.io/neekoblog/interview2/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/interview2/</guid><pubDate>Fri, 30 Jun 2023 12:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;Fe 면접 회고&lt;/h3&gt;
-&lt;p&gt;처음으로 면접을 보게 되었을 때 정말 꿈만 같았다.
-&apos;나도 서류를 보고 면접을 보긴하는구나&apos; 생각했다.
-그래서 javascript와 웹에 대해서 더 공부하고 갔던 기억이 있다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4&gt;면접 종류&lt;/h4&gt;
-&lt;p&gt;1️⃣ 프로젝트 질문
-2️⃣ 기술 질문
-3️⃣ 인성 질문&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4&gt;프로젝트 질문&lt;/h4&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;팀에서 맡은 역할&lt;/em&gt;&lt;/strong&gt; &lt;br /&gt;
-📍 &lt;strong&gt;&lt;em&gt;협업과정에서 어려웠던 점&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-📍 &lt;strong&gt;&lt;em&gt;기술을 채택하는 과정과 이유&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-📍 &lt;strong&gt;&lt;em&gt;API 연동시 문서 사용 여부&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
-📍 &lt;strong&gt;&lt;em&gt;Notion 사용 여부&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h4&gt;기술 질문&lt;/h4&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;React : useCallback useMemo에 대해서&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;React : Virtual DOM에 대해서&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;React : map 사용할 때 key 오류가 생기는 이유&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;자료구조 : Linked List와 Array&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;네트워크 : TCP에 대해&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;📍 &lt;strong&gt;&lt;em&gt;GitFlow에 대해&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;&lt;em&gt;작성 일자 : 2024.06.25&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
