@@ -9,37 +9,11 @@ const BlogPostTemplate = ({
   data: { previous, site, markdownRemark: post },
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
-  const [isMobile, setIsMobile] = React.useState(false)
-
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      // 모바일 기기 감지
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768)
-      }
-
-      handleResize()
-      window.addEventListener("resize", handleResize)
-
-      return () => window.removeEventListener("resize", handleResize)
-    }
-  }, [])
-
-  const handleClick = id => {
-    if (typeof window !== "undefined") {
-      const element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" }) // 부드럽게 스크롤
-      } else {
-        console.log("is not exist id")
-      }
-    }
-  }
 
   return (
     <Layout title={siteTitle}>
       <Helmet>
-        <title>{post.frontmatter.title}</title>
+        <title>{post.title}</title>
       </Helmet>
 
       <PostArticle

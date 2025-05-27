@@ -1,39 +1,32 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import {
-  HeaderMainBox,
-  PostHeaderLink,
-  NavList,
-  TitleBox,
-} from "../styles/postStyle"
+import { HeaderMainBox, NavList, TitleBox } from "../styles/postStyle"
 import Utterances from "./Utterances"
 import { VscAccount } from "react-icons/vsc"
 import { PiMailbox } from "react-icons/pi"
 import { FaGithubAlt } from "react-icons/fa"
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, children, showUtterances = false }) => {
   const data = useStaticQuery(graphql`
     query {
-      backgroundImage: allFile(
-        filter: {
-          name: { eq: "dogbackground" }
-          extension: { regex: "/(jpg|jpeg|png)/" }
-          relativeDirectory: { eq: "background" }
-        }
+      backgroundImage: file(
+        relativePath: { eq: "background/dogbackground.jpg" }
       ) {
-        nodes {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-          }
+        childImageSharp {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
         }
       }
     }
   `)
-  const backgroundImage =
-    data.backgroundImage?.nodes[0]?.childImageSharp?.gatsbyImageData?.images
-      ?.fallback?.src || ""
+
+  const backgroundImage = getImage(data.backgroundImage)
 
   const copyMailConfirm = () => {
     let confirm = window.confirm("메일 주소를 복사하시겠습니까?")
@@ -43,7 +36,20 @@ const Layout = ({ title, children }) => {
   }
 
   const header = (
-    <HeaderMainBox bgimage={backgroundImage}>
+    <HeaderMainBox>
+      <GatsbyImage
+        image={backgroundImage}
+        alt="Background"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+          opacity: 0.3,
+        }}
+      />
       <TitleBox>
         <h2>
           <Link to="/">{title}</Link>
@@ -53,19 +59,19 @@ const Layout = ({ title, children }) => {
             <li>
               <button onClick={copyMailConfirm}>
                 <PiMailbox size={22} />
-                <label>mail.</label>
+                <span>mail.</span>
               </button>
             </li>
             <li>
               <Link to="/about/">
                 <VscAccount size={20} />
-                <label>profile.</label>
+                <span>profile.</span>
               </Link>
             </li>
             <li>
               <a href="https://github.com/yeaseul7">
                 <FaGithubAlt size={20} />
-                <label>github.</label>
+                <span>github.</span>
               </a>
             </li>
           </ul>
@@ -80,7 +86,7 @@ const Layout = ({ title, children }) => {
     <div className="global-wrapper">
       <header className="global-header">{header}</header>
       <main>{children}</main>
-      <Utterances />
+      {showUtterances && <Utterances />}
       <footer>
         © {new Date().getFullYear()}, Built with
         <a href="https://www.gatsbyjs.com">Gatsby</a>

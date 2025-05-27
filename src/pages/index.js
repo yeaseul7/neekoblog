@@ -17,14 +17,15 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
   const [selectedCategory, setSelectedCategory] = React.useState("")
   const [lookLoiie, setLookLoiie] = React.useState(false)
-
-  const filteredPosts = selectedCategory
-    ? posts.filter(post => post.frontmatter.category === selectedCategory)
-    : posts
   const [PostPagerList, setPostPagerList] = React.useState([])
   const [pageNum, setPageNum] = React.useState(0)
 
   React.useEffect(() => {
+    // filteredPosts 계산을 useEffect 내부로 이동
+    const filteredPosts = selectedCategory
+      ? posts.filter(post => post.frontmatter.category === selectedCategory)
+      : posts
+
     if (filteredPosts.length >= 2) {
       const chunkSize = 9
       let chunkedPosts = []
@@ -39,7 +40,7 @@ const BlogIndex = ({ data, location }) => {
     } else {
       setPostPagerList([filteredPosts])
     }
-  }, [selectedCategory])
+  }, [selectedCategory, posts]) // posts와 selectedCategory를 의존성으로 추가
 
   if (posts.length === 0) {
     return (

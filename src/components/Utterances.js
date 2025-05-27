@@ -9,7 +9,11 @@ class Utterances extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof window === "undefined") return
+    // Check if we're in the browser environment
+    if (typeof window === "undefined" || !window.document) {
+      return
+    }
+
     const scriptEl = document.createElement("script")
     scriptEl.onload = () => this.setState({ status: "success" })
     scriptEl.onerror = () => this.setState({ status: "failed" })
@@ -21,8 +25,11 @@ class Utterances extends React.Component {
     scriptEl.setAttribute("crossorigin", "anonymous")
     this.commentsEl.current.appendChild(scriptEl)
 
+    // Only log pathname in browser environment
     setTimeout(() => {
-      console.log("Current pathname:", window.location.pathname)
+      if (typeof window !== "undefined") {
+        console.log("Current pathname:", window.location.pathname)
+      }
     }, 500)
   }
 

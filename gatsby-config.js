@@ -9,6 +9,9 @@
  */
 module.exports = {
   pathPrefix: "/neekoblog",
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     title: `neekoblog`,
     author: {

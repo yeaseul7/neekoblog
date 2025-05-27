@@ -16,12 +16,20 @@ import {
   DogLottieWrapper,
 } from "../styles/profileStyle"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Lottie from "lottie-react"
 import walkingDog from "../lottie/walkingDog.json"
 import { getCareerList } from "../content/profile"
 
 const Profile = () => {
   const data = useStaticQuery(linkListQuery)
+  const [Lottie, setLottie] = React.useState(null)
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("lottie-react").then(module => {
+        setLottie(module.default)
+      })
+    }
+  }, [])
 
   const careerList = getCareerList(data)
   const linkList = [
@@ -53,18 +61,20 @@ const Profile = () => {
         <ProfileHeader>
           <ProfileTitle>NEEKO RESUME</ProfileTitle>
           <DogLottieWrapper>
-            <Lottie
-              animationData={walkingDog}
-              loop={true}
-              style={dogLottieStyle}
-            />
+            {Lottie && (
+              <Lottie
+                animationData={walkingDog}
+                loop={true}
+                style={dogLottieStyle}
+              />
+            )}
           </DogLottieWrapper>
         </ProfileHeader>
         <ProfileLinkList>
           {linkList.map(el => {
             return (
               <li key={el.imgAlt}>
-                <a href="" type="blank" alt="Neeko Dev Blog">
+                <a href="/" type="blank" alt="Neeko Dev Blog">
                   {el.aLabel}
                 </a>
                 <GatsbyImage image={el.src} alt={el.imgAlt} />
@@ -78,7 +88,7 @@ const Profile = () => {
           주도적으로 성장하는 개발자 이예슬입니다.
         </h3>
         <br />
-        ‘프론트와 어울림’ 스터디를 주도하여 JavaScript의 핵심 개념인 Hoisting,
+        '프론트와 어울림' 스터디를 주도하여 JavaScript의 핵심 개념인 Hoisting,
         실행 컨텍스트, 웹 표준, 브라우저 동작 원리 등을 학습했습니다.
         <br />
         각 주제를 팀원들에게 강의하면서, 팀장의 역할로 Notion과 Discord를 활용해
