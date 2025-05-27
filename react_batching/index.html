@@ -56,7 +56,49 @@ setNumber()와 setName()이런 함수가 여러번 나뉘어서 실행되나?<br
 <span class="token keyword">export</span> <span class="token keyword">default</span> Counter</code></pre></div>
 <p>React는 여러 번 호출된 setState를 내부적으로 큐에 모아두고 하나의 일괄 작업(batch)으로 처리해 단 한 번만 리렌더링을 발생시킨다.</p>
 <hr>
-<h3>React 18에 추가된 Automatic Batching</h3></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/webserver/">← <!-- -->웹서버</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/react_batching/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<h3>React 18에 추가된 Automatic Batching</h3>
+<p>기존에 batching은 언제 상태를 묶어서 처리하는지 일관되지 않았다는 문제점이 있었다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>flag<span class="token punctuation">,</span> setFlag<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">function</span> <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetchSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// React 17 이하에서는 batching이 발생하지 않음</span>
+      <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> c <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// 리렌더링 발생</span>
+      <span class="token function">setFlag</span><span class="token punctuation">(</span><span class="token parameter">f</span> <span class="token operator">=></span> <span class="token operator">!</span>f<span class="token punctuation">)</span> <span class="token comment">// 또 다시 리렌더링 발생</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Next</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token literal-property property">color</span><span class="token operator">:</span> flag <span class="token operator">?</span> <span class="token string">"blue"</span> <span class="token operator">:</span> <span class="token string">"black"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>위에처럼 onClick 같은 React 이벤트 헨들러 내부에서만 batch가 발생했다.
+fetch, serTimeout, Promise 콜백 내부에서는 batching이 일어나지 않는다.</p>
+<p>때문에 위의 코드에서 두번의 렌더링이 발생한다.</p>
+<p>하지만 React 18 이루부터는 fetch나 serTimeout안에서는 상태 업데이트도 자동 batching된다.</p>
+<p>React 18에서는 createRoot를 사용하면 자동 배칭이 기본 적용된다.
+ReactDOM.render()방식은 여전히 2번의 리렌더링이 일어난다.</p>
+<h4>legacy render</h4>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> ReactDOM <span class="token keyword">from</span> <span class="token string">"react-dom"</span> <span class="token comment">// 옛 방식</span>
+<span class="token comment">// ...</span>
+<span class="token keyword">const</span> rootElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span>
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span> rootElement<span class="token punctuation">)</span></code></pre></div>
+<h4>create Root</h4>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> ReactDOMClient <span class="token keyword">from</span> <span class="token string">"react-dom/client"</span> <span class="token comment">// React 18 방식</span>
+<span class="token comment">// ...</span>
+<span class="token keyword">const</span> rootElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> root <span class="token operator">=</span> ReactDOMClient<span class="token punctuation">.</span><span class="token function">createRoot</span><span class="token punctuation">(</span>rootElement<span class="token punctuation">)</span>
+root<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">)</span></code></pre></div>
+<hr>
+<h3>참고 자료</h3>
+<ul>
+<li><a href="https://github.com/reactwg/react-18/discussions/21">Automatic batching for fewer renders in React 18</a></li>
+</ul></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/webserver/">← <!-- -->웹서버</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/react_batching/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
