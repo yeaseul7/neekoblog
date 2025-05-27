@@ -12,29 +12,34 @@ const BlogPostTemplate = ({
   const [isMobile, setIsMobile] = React.useState(false)
 
   React.useEffect(() => {
-    // 모바일 기기 감지
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768)
+    if (typeof window !== "undefined") {
+      // 모바일 기기 감지
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768)
+      }
+
+      handleResize()
+      window.addEventListener("resize", handleResize)
+
+      return () => window.removeEventListener("resize", handleResize)
     }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-
-    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   const handleClick = id => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" }) // 부드럽게 스크롤
-    } else {
-      console.log("is not exist id")
+    if (typeof window !== "undefined") {
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" }) // 부드럽게 스크롤
+      } else {
+        console.log("is not exist id")
+      }
     }
   }
+
   return (
     <Layout title={siteTitle}>
       <Helmet>
-        <title>{post.title}</title>
+        <title>{post.frontmatter.title}</title>
       </Helmet>
 
       <PostArticle

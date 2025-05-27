@@ -9,6 +9,7 @@ class Utterances extends React.Component {
   }
 
   componentDidMount() {
+    if (typeof window === "undefined") return
     const scriptEl = document.createElement("script")
     scriptEl.onload = () => this.setState({ status: "success" })
     scriptEl.onerror = () => this.setState({ status: "failed" })
