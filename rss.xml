@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 27 May 2025 07:59:59 GMT</lastBuildDate><item><title><![CDATA[react의 batchingUpdate]]></title><description><![CDATA[📚 Intro setState를 호출하면 React는 즉시 리렌더링을 수행하지 않고 해당 업데이트를 큐에 등록한 후 이벤트 핸들러의 실행이 끝날 때까지 기다린다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 13 Jun 2025 03:02:28 GMT</lastBuildDate><item><title><![CDATA[react의 batchingUpdate]]></title><description><![CDATA[📚 Intro setState를 호출하면 React는 즉시 리렌더링을 수행하지 않고 해당 업데이트를 큐에 등록한 후 이벤트 핸들러의 실행이 끝날 때까지 기다린다.
 
 이 부분과 batchingUpdate…]]></description><link>https://yeaseul7.github.io/neekoblog/react_batching/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/react_batching/</guid><pubDate>Tue, 27 May 2025 18:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;📚 Intro&lt;/h3&gt;
 &lt;p&gt;setState를 호출하면 React는 즉시 리렌더링을 수행하지 않고 해당 업데이트를 큐에 등록한 후 이벤트 핸들러의 실행이 끝날 때까지 기다린다.
@@ -902,7 +902,8 @@ n=0 -&gt; n=1 -&gt; n=2 -&gt; n=3 이렇게 된다.&lt;/p&gt;
 &lt;p&gt;이번 포스팅은 modern javascript 책을 적극 참고해서 작성하였다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;호이스팅이 무엇인가?&lt;/h3&gt;
-&lt;p&gt;Hoisting이라는 언어는 끌어올리다는 의미이다.&lt;/p&gt;
+&lt;p&gt;Hoisting이라는 언어는 끌어올리다는 의미이다.
+‘실행 컨텍스트 생성 시 렉시컬 스코프 내의 선언이 끌어올려 지는 게 호이스팅이다&apos;&lt;/p&gt;
 &lt;p&gt;js 엔진이 코드를 실행하기 전에 변수나 함수를 메모리에 저장하는데&lt;br&gt;
 이게 끌어올려서 저장하는 것처럼 보였나.. 그래서 &lt;strong&gt;호이스팅&lt;/strong&gt;이라고 한다.&lt;/p&gt;
 &lt;p&gt;js 엔진이라는 얘기가 나왔다.&lt;br&gt;
