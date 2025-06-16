@@ -27,96 +27,11 @@ data-styled.g9[id="postStyle__PostHeader-sc-prn0l8-8"]{content:"bAxPqJ,"}/*!sc*/
 <p>“A closure is the combination of a function and the lexical environment within which that function was declared.”</p>
 </blockquote>
 <blockquote>
-<p>클로저는 함수와 그 함수가 선언된 렉시컬 환경과의 조합이다.</p>
+<p>클로저는 함수와 그 함수가 선언된 환경정보의 조합이다.</p>
 </blockquote>
-<h3>Lexical Scope</h3>
-<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token keyword">function</span> <span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">10</span>
-
-  <span class="token keyword">function</span> <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment">// ✅ 10</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre></div>
-<p>javasciprt의 스코프 개념을 먼저 알아야 하는데<br/>
-해당 개념은 <a href="https://yeaseul7.github.io/neekoblog/hoisting/">https://yeaseul7.github.io/neekoblog/hoisting/</a> 을 다루는 글을 통해 보면 된다.</p>
-<p><code class="language-text">outerFunc</code> 안에 중첩 함수인 <code class="language-text">innerFunc</code>가 정의 되었다.<br/>
-이때 <code class="language-text">innerFunc</code> 의 상위 스코프는 <code class="language-text">outerFunc</code> 이다.<br/>
-따라서 내부함수인 <code class="language-text">innerFunc</code> 은 외부함수인 <code class="language-text">outerFunc</code> 의 x 에 접근할 수 있다.</p>
-<p>하지만 아래와 같이 <code class="language-text">outerFunc</code>와 <code class="language-text">innerFunc</code>가 선언되었다면 접근 불가능 하다.</p>
-<p>이러한 개념이 스코프 개념이라고 간단하게 설명할 수 있다.</p>
-<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">1</span>
-
-<span class="token keyword">function</span> <span class="token function">outerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">10</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment">// ✅ 1</span>
-<span class="token punctuation">}</span></code></pre></div>
-<p>따라서 javascript가 렉시컬 스코프를 따르는 프로그래밍 언어이다.</p>
-<blockquote>
-<p><strong>자바스크립트 엔진은 함수를 어디서 호출했는지가 아니라 함수를 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프(정적 스코프)라 한다.</strong></p>
-</blockquote>
-<h4>스코프의 실체는 무엇인가?</h4>
-<p>실행 컨텍스트의 렉시컬 환경이다.</p>
-<p>관련 포스팅(<a href="https://yeaseul7.github.io/neekoblog/hoisting/">https://yeaseul7.github.io/neekoblog/hoisting/</a>) 을 먼저 읽어오기를 바란다.</p>
-<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
-      <a class="gatsby-resp-image-link" href="/neekoblog/static/01685b9a478b063bb035b33835239168/612f7/lexicial_2.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsUlEQVR42k2PuwqEMBRE8+3axXZBfICgTcDOVsivaFgIoohCIr4Ss0NsdopDmLlzLyFlWUZRlCTJxyuO4yzLKKVVVTnnnueRUvZ9PwyD/FPXdeM4Es45Y6yua7BpmtYLD/jHcazrmqZpGIbYnuc59oJFUQRBgArRWs/zPE0TeF2X87LWorltG7jvOyJcW5blPE/M3PdtjAEJAiHE10spBQsxaph7F8HEffAt4yPWyxjzA5DRyZe8s9KzAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="lexical" title="" src="/neekoblog/static/01685b9a478b063bb035b33835239168/0b533/lexicial_2.png" srcset="/neekoblog/static/01685b9a478b063bb035b33835239168/fac75/lexicial_2.png 125w,
-/neekoblog/static/01685b9a478b063bb035b33835239168/63868/lexicial_2.png 250w,
-/neekoblog/static/01685b9a478b063bb035b33835239168/0b533/lexicial_2.png 500w,
-/neekoblog/static/01685b9a478b063bb035b33835239168/1d69c/lexicial_2.png 750w,
-/neekoblog/static/01685b9a478b063bb035b33835239168/612f7/lexicial_2.png 773w" sizes="(max-width: 500px) 100vw, 500px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy" decoding="async">
-  </a>
-    </span>
-<p>여기서 스코프는 렉시컬 환경이다.</p>
-<h4>그러면 렉시컬 스코프란 무엇인가?</h4>
-<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
-      <a class="gatsby-resp-image-link" href="/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/9bbaf/lexicial_1.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 117.60000000000002%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAIAAAB1KUohAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuElEQVR42oWUyUujQRDF+98TlYC5qSAETyYGMyJoJCbREPXoBkq8eBSdiBoJOeYWUBFRxy2ucUNcgmucbPNLF/Z8jMs8SFFdX73u6qrXUdls9uzs7OLiIpPJnJ6eZjTEIW4iJi7J2MfHRzU1NVVfX9/c3Nze3t7R0eHxeNra2jo7O91ut8vlIoL9oeHRcDqdJEOJx+NqYmKiqqqqrq6Oz729vf39/V1dXT6fLxgM+v3+cDjc3d3Nvvh9fX0DAwPsZbfbq6ur5+fn1erqajQaXVpaWlxcXFhYEAtisdjc3NzMzMzPd5A2OzuLQ3x6enp7e1tR+vn5+dHR0c7Ozt7e3snJyfHxMXZ/f//29rZcLpdKJWyhUHh9fS1b8Pb2ViHDPDw8hCktEaTT6bu7u3w+TxKpl5eXKysrwvmtwV6KLWVvbLFYLGmIk9cgD58qKIc0lhKHqCS18BmKGjhw7u/vqUvqlzhEVf4fpC6uQBfMUqCSyeTQ0ND4+PjIyMiwxujo6PA7JEhkcHDQ6/WOjY0RIRnK2tqaikQiNTU1DoeDCYdCIUaNQnp6egKBABMm4n9HQINPDQ0NtbW1jFNNTk7abLampiaEhYDQQ0tLi0iKiFuDOLa1tZUgtrGxEQqKUAx5d3eX+/zS2NraYvrGx5qlAclQrq+vFa3/qlXS0q++QlSiAWtjraoyU/2IXC6neJIHBweIDFVeXV3x3LgI8iLCeGSjT1GRJ+S0BhpAQ1wJJeIg2Jubm2/mXynbemf8p6cn652Nnj6icjI/U4m5sECY35VtJf8D82a+LJuXxfbmQCGYblvLNg/ub9nMmoe6ubm5vr6OXLE87I2NDRy6aDbiHBrJOMwxFXJOg7nBTyQSqVSKLR4eHuS5m7Lxl5eXmZ9RQYVsZMDi+fmZbr+8vEjQ/GnIklLlv8HgD/PWwRS8qdOdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="lexical" title="" src="/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/0b533/lexicial_1.png" srcset="/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/fac75/lexicial_1.png 125w,
-/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/63868/lexicial_1.png 250w,
-/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/0b533/lexicial_1.png 500w,
-/neekoblog/static/06b95d54e12b4e41f0ea9cdbd7931111/9bbaf/lexicial_1.png 588w" sizes="(max-width: 500px) 100vw, 500px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy" decoding="async">
-  </a>
-    </span>
-<p>여기서 Outer LexicalEnvironment Reference에는 상위 스코프에 대한 참조가 들어간다.<br/>
-이것은 함수 정의가 <strong>평가되는 시점에</strong> 해당 함수의 환경에 의해 결정되는데, 이게 바로 렉시컬 스코프다.</p>
-<p>⚠️ 함수는 정의 된 곳과 호출되는 위치가 다를 수 있다.<br/>
-따라서 렉시컬 스코프가 결정되려면 자신이 호출되는 위치와 상관없이 정의된 환경의 스코프를 기억해야한다.<br/>
-이걸 함수의 내부 슬롯인 [[Environment]]에 저장한다.</p>
-<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">1</span>
-
-<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">10</span>
-<span class="token punctuation">}</span>
-
-<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-
-<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
-<p>위의 코드를 통해 렉시컬 스코프에 대해 그림으로 이해해보자.</p>
-<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
-      <a class="gatsby-resp-image-link" href="/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/14586/function_environment.png" style="display: block" target="_blank" rel="noopener">
-    <span class="gatsby-resp-image-background-image" style="padding-bottom: 58.4%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACqElEQVR42m2S7W8UVRSH9w/1g34hhgSTahA0gjWCiqHRiIZIhBjCB6Mf1Gi02gY3LYRuaXFb6law3e52duf9zvvO++zD6cT4QbjJM2fm5JzfvXPur6OvnUZbW0C/t0Bw9Avx7gXUw7PYvbOE/XcorC7e9ts4vTda1PZb1JlJu+Zz/r863t5nuI+/wPvrOtOnd/H2v0LbXMJ5fB3/yU1c7QHx8A7hP7dIhreJD+9QpO6/7S8QnDhzpnbDRLDcEJXUHFtZG/28JChyMilMpbeNwqwp5HDPi7WCxs5N9N3b6DtfE+h9KqdLNvmVTP+NwvidJjmkMFfJ9WXy6TKlsUKae7xYTgTNtZfRuqcw1oS9b1C9M4xXX0K7+wpq4zTR0fc4G69hrp9qcR6cIQiGeGGO54cEYUI0SynnNVVTi6AVYFqe4GNZLq4Xc3ikofwYP5i1DUU1FxrKek7dQFJmVFVJXdfUVSW5SkZQU0rsmE6GJRhW2jZLfSuQlhClNV6Q4scVQdIwy+c08q+zMqc6mWlWCScb0earE0F94yLG5iX03vt44y758Abp/idy8x+jdj4iOl5F/XkZ9WgRZ+si/u5VktHP+A/fxd77FnP7U4yNCwT9Dyn8IR1tfYHx+ptM7p9jOvgRt39FGqV4axFzc5Fo8gdqcIPj3hK22Msd3EId/IDZO0dw8B3hvSW85fM43ffI7Kd0xCm4wRzbq7EdnzhtSHKZUya2EevY+t+YWx9gbF0SLgtXCJVGKB6ybQO//zme5LxHV8kijc7x0QHj4QHaaIhy7ZaJNsY1pihbvqcDosG1lnj/GsmTL4ndEVEYEVojgpXz+D+9irvyOlk4oqOUwrYsKQj/M2v7LCvIc+YSa3mt5RbEFW2kLOU0MUrcoaYJShPrqIyiqXgGqHtl3PbUYzcAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="function_environment" title="" src="/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/0b533/function_environment.png" srcset="/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/fac75/function_environment.png 125w,
-/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/63868/function_environment.png 250w,
-/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/0b533/function_environment.png 500w,
-/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/1d69c/function_environment.png 750w,
-/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/00d43/function_environment.png 1000w,
-/neekoblog/static/61e54b9c22bd15bee53483d6f6cacf0d/14586/function_environment.png 2314w" sizes="(max-width: 500px) 100vw, 500px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy" decoding="async">
-  </a>
-    </span>
 <h2>Closure</h2>
 <p>외부함수보다 중첩함수가 더 오래 유지되는 경우 (생명주기가 종료된 외부함수의 변수를 중첩함수 내부에서 참조하는 현상)</p>
+<p>원래는 함수가 리턴하면 함수 내의 변수들은 GC에 의해 사라진다.</p>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">1</span>
 
 <span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -132,9 +47,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//✅ 10</span></code></pre></div>
 <p>outer가 inner를 반환한 시점에서 outer의 LifeCycle은 끝이 났다.<br/>
 하지만 innerFunc은 outer안에 있는 지역변수 x의 값을 찍고 있다.</p>
-<p>inner함수가 평가될 때 inner 함수의 [[Environment]]에는 상위 스코프에 대한 정보가 있을 것이다.<br/>
-그러면 outer 함수는 평가될 때 전역 스코프를 함수의 [[Environment]]에 저장하고 있을 것이다.</p>
-<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
+<p>"x는 private 변수이다 -> closure로 priovate 변수를 만들 수 있다."</p>
+<p>inner함수가 평가될 때 inner 함수의 환경에는 상위 스코프에 대한 정보가 있을 것이다.<br/>
+outer 함수는 평가될 때 전역 스코프를 함수의 환경 정보에 저장하고 있을 것이다.</p>
+<p><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
       <a class="gatsby-resp-image-link" href="/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/95c1f/closure_1.png" style="display: block" target="_blank" rel="noopener">
     <span class="gatsby-resp-image-background-image" style="padding-bottom: 23.2%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAABTklEQVR42m2Oz0obURSH83YG24VQsQtpN/YB+gDdFN9AEPcFhW4KLdU0hiQq6CpaCSmkFJNMMvfOTCbeyb+5c+9Mk8+Law8cPn6/cxZfSfXrJMMLVL/GYtzFqjY6aJDJS3TvjDxsUcQddP+UzKuR9ipYee26tssVd3dsf0ffnqBbx5T86iuCxg5hrYy8O2Byt8+4uUV8tYusvmb6+zPLf18IG28JLz8QXbxD3X5i2jkgOi8z/XOEauwx/rFBcLpJSYgQKUOiaII/EiSzOcYWpJllvkiJJnOUaDHufiX6+43Z4Cfxwy/iOEZNU0eFGYywPY+5J5yhNyTwBf5whBQClSiEo5SCSRzxmGjC+0OC+htE8z1edZvg5iNGJxhjsdZgV/+fN7OWkhSSQa+P8H2Wi6V7sGit0VmGNYY8z7F5gS1WpKZgkebOPme9XvPSPAFTOmVLx051zAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
   <img class="gatsby-resp-image-image" alt="closure_1" title="" src="/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/0b533/closure_1.png" srcset="/neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/fac75/closure_1.png 125w,
@@ -144,12 +60,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 /neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/00d43/closure_1.png 1000w,
 /neekoblog/static/e3ed979fee6ff69f920a38a2b201ee2b/95c1f/closure_1.png 2330w" sizes="(max-width: 500px) 100vw, 500px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy" decoding="async">
   </a>
-    </span>
-<p>outer 함수가 return 하면 outer의 실행 컨텍스트는 제거되고 생명주기 또한 끝나지만<br/>
+    </span><br/></p>
+<p>outer 함수가 return 하면 해당 실행 컨텍스트는 제거되고 생명주기도 끝나지만<br/>
 outer의 렉시컬 환경은 내부 슬롯에 저장되어있다.</p>
+<p><b>그러면 해당 변수는 닿을 수 있는 오브젝트가 되는것이다. -> GC의 대상 === 닿을 수 없는 오브젝트</b></p>
 <p>inner 함수가 외부 렉시컬 환경을 outer 함수로 참조하고 있기 때문에 GC가 함부로 가져가지 않는다.<br/>
 이러한 현상을 클로저라고 한다.</p>
-<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
+<p><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; ">
       <a class="gatsby-resp-image-link" href="/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/31df8/closure_2.png" style="display: block" target="_blank" rel="noopener">
     <span class="gatsby-resp-image-background-image" style="padding-bottom: 44.800000000000004%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAACAUlEQVR42l2SS2sUQRSF58e5URcBN24Fd4LLuFAScRF3ElfBCOpKwY24CRhjRAO+mDyETF5DEpOeTL+nu6u7qt/dn5UZkWhRp05xq+65VXWqw3+tbUraSlDnIXnikqea04hc6rn0xsjSBNc6wTT2sIx9lIz/5ncuKI2p8L7jf5rCXL2GuXyFYHOGaGce58NlrI/XsVaukg1XsLsPGCxdwng3hXB6EwmtoQVb3WuN6jxEqgTGcY+jg5+45iGBNyAObcTIQMUO0TnLEBFYRP5gjEwEUJX6NPmFE/5pdduSa/0ka4iymjgtKJuWrG6pdG2l66q8GsfKutHrNYmqdayhkoqOdLdxf9zFX5/B23hIMniP3JljtDmL9XUacfCc+Og1fvcObndW77uHOn1LsHUfcfiS029zHK/e4tfnaWJnQCeydzjrPsLceIy5tYDdXyHuvxgj3H2C139DbOg325rH6z0l2F3EP17G7y0yOlrC23vFqLeAv/sMNXLoCKEY2im2l2PaCs+PiGRNEFeESYEbFWMhZ+0G9pfbWGs3CQdrKO2hzHNkUaNvTay5TlM6mVKYZwZD4wTXHpLEAhEFjHxXzyOUkkRun3DYRXnbJOY6eWxD04xNmCCDUnOWTUyRUieFIUVR/Psn28mQ5SVSm1NpY8qsohYJ2BY4Dliabc1DEyLBbwHTlonUbvARAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
   <img class="gatsby-resp-image-image" alt="closure_2" title="" src="/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/0b533/closure_2.png" srcset="/neekoblog/static/910e55dd28792820e6a0ac05710e1caa/fac75/closure_2.png 125w,
@@ -159,10 +76,36 @@ outer의 렉시컬 환경은 내부 슬롯에 저장되어있다.</p>
 /neekoblog/static/910e55dd28792820e6a0ac05710e1caa/00d43/closure_2.png 1000w,
 /neekoblog/static/910e55dd28792820e6a0ac05710e1caa/31df8/closure_2.png 2366w" sizes="(max-width: 500px) 100vw, 500px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy" decoding="async">
   </a>
-    </span>
+    </span><br/></p>
 <p>inner 함수를 반환 받은 innerFunc에 의해 inner 함수가 더 오래 생존하게 된 것이다.<br/>
 즉 inner 함수의 외부 렉시컬 환경에 outer의 x가 들어있기 때문에 innerFunc에서 10이 나오는 것이다.</p>
-<p>상위 스코프의 어떤 식별자도 참조하지 않는 경우 대부분의 모던 브라우저는 최적화를 통해 상위 스코프를 기억하지 않는다. 따라서 Closure라고 말할 수 없다.</p></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/threeJs1/">← <!-- -->Three.js 블로그에 붙이기 1탄</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/closure/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p>상위 스코프의 어떤 식별자도 참조하지 않는 경우 대부분의 모던 브라우저는 최적화를 통해 상위 스코프를 기억하지 않는다. 따라서 Closure라고 말할 수 없다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> hidden <span class="token operator">=</span> <span class="token number">123</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">42</span> <span class="token comment">// hidden을 사용하지 않음</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 42</span></code></pre></div>
+<p>이게 예시인데 브라우저에 따라 최적화에 실패할 경우 메모리 누수가 발생할 수 있다. <br/>
+Closure를 사용하고 나서도 메모리 누수가 발생할 수 있기 때문에 후처리가 필요하다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">10</span> <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">inner</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span>x<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  inner<span class="token punctuation">.</span><span class="token function-variable function">clear</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 내부에서 접근 가능</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> inner
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> innerFunc <span class="token operator">=</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 10</span>
+innerFunc<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// x를 null로 설정</span>
+<span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// null</span></code></pre></div></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/threeJs1/">← <!-- -->Three.js 블로그에 붙이기 1탄</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/closure/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
