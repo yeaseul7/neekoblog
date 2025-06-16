@@ -75,6 +75,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -136,6 +137,14 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/ot171.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://yeaseul7.github.io/neekoblog/",
+        sitemap: "https://yeaseul7.github.io/neekoblog/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     `gatsby-plugin-styled-components`,

@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Helmet } from "react-helmet"
 
 import { HeaderMainBox, NavList, TitleBox } from "../styles/postStyle"
 import Utterances from "./Utterances"
@@ -85,6 +86,12 @@ const Layout = ({ title, children, showUtterances = false }) => {
   return (
     <div className="global-wrapper">
       <header className="global-header">{header}</header>
+      <Helmet>
+        <meta
+          name="google-site-verification"
+          content="NyADn_CiRr_UR1sqiXoaShldZ9okV3T4LTLkAzvjE6w"
+        />
+      </Helmet>
       <main>{children}</main>
       {showUtterances && <Utterances />}
       <footer>
