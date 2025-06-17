@@ -32,18 +32,58 @@ Javascript를 계속 보니까 이제 실제로 어떤걸 가지고 prototype과
 <p>보통은 class로 상속모델을 사용하는데 javascript는 프로토타입 상속모델을 사용한다.<br/>
 객체가 상위 프로토타입 메소드와 속성을 상속받을 수 있는데 상위의 상위 프로토타입도 상속을 받을 수 있게 하는 것을 <b>Prototype Chain</b>이라고도 한다.<br/>
 즉, 상속되는 속성과 메소드는 생성자의 prototype안에 정의되어있다.</p>
-<div class="gatsby-highlight" data-language="javasscript"><pre class="language-javasscript"><code class="language-javasscript">let a = {}
-console.log(a.__proto__)
-{__defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, __lookupSetter__: ƒ, …}
-constructor:ƒ Object()
-hasOwnProperty:ƒ hasOwnProperty()
-isPrototypeOf:ƒ isPrototypeOf()
-propertyIsEnumerable:ƒ propertyIsEnumerable()
-toLocaleString:ƒ toLocaleString()
-toString:ƒ toString()
-valueOf:ƒ valueOf()
-__defineGetter__:ƒ __defineGetter__()
-...</code></pre></div></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/react_batching/">← <!-- -->react의 batchingUpdate</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/prototype/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">.</span>__proto__</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token literal-property property">__defineGetter__</span><span class="token operator">:</span> ƒ<span class="token punctuation">,</span> <span class="token literal-property property">__defineSetter__</span><span class="token operator">:</span> ƒ<span class="token punctuation">,</span> <span class="token literal-property property">hasOwnProperty</span><span class="token operator">:</span> ƒ<span class="token punctuation">,</span> <span class="token literal-property property">__lookupGetter__</span><span class="token operator">:</span> ƒ<span class="token punctuation">,</span> <span class="token literal-property property">__lookupSetter__</span><span class="token operator">:</span> ƒ<span class="token punctuation">,</span> …<span class="token punctuation">}</span>
+<span class="token literal-property property">constructor</span><span class="token operator">:</span>ƒ <span class="token function">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">hasOwnProperty</span><span class="token operator">:</span>ƒ <span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">isPrototypeOf</span><span class="token operator">:</span>ƒ <span class="token function">isPrototypeOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">propertyIsEnumerable</span><span class="token operator">:</span>ƒ <span class="token function">propertyIsEnumerable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">toLocaleString</span><span class="token operator">:</span>ƒ <span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">toString</span><span class="token operator">:</span>ƒ <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">valueOf</span><span class="token operator">:</span>ƒ <span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token literal-property property">__defineGetter__</span><span class="token operator">:</span>ƒ <span class="token function">__defineGetter__</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">...</span></code></pre></div>
+<h3>Prototype이란?</h3>
+<p>prototype 객체는 생성자 함수로 생성된 객체들이 공통으로 사용할 수 있는 프로퍼티를 제공하는 역할을 합니다.
+일반 함수가 생성될 때 prototype 프로퍼티가 자동으로 함께 만들어집니다.</p>
+<h4>🔍 [[Prototype]] 내부 슬롯 vs prototype 프로퍼티</h4>
+<p>JavaScript에서는 두 가지 다른 개념을 구분해야 합니다</p>
+<p><strong><code class="language-text">[[Prototype]]</code> 내부 슬롯</strong></p>
+<ul>
+<li>모든 객체가 가지고 있는 내부 슬롯</li>
+<li>상속을 구현하는데 사용되는 참조값</li>
+<li><code class="language-text">__proto__</code> 접근자나 <code class="language-text">Object.getPrototypeOf()</code>로 접근 가능</li>
+<li>객체의 <code class="language-text">[[Prototype]]</code>은 상속 체인에서 상위에 있는 프로토타입 객체를 가리킵니다</li>
+<li>함수의 경우에는 <code class="language-text">Function.prototype</code> 객체를 가리킵니다</li>
+<li>인스턴스의 경우에는 생성자 함수의 <code class="language-text">prototype</code> 프로퍼티가 가리키는 객체를 가리킵니다</li>
+</ul>
+<p><strong><code class="language-text">prototype</code> 프로퍼티</strong></p>
+<ul>
+<li>함수 객체만 가지고 있는 일반 프로퍼티</li>
+<li>생성자 함수로 인스턴스를 만들 때 인스턴스의 <code class="language-text">[[Prototype]]</code>이 가리킬 객체</li>
+</ul>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Dog</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"early"</span> <span class="token comment">// 생성자 함수의 프로퍼티 설정</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> puppy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token string">"access"</span><span class="token punctuation">)</span> <span class="token comment">// Dog 생성자로 인스턴스 생성</span>
+
+<span class="token comment">// prototype 프로퍼티 (함수만 소유)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Dog</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token comment">// 👉 Dog는 함수이므로 prototype 프로퍼티 존재 ✅</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>puppy<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token comment">// 👉 puppy는 인스턴스이므로 prototype 프로퍼티 없음 ❌ (undefined)</span>
+
+<span class="token comment">// [[Prototype]] 내부 슬롯 (모든 객체가 소유)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Dog<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span> <span class="token comment">// 👉 Function.prototype</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>puppy<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span> <span class="token comment">// 👉 Dog.prototype (생성자의 prototype 프로퍼티와 연결)</span></code></pre></div>
+<p>Prototype값에 접근하기 위해서 <code class="language-text">Object.prototype.__proto__</code>를 사용하면 된다.
+이렇게 하면 내부에서 Object.getPrototypeOf()가 호출된다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// 빈 객체 생성</span>
+a<span class="token punctuation">.</span>__proto__ <span class="token comment">// 객체의 프로토타입에 접근 (Object.prototype과 동일)</span></code></pre></div>
+<h3>constructor 프로퍼티</h3>
+<p>프로토타입 객체(.prototype)는 constructor 프로퍼티를 갖는다.
+이 constructor프로퍼티는 객체의 입장에서 자신을 생성한 객체를 가리킨다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"></code></pre></div></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/react_batching/">← <!-- -->react의 batchingUpdate</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/prototype/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
