@@ -25,7 +25,7 @@ data-styled.g9[id="postStyle__PostHeader-sc-prn0l8-8"]{content:"bAxPqJ,"}/*!sc*/
 <p>Javascript는 prototype 기반 OOP 언어라고 한다.
 Javascript를 계속 보니까 이제 실제로 어떤걸 가지고 prototype과 chain을 이야기 하는 것인지 조금은 이해했지만
 더 자세히 살펴볼 필요가 있을 것 같아 해당 글을 작성한다.</p>
-<h3>Prototype 기반 OOP</h3>
+<h3>📍 Prototype 기반 OOP</h3>
 <blockquote>
 <p>prototype은 Object들이 서로 속성을 공유하기 위해 사용하는 연결고리다.</p>
 </blockquote>
@@ -44,7 +44,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token literal-property property">valueOf</span><span class="token operator">:</span>ƒ <span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token literal-property property">__defineGetter__</span><span class="token operator">:</span>ƒ <span class="token function">__defineGetter__</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token operator">...</span></code></pre></div>
-<h3>Prototype이란?</h3>
+<h3>❤️ Prototype이란?</h3>
 <p>prototype 객체는 생성자 함수로 생성된 객체들이 공통으로 사용할 수 있는 프로퍼티를 제공하는 역할을 합니다.
 일반 함수가 생성될 때 prototype 프로퍼티가 자동으로 함께 만들어집니다.</p>
 <h4>🔍 [[Prototype]] 내부 슬롯 vs prototype 프로퍼티</h4>
@@ -80,10 +80,79 @@ console<span class="token punctuation">.</span><span class="token function">log<
 이렇게 하면 내부에서 Object.getPrototypeOf()가 호출된다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// 빈 객체 생성</span>
 a<span class="token punctuation">.</span>__proto__ <span class="token comment">// 객체의 프로토타입에 접근 (Object.prototype과 동일)</span></code></pre></div>
-<h3>constructor 프로퍼티</h3>
-<p>프로토타입 객체(.prototype)는 constructor 프로퍼티를 갖는다.
+<h3>✅ constructor 프로퍼티</h3>
+<p>프로토타입 객체(.prototype)는 constructor 프로퍼티를 갖는다.<br/>
 이 constructor프로퍼티는 객체의 입장에서 자신을 생성한 객체를 가리킨다.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"></code></pre></div></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/react_batching/">← <!-- -->react의 batchingUpdate</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/prototype/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/neekoblog/static/d4774ffed4066437c1437267c769b346/541fe/contructorprototype.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.800000000000004%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAACGElEQVR42mWSTU8TURSG+59MDGoiMUEWbk3YijtXNYZASEjUSGSjMQoqDhCCCywNVgppKZ0pLTOdmXbKV6HTuXemfGhi3BhduX+808JGF0/OuTcn7zkn70m02238tk8gQ4TsEAhFEF3kEt/3iWsu6/wgUP/Rf/gXNYk4CQNB3TGwrCy1Wo66wjLX2PMsQtUoFo0RQuA3m9j2Fq6r4yjcLgZBq6UGCUichpJUyWTHvs8vMYBb6MfZ7OfP6QAZY4yctUdHBqq7T7MleJeeoZG7yuHWdZr6DY6L19jJ3mRh45NqGJI4V12nXYvxIIUWarw81nhxpKFFGo/8LOl6nfMwRErJ3mGT5L7B5Mkqz+UKU1GaKZliIsow6hmIlt8TnHFtXpVHsZwhlj7fZXl9CKc2xOPSFAt6mWbDw/M8jHKFkX2d+d9fmP2+wvS3FbQfKv7MMrFbVmsrwa9K8I1j87aSpFwYZG5xgPml29jbgzyrTDKnVzjabdBQgiW7xsONWarGLVY/9jE/c4Vcqo988Q5jxioikCTOlOAH1yQpdZ7IHOPtHk+jPElRZq3uctZdWbB71GKktEzKfMD7zDCv0/eYWxtm0UwqwQyirUwRyhmv0aBg2mzZHrrTo6DyolXl4OCg6158Ei3lZNGyWK+Y5FXcrFbJmfF7h227SnB5NlJNGXUJ/kEgLsQu6ShzTtTEHdkjzmMidbPxHf4FDgVCKfhu34sAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="contructorprototype"
+        title=""
+        src="/neekoblog/static/d4774ffed4066437c1437267c769b346/0b533/contructorprototype.png"
+        srcset="/neekoblog/static/d4774ffed4066437c1437267c769b346/fac75/contructorprototype.png 125w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/63868/contructorprototype.png 250w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/0b533/contructorprototype.png 500w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/1d69c/contructorprototype.png 750w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/00d43/contructorprototype.png 1000w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/541fe/contructorprototype.png 1654w"
+        sizes="(max-width: 500px) 100vw, 500px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3>✅ Prototype Chain</h3>
+<p>객체에서 프로퍼티나 메소드에 접근하려고 할 때 자신에게 해당 속성이 없으면 [[Prototype]]이 가리키는 링크를 따라 탐색한다.<br/>
+계속 올라가다가 null을 프로토타입으로 가지는 Object를 만나면 그때 프로퍼티 참조를 멈춘다.<br/>
+이러한 과정을 프로토타입 체인이라고 한다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> early <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"Dog"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>early<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">"type"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// -> true</span>
+
+<span class="token comment">//early라는 객체는 hasOwnProperty라는 메소드를 가지고 있지 않는데 정상적으로 출력되었다.</span>
+<span class="token comment">//이는 early라는 객체의 [[Prototype]]이 가리키는 링크인 Object.prototype의 hasOwnProperty를 호출하였기 때문이다.</span>
+<span class="token comment">//Object.prototype.hasOwnProperty.call(early, "type")</span></code></pre></div>
+<p>javascript의 Reference Type은 모두 위와 같은 방식으로 동작한다. (ex. Array, Set, Object, Function)
+Reference Type은 위의 프로토타입 체인을 통해 내장 메서드에 접근한다. (ex. Array.prototype.map())</p>
+<p><em>javascript의 Prototype 속성을 이용해서 자료구조에 활용하는 예시를 추후에 추가하고자 한다.</em></p>
+<h3>📍 프로토타입 체인이 생성되는 경우</h3>
+<ol>
+<li>객체 리터럴 방식</li>
+<li>생성자 함수 방식</li>
+<li>Object.create()</li>
+</ol>
+<h3>⚠️ 주의할 점</h3>
+<p>Polyfill : 브라우저가 지원하지 않는 최신 기능을 기존의 내장 객체의 프로토타입에 추가하는 코드</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>includes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">includes</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Ponyfill : Polyfill과 비슷하지만 내장 객체를 직접 수정하지 않고 독립적인 함수로 제공하는 방법</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">includes</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> array<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">includes</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// true</span></code></pre></div>
+<p>위의 두가지를 사용하는 경우가 아니라면 네이티브 프로토타입을 확장하면 캡슐화를 망친다.<br/>
+(Monkey Patching: 기존의 객체나 함수의 동작을 런타임에 직접 수정하거나 덮어쓰는 것)</p></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/react_batching/">← <!-- -->react의 batchingUpdate</a></div></main><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/prototype/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >

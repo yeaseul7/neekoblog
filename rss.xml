@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 17 Jun 2025 00:43:09 GMT</lastBuildDate><item><title><![CDATA[Prototype]]></title><description><![CDATA[개요 Javascript는 prototype 기반 OOP 언어라고 한다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 18 Jun 2025 00:09:27 GMT</lastBuildDate><item><title><![CDATA[Prototype]]></title><description><![CDATA[개요 Javascript는 prototype 기반 OOP 언어라고 한다.
 Javascript를 계속 보니까 이제 실제로 어떤걸 가지고 prototype과 chain…]]></description><link>https://yeaseul7.github.io/neekoblog/prototype/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/prototype/</guid><pubDate>Mon, 16 Jun 2025 15:21:00 GMT</pubDate><content:encoded>&lt;h3&gt;개요&lt;/h3&gt;
 &lt;p&gt;Javascript는 prototype 기반 OOP 언어라고 한다.
 Javascript를 계속 보니까 이제 실제로 어떤걸 가지고 prototype과 chain을 이야기 하는 것인지 조금은 이해했지만
 더 자세히 살펴볼 필요가 있을 것 같아 해당 글을 작성한다.&lt;/p&gt;
-&lt;h3&gt;Prototype 기반 OOP&lt;/h3&gt;
+&lt;h3&gt;📍 Prototype 기반 OOP&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;prototype은 Object들이 서로 속성을 공유하기 위해 사용하는 연결고리다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -22,7 +22,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;span class=&quot;token literal-property property&quot;&gt;valueOf&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ƒ &lt;span class=&quot;token function&quot;&gt;valueOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token literal-property property&quot;&gt;__defineGetter__&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ƒ &lt;span class=&quot;token function&quot;&gt;__defineGetter__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Prototype이란?&lt;/h3&gt;
+&lt;h3&gt;❤️ Prototype이란?&lt;/h3&gt;
 &lt;p&gt;prototype 객체는 생성자 함수로 생성된 객체들이 공통으로 사용할 수 있는 프로퍼티를 제공하는 역할을 합니다.
 일반 함수가 생성될 때 prototype 프로퍼티가 자동으로 함께 만들어집니다.&lt;/p&gt;
 &lt;h4&gt;🔍 [[Prototype]] 내부 슬롯 vs prototype 프로퍼티&lt;/h4&gt;
@@ -58,10 +58,79 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 이렇게 하면 내부에서 Object.getPrototypeOf()가 호출된다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 빈 객체 생성&lt;/span&gt;
 a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__proto__ &lt;span class=&quot;token comment&quot;&gt;// 객체의 프로토타입에 접근 (Object.prototype과 동일)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;constructor 프로퍼티&lt;/h3&gt;
-&lt;p&gt;프로토타입 객체(.prototype)는 constructor 프로퍼티를 갖는다.
+&lt;h3&gt;✅ constructor 프로퍼티&lt;/h3&gt;
+&lt;p&gt;프로토타입 객체(.prototype)는 constructor 프로퍼티를 갖는다.&lt;br/&gt;
 이 constructor프로퍼티는 객체의 입장에서 자신을 생성한 객체를 가리킨다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[react의 batchingUpdate]]></title><description><![CDATA[📚 Intro setState를 호출하면 React는 즉시 리렌더링을 수행하지 않고 해당 업데이트를 큐에 등록한 후 이벤트 핸들러의 실행이 끝날 때까지 기다린다.
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/neekoblog/static/d4774ffed4066437c1437267c769b346/541fe/contructorprototype.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.800000000000004%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAACGElEQVR42mWSTU8TURSG+59MDGoiMUEWbk3YijtXNYZASEjUSGSjMQoqDhCCCywNVgppKZ0pLTOdmXbKV6HTuXemfGhi3BhduX+808JGF0/OuTcn7zkn70m02238tk8gQ4TsEAhFEF3kEt/3iWsu6/wgUP/Rf/gXNYk4CQNB3TGwrCy1Wo66wjLX2PMsQtUoFo0RQuA3m9j2Fq6r4yjcLgZBq6UGCUichpJUyWTHvs8vMYBb6MfZ7OfP6QAZY4yctUdHBqq7T7MleJeeoZG7yuHWdZr6DY6L19jJ3mRh45NqGJI4V12nXYvxIIUWarw81nhxpKFFGo/8LOl6nfMwRErJ3mGT5L7B5Mkqz+UKU1GaKZliIsow6hmIlt8TnHFtXpVHsZwhlj7fZXl9CKc2xOPSFAt6mWbDw/M8jHKFkX2d+d9fmP2+wvS3FbQfKv7MMrFbVmsrwa9K8I1j87aSpFwYZG5xgPml29jbgzyrTDKnVzjabdBQgiW7xsONWarGLVY/9jE/c4Vcqo988Q5jxioikCTOlOAH1yQpdZ7IHOPtHk+jPElRZq3uctZdWbB71GKktEzKfMD7zDCv0/eYWxtm0UwqwQyirUwRyhmv0aBg2mzZHrrTo6DyolXl4OCg6158Ei3lZNGyWK+Y5FXcrFbJmfF7h227SnB5NlJNGXUJ/kEgLsQu6ShzTtTEHdkjzmMidbPxHf4FDgVCKfhu34sAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;contructorprototype&quot;
+        title=&quot;&quot;
+        src=&quot;/neekoblog/static/d4774ffed4066437c1437267c769b346/0b533/contructorprototype.png&quot;
+        srcset=&quot;/neekoblog/static/d4774ffed4066437c1437267c769b346/fac75/contructorprototype.png 125w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/63868/contructorprototype.png 250w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/0b533/contructorprototype.png 500w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/1d69c/contructorprototype.png 750w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/00d43/contructorprototype.png 1000w,
+/neekoblog/static/d4774ffed4066437c1437267c769b346/541fe/contructorprototype.png 1654w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;✅ Prototype Chain&lt;/h3&gt;
+&lt;p&gt;객체에서 프로퍼티나 메소드에 접근하려고 할 때 자신에게 해당 속성이 없으면 [[Prototype]]이 가리키는 링크를 따라 탐색한다.&lt;br/&gt;
+계속 올라가다가 null을 프로토타입으로 가지는 Object를 만나면 그때 프로퍼티 참조를 멈춘다.&lt;br/&gt;
+이러한 과정을 프로토타입 체인이라고 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; early &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Dog&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;early&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// -&gt; true&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//early라는 객체는 hasOwnProperty라는 메소드를 가지고 있지 않는데 정상적으로 출력되었다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//이는 early라는 객체의 [[Prototype]]이 가리키는 링크인 Object.prototype의 hasOwnProperty를 호출하였기 때문이다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//Object.prototype.hasOwnProperty.call(early, &quot;type&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;javascript의 Reference Type은 모두 위와 같은 방식으로 동작한다. (ex. Array, Set, Object, Function)
+Reference Type은 위의 프로토타입 체인을 통해 내장 메서드에 접근한다. (ex. Array.prototype.map())&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;javascript의 Prototype 속성을 이용해서 자료구조에 활용하는 예시를 추후에 추가하고자 한다.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;📍 프로토타입 체인이 생성되는 경우&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;객체 리터럴 방식&lt;/li&gt;
+&lt;li&gt;생성자 함수 방식&lt;/li&gt;
+&lt;li&gt;Object.create()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;⚠️ 주의할 점&lt;/h3&gt;
+&lt;p&gt;Polyfill : 브라우저가 지원하지 않는 최신 기능을 기존의 내장 객체의 프로토타입에 추가하는 코드&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;includes&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;includes&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ponyfill : Polyfill과 비슷하지만 내장 객체를 직접 수정하지 않고 독립적인 함수로 제공하는 방법&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;array&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 두가지를 사용하는 경우가 아니라면 네이티브 프로토타입을 확장하면 캡슐화를 망친다.&lt;br/&gt;
+(Monkey Patching: 기존의 객체나 함수의 동작을 런타임에 직접 수정하거나 덮어쓰는 것)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react의 batchingUpdate]]></title><description><![CDATA[📚 Intro setState를 호출하면 React는 즉시 리렌더링을 수행하지 않고 해당 업데이트를 큐에 등록한 후 이벤트 핸들러의 실행이 끝날 때까지 기다린다.
 
 이 부분과 batchingUpdate…]]></description><link>https://yeaseul7.github.io/neekoblog/react_batching/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/react_batching/</guid><pubDate>Tue, 27 May 2025 18:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;📚 Intro&lt;/h3&gt;
 &lt;p&gt;setState를 호출하면 React는 즉시 리렌더링을 수행하지 않고 해당 업데이트를 큐에 등록한 후 이벤트 핸들러의 실행이 끝날 때까지 기다린다.
