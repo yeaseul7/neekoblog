@@ -9,8 +9,15 @@ class Utterances extends React.Component {
   }
 
   componentDidMount() {
-    // Check if we're in the browser environment
     if (typeof window === "undefined" || !window.document) {
+      return
+    }
+
+    const existingScript = this.commentsEl.current?.querySelector(
+      'script[src="https://utteranc.es/client.js"]'
+    )
+    if (existingScript) {
+      this.setState({ status: "success" })
       return
     }
 

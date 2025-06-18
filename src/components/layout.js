@@ -10,7 +10,7 @@ import { VscAccount } from "react-icons/vsc"
 import { PiMailbox } from "react-icons/pi"
 import { FaGithubAlt } from "react-icons/fa"
 
-const Layout = ({ title, children, showUtterances = false }) => {
+const Layout = ({ title, children, showUtterances = true }) => {
   const data = useStaticQuery(graphql`
     query {
       backgroundImage: file(
