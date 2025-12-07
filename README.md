@@ -1,99 +1,95 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's blog starter
-</h1>
+# Neeko Blog
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+안녕하세요 이예슬입니다. 👋
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+Gatsby 기반의 개발 블로그입니다. 공부하는 과정에서 배운 내용을 정리하고, 프로젝트를 진행하면서 느낀 점을 기록하는 데에 목적을 두고 있습니다.
 
-## 🚀 Quick start
+🌐 **블로그 주소**: [https://yeaseul7.github.io/neekoblog/](https://yeaseul7.github.io/neekoblog/)
 
-1.  **Create a Gatsby site.**
+## 🛠 기술 스택
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the blog starter.
+- **Framework**: Gatsby 5
+- **UI Library**: React 18
+- **Styling**: Styled Components
+- **Content**: Markdown
+- **Code Highlighting**: Prism.js, DeckDeckGo Highlight Code
+- **Deployment**: GitHub Pages
 
-    ```shell
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
-    ```
+## 📦 설치 및 실행
 
-1.  **Start developing.**
+### 사전 요구사항
 
-    Navigate into your new site’s directory and start it up.
+- Node.js (v18 이상)
+- Yarn (권장) 또는 npm
 
-    ```shell
-    cd my-blog-starter/
-    gatsby develop
-    ```
+### 설치
 
-1.  **Open the source code and start editing!**
+```bash
+# 의존성 설치
+yarn install
+# 또는
+npm install
+```
 
-    Your site is now running at `http://localhost:8000`!
+### 개발 서버 실행
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
+```bash
+yarn develop
+# 또는
+npm run develop
+```
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+개발 서버는 `http://localhost:8000`에서 실행됩니다.
 
-## 🚀 Quick start (Netlify)
+### 빌드
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+```bash
+yarn build
+# 또는
+npm run build
+```
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+### 배포
 
-## 🧐 What's inside?
+```bash
+yarn deploy
+# 또는
+npm run deploy
+```
 
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
+GitHub Pages에 자동으로 배포됩니다.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
+## 📝 블로그 포스트 작성
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+블로그 포스트는 `content/blog/` 디렉토리에 Markdown 파일로 작성합니다.
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+각 포스트는 다음과 같은 frontmatter를 포함해야 합니다:
 
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+```markdown
+---
+title: 포스트 제목
+date: "2025-01-01T12:00:00.000Z"
+description: 포스트 설명
+category: 카테고리
+---
+```
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+## 🎨 주요 기능
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+- ✅ Markdown 기반 블로그 포스트
+- ✅ 코드 하이라이팅 (다양한 테마 지원)
+- ✅ 이미지 최적화
+- ✅ RSS Feed
+- ✅ Sitemap 자동 생성
+- ✅ SEO 최적화
+- ✅ Lottie 애니메이션 지원
+- ✅ 반응형 디자인
 
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+## 📄 라이선스
 
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+0BSD
 
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+## 📧 연락처
 
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-1.  **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On Netlify](https://netlify.com)
-
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+- 📨 Email: cutie32769@gmail.com
+- 👩🏻‍💻 GitHub: [https://github.com/yeaseul7](https://github.com/yeaseul7)
