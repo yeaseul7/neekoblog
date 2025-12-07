@@ -117,6 +117,11 @@ _javascript의 Prototype 속성을 이용해서 자료구조에 활용하는 예
 2. 생성자 함수 방식
 3. Object.create()
 
+#### 객체 리터럴 방식
+
+javascript 엔진은 객체 리터럴로 생성하는 코드를 만나면 내부적으로 Object.create(Object.prototype)와 유사한 방식으로 객체를 생성한다. <br/>
+Object.create()는 함수 객체로 일반 객체와 다르게 prototype 프로퍼티가 있다.
+
 ### ⚠️ 주의할 점
 
 Polyfill : 브라우저가 지원하지 않는 최신 기능을 기존의 내장 객체의 프로토타입에 추가하는 코드
