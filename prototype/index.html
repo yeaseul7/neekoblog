@@ -138,6 +138,9 @@ Reference Type은 위의 프로토타입 체인을 통해 내장 메서드에 �
 <li>생성자 함수 방식</li>
 <li>Object.create()</li>
 </ol>
+<h4>객체 리터럴 방식</h4>
+<p>javascript 엔진은 객체 리터럴로 생성하는 코드를 만나면 내부적으로 Object.create(Object.prototype)와 유사한 방식으로 객체를 생성한다. <br/>
+Object.create()는 함수 객체로 일반 객체와 다르게 prototype 프로퍼티가 있다.</p>
 <h3>⚠️ 주의할 점</h3>
 <p>Polyfill : 브라우저가 지원하지 않는 최신 기능을 기존의 내장 객체의 프로토타입에 추가하는 코드</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>includes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
