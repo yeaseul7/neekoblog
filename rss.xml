@@ -1,4 +1,178 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 08 Dec 2025 04:00:14 GMT</lastBuildDate><item><title><![CDATA[Gif를 어떻게 효율적으로 저장할까?]]></title><description><![CDATA[##.]]></description><link>https://yeaseul7.github.io/neekoblog/gifDataProcessing/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/gifDataProcessing/</guid><pubDate>Mon, 08 Dec 2025 12:40:56 GMT</pubDate><content:encoded>&lt;p&gt;##.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2026년 목표 설정]]></title><description><![CDATA[2026년에는 이런 사람이 되겠어요. 주최적으로 발전하는 개발자 2025년에는 여행도 많이 다녀오고 학교 졸업도 해야되는 상황이라 놓친것이 한가득이었다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[neeko의 개발 블로그입니다.]]></description><link>https://yeaseul7.github.io/neekoblog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 08 Dec 2025 05:32:00 GMT</lastBuildDate><item><title><![CDATA[페이지마다 meta 설정하기]]></title><description><![CDATA[개요 
+기존에 어떤 페이지든 위처럼 보이던 방식을
+페이지마다 사진과 글이 포함되면 그 내용을 보여주도록 설정한다. stack: next.js, firebase useParams에서 Id를 가져와서 firebase…]]></description><link>https://yeaseul7.github.io/neekoblog/setSeo/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/setSeo/</guid><pubDate>Mon, 08 Dec 2025 12:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;개요&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/neekoblog/static/cfb6296d3ace46b814c899b74cba7882/e85cb/before.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 108%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEwUlEQVR42o2SaUyUVxSGP/unIE20amqD0R8NagoOyDoMA4JVpA3pEmvStEmXuNTaYtWmiUi0f2pN06S1uNRoYbQqVVEECwgoCLLDMAMDgyxCkK2AMwwywyysT+98QH80RnuTJ+89556895z7fdK2txfz3YGFJH7lSWKCF4f2esokJghNWCiTKOM1x2zu0N6FJO2dr/HgyH5PPv1gEVL2tYVgW87jrlWM/f0Kpu7XGOldia1/ueBVRvu8sQodEzgHlsrqzlv6VmDpWSWfD3evxGFaQVvti0h/XfSit9OX0soImvQKdHUhlFVFUVOjpE7s3VTVhAtUaLWhMga9PwZdALVaJc0NfpRVqhjoXEPxDQ+k3BueDJsUGI3hPGwPpa1dSXtbEC0tSlpa1XS0B4k4mKYHkSIXgWXAG8YkZqwviMkWgHUBU6NCkSjNFx0e3v8SWZcWcSVlGRfPLCU1ebGIl3E1ZSnnjr/M1dRlpJ1bQtrZJbJeTxX1Gg8yNZ5zeJCR4kn+nx78kOiFdOKUhkZjB1euVrL9yzvs+baIg4eLOZBYxI6v73LwyD2qqhooK6unokJouYHSssZZyme1pLSBOl0nJ4WXdL+0FPdKTbNQ0TxJQeU4hbUTFGonKDVMkp5nR6t3yjXT0zx1TU1NyVoqvKRbtwq5lD5KVpGJUxf68fapovqBjaPJ3awOqKGiaZRT5/spKjELwyn6h530zTEw4qLX7KTHbMci7swtKEJKOJBJRuE4eRUjlOhtvPNRC829Ls5fN/HxnnaMPS7SCyycvjiEzjBGp1lMobNS1jyGvsNJY984+bUWqtrhcoYw3JVwk8wCJ96rqymuszHknObn3wdIyx7GIcZIOtbDenU9hRVPyLptweSa5uHQOCW6UZ44pumyTKJ/aMP4CHLulogOv8nknm6KxKNdVDfb+f6XPtYG6gmMbCCzcIQLGSaOpwzwR6YZXYONwbFpukcmMXQ6cE7N8EjsjT12hsYgz22Yk1vMuctWOkwufjzdL3ez4a0mVLGNhG00iE5sFIunuHxtSH741v5x7mit1HXY6TZP0Nzv4naFhTZxnJlXjFRTXU5WnpOSBitRbzbxeoieCGHmZuVarei8m5uiU129TTY0PnJSaRyjptUuzF3Ui06rmq0YxMgZOfeQtLXlVNfBzSIb+VUOkjVmruRZSb9jk/f3G1xo0kcYGJyQDWdmnvPb5ObmYLc7OKt5wE+/tXBC084ZTRsnU1r5NbWNY8kt5OZ3YbUOYzKZZR4/nmU+HhwcwuFwkZ2dgxQYGEjMxhhiYtQoFCp8fZVsjI5EHaFmzZowgoMj2LQpigi1GvUziIqKwu0l+fn5sW/fPpKSkti9e6cwWC8OgggKCkKpDCYkJEgudMfPIiQkRDTji6RQKIiNjSUuLo7o6GhhoiQsLEzWeUJDQ5+Lu87tJfn7+4uR3mDz5s3Ex8fLxlu2uNki5+PcKs7cl/wvQ4UwVKk3ECYSKlWE0HDCw1VCVaIwbDZWqQkNU87yPMOA9YFs2LqDyPd3o37nE6K2fYH6ve1Ebt1J5Lufifznc/Eu1PEfovzPc8yjUqlwTyv5+PiwTuGPn5t1cyoTgO+/uYBZ/NbJD/803B/X7fUPdpmFtUVKtG0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;before&quot;
+        title=&quot;&quot;
+        src=&quot;/neekoblog/static/cfb6296d3ace46b814c899b74cba7882/e85cb/before.png&quot;
+        srcset=&quot;/neekoblog/static/cfb6296d3ace46b814c899b74cba7882/fac75/before.png 125w,
+/neekoblog/static/cfb6296d3ace46b814c899b74cba7882/63868/before.png 250w,
+/neekoblog/static/cfb6296d3ace46b814c899b74cba7882/e85cb/before.png 480w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+기존에 어떤 페이지든 위처럼 보이던 방식을
+페이지마다 사진과 글이 포함되면 그 내용을 보여주도록 설정한다.&lt;/p&gt;
+&lt;p&gt;stack: next.js, firebase&lt;/p&gt;
+&lt;p&gt;useParams에서 Id를 가져와서 firebase에서 검색 후 페이지 데이터를 가져온다.&lt;/p&gt;
+&lt;p&gt;가져온 데이터로 metadata를 설정해야하는데 이때 metadata는 &quot;use client&quot;를 사용해선 안되고 서버에서 작업이 이루어져야한다.&lt;/p&gt;
+&lt;h4&gt;Why?&lt;/h4&gt;
+&lt;p&gt;검색엔진과 소셜미디어 Bot은 javascript를 실행하지 않고 HTML만 읽어간다.&lt;/p&gt;
+&lt;p&gt;link를 통해 meta데이터를 파악하고 보여줄 때 직접 홈페이지에 들어가서 javascript를 모두 실행하는것을 기다려주지 않는다.
+&quot;use client&quot;는 빈 HTML을 받고 javascript 번들을 다운 후 실행한다.
+SSR은 서버에서 데이서 fetching을 완료하고 metadata가 포함된 HTML을 생성해서 보낸다.
+따라서 봇이 바로 접속하자마자 tag나 meta data를 읽을 수 있다.&lt;/p&gt;
+&lt;p&gt;Open Graph의 경우
+URL에 get 요청을 보낸후 반환되는 head에 포함된 metadata를 긁는다.&lt;/p&gt;
+&lt;h3&gt;How&lt;/h3&gt;
+&lt;p&gt;&quot;use client&quot;로 되어있는 부분을 client Component로 분리하고 page.tsx에서는 SSR 방식으로 진행했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import { Metadata } from &apos;next&apos;;
+import ReadPostContent from &apos;@/packages/ui/components/home/read/ReadPostContent&apos;;
+import { getPostById } from &apos;@/lib/api/post&apos;;
+
+function extractText(html: string | undefined): string {
+  if (!html) return &apos;&apos;;
+  return html
+    .replace(/&amp;lt;[^&gt;]*&gt;/g, &apos;&apos;)
+    .replace(/\s+/g, &apos; &apos;)
+    .trim();
+}
+
+function extractFirstImage(html: string | undefined): string | null {
+  if (!html || typeof html !== &apos;string&apos;) {
+    return null;
+  }
+  const imgRegex = /&amp;lt;img[^&gt;]+src=[&quot;&apos;]([^&quot;&apos;]+)[&quot;&apos;][^&gt;]*&gt;/i;
+  const match = html.match(imgRegex);
+  return match &amp;amp;&amp;amp; match[1] ? match[1] : null;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise&amp;lt;{ id: string }&gt;;
+}): Promise&amp;lt;Metadata&gt; {
+  const { id: postId } = await params;
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ||
+    &apos;http://localhost:3001&apos;;
+
+  try {
+    const post = await getPostById(postId);
+
+    if (post) {
+      const title = post.title || &apos;게시물&apos;;
+      const description =
+        extractText(post.content).substring(0, 160) || &apos;꼬순내 게시물&apos;;
+
+      let imageUrl = extractFirstImage(post.content);
+      if (imageUrl) {
+        if (imageUrl.startsWith(&apos;/&apos;)) {
+          imageUrl = `${baseUrl}${imageUrl}`;
+        } else if (!imageUrl.startsWith(&apos;http&apos;)) {
+          imageUrl = `${baseUrl}/${imageUrl}`;
+        }
+      } else {
+        imageUrl = `${baseUrl}/static/images/defaultDogImg.png`;
+      }
+
+      const url = `${baseUrl}/read/${postId}`;
+
+      return {
+        title: `${title} | 꼬순내`,
+        description,
+        metadataBase: new URL(baseUrl),
+        openGraph: {
+          title,
+          description,
+          url,
+          siteName: &apos;꼬순내&apos;,
+          images: [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ],
+          locale: &apos;ko_KR&apos;,
+          type: &apos;article&apos;,
+        },
+        twitter: {
+          card: &apos;summary_large_image&apos;,
+          title,
+          description,
+          images: [imageUrl],
+        },
+      };
+    }
+  } catch (error) {
+    console.error(&apos;메타데이터 생성 중 오류:&apos;, error);
+  }
+
+  const defaultImageUrl = `${baseUrl}/static/images/defaultDogImg.png`;
+
+  return {
+    title: &apos;게시물 | 꼬순내&apos;,
+    description: &apos;꼬순내 게시물&apos;,
+    metadataBase: new URL(baseUrl),
+    openGraph: {
+      title: &apos;게시물 | 꼬순내&apos;,
+      description: &apos;꼬순내 게시물&apos;,
+      url: `${baseUrl}/read/${postId}`,
+      siteName: &apos;꼬순내&apos;,
+      images: [
+        {
+          url: defaultImageUrl,
+          width: 1200,
+          height: 630,
+          alt: &apos;꼬순내&apos;,
+        },
+      ],
+      locale: &apos;ko_KR&apos;,
+      type: &apos;article&apos;,
+    },
+    twitter: {
+      card: &apos;summary_large_image&apos;,
+      title: &apos;게시물 | 꼬순내&apos;,
+      description: &apos;꼬순내 게시물&apos;,
+      images: [defaultImageUrl],
+    },
+  };
+}
+
+export default async function ReadPostPage({
+  params,
+}: {
+  params: Promise&amp;lt;{ id: string }&gt;;
+}) {
+  const { id: postId } = await params;
+  const post = await getPostById(postId);
+
+  return &amp;lt;ReadPostContent postId={postId} initialPost={post} /&gt;;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Gif를 어떻게 효율적으로 저장할까?]]></title><description><![CDATA[##.]]></description><link>https://yeaseul7.github.io/neekoblog/gifDataProcessing/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/gifDataProcessing/</guid><pubDate>Mon, 08 Dec 2025 12:40:56 GMT</pubDate><content:encoded>&lt;p&gt;##.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2026년 목표 설정]]></title><description><![CDATA[2026년에는 이런 사람이 되겠어요. 주최적으로 발전하는 개발자 2025년에는 여행도 많이 다녀오고 학교 졸업도 해야되는 상황이라 놓친것이 한가득이었다.
 매일 매일…]]></description><link>https://yeaseul7.github.io/neekoblog/2026target/idnex/</link><guid isPermaLink="false">https://yeaseul7.github.io/neekoblog/2026target/idnex/</guid><pubDate>Mon, 08 Dec 2025 12:40:56 GMT</pubDate><content:encoded>&lt;h3&gt;2026년에는 이런 사람이 되겠어요.&lt;/h3&gt;
 &lt;h4&gt;주최적으로 발전하는 개발자&lt;/h4&gt;
 &lt;p&gt;2025년에는 여행도 많이 다녀오고 학교 졸업도 해야되는 상황이라 놓친것이 한가득이었다.
