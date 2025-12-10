@@ -47,7 +47,18 @@ V8엔진은 싱글스레드라서 한가지 일처리만 합니다.
 곧바로 메인 스레드에 밀어 넣지 않고 **태스크 큐(Task Queue)**에 넣어 대기시킵니다.
 이를 <strong>Callback Queue</strong>라고 합니다.</p>
 <p>그리고 javascript에서 event Loop가 계속 돌면서 메인 스레드의 call stack과 Queue에 대기중인 작업이 있는지 확인합니다.
-스택이 완전히 비었을 때(메인 스레드가 놀고 있을 때), 비로소 큐에 있는 콜백 함수를 꺼내 Call Stack으로 올려 실행합니다.</p></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/2026target/idnex/">← <!-- -->2026년 목표 설정</a></div></main><div class="comments-wrapper"><div>Loading script...</div><div></div></div><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/multithread/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+스택이 완전히 비었을 때(메인 스레드가 놀고 있을 때), 비로소 큐에 있는 콜백 함수를 꺼내 Call Stack으로 올려 실행합니다.</p>
+<hr>
+<h3>참고 자료</h3>
+<ul>
+<li>
+<p><a href="https://medium.com/@vdongbin/javascript-%EC%9E%91%EB%8F%99%EC%9B%90%EB%A6%AC-single-thread-event-loop-asynchronous-e47e07b24d1c">Javascript 동작원리 (Single thread, Event loop, Asynchronous)</a></p>
+</li>
+<li>
+<p><a href="https://www.itworld.co.kr/article/4100724/%ea%b0%9c%eb%b0%9c%ec%9e%90%eb%9d%bc%eb%a9%b4-%eb%88%84%ea%b5%ac%eb%82%98-%eb%aa%a8%eb%a5%b4%eb%a9%b4%ec%84%9c-%ec%95%84%eb%8a%94-%ec%b2%99%ed%95%98%eb%8a%94-%ec%a3%bc%ec%a0%9c-7.html">개발자라면 누구나 ‘모르면서 아는 척’하는 주제 7가지</a></p>
+</li>
+</ul>
+<p>그 외 말투는 재미나이를 사용하여 보완하였습니다.</p></section><hr/></article><div style="text-align:center"><a rel="prev" href="/neekoblog/2026target/idnex/">← <!-- -->2026년 목표 설정</a></div></main><div class="comments-wrapper"><div>Loading script...</div><div></div></div><footer>© <!-- -->2025<!-- -->, Built with<a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/multithread/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
